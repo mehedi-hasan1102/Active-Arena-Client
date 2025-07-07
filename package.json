@@ -1,5 +1,5 @@
 {
-  "name": "assignment",
+  "name": "ActiveArena",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,21 +10,40 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@lottiefiles/react-lottie-player": "^3.6.0",
     "@tailwindcss/vite": "^4.1.7",
+    "axios": "^1.9.0",
+    "date-fns": "^4.1.0",
+    "firebase": "^11.7.3",
+    "framer-motion": "^12.19.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "tailwindcss": "^4.1.7"
+    "react-firebase-hooks": "^5.1.1",
+    "react-helmet-async": "^2.0.5",
+    "react-icons": "^5.5.0",
+    "react-loading-indicators": "^1.0.1",
+    "react-router-dom": "^7.6.0",
+    "react-toastify": "^11.0.5",
+    "react-tooltip": "^5.28.1",
+    "styled-components": "^6.1.18",
+    "sweetalert2": "^11.21.2",
+    "swiper": "^11.2.7"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",
+    "@tailwindcss/line-clamp": "^0.4.4",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
     "@vitejs/plugin-react": "^4.4.1",
-    "daisyui": "^5.0.40",
+    "autoprefixer": "^10.4.21",
+    "daisyui": "^5.0.35",
     "eslint": "^9.25.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^16.0.0",
+    "pnpm": "^10.12.4",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.1.7",
     "vite": "^6.3.5"
   }
 }

@@ -94,31 +94,39 @@ import {
 export default function HeroSlider() {
   const slides = [
     {
-      img: 'https://i.ibb.co/xqFLN2g/sports-club.jpg',
+      img: 'https://i.ibb.co/7d9jJw84/Active-Arena-111.webp',
       title: 'Welcome to ActiveArena',
       subtitle: 'Where passion meets performance – join the club!',
     },
     {
-      img: 'https://i.ibb.co/3cHxSgk/tennis-court.jpg',
+      img: 'https://i.ibb.co/ZRngccPR/pexels-pixabay-33703.jpg',
       title: 'Book Your Court Now',
       subtitle: 'World-class tennis, badminton & squash facilities',
     },
     {
-      img: 'https://i.ibb.co/BtFYJP8/group-activity.jpg',
+      img: 'https://i.ibb.co/xtPXvDhH/pexels-ajaybhargavguduru-863988.jpg',
       title: 'Explore Club Activities',
       subtitle: 'From yoga to tournaments — something for everyone',
     },
     {
-      img: 'https://i.ibb.co/sKmj0DW/fitness.jpg',
+      img: 'https://i.ibb.co/GfnFZgjZ/pexels-ajaybhargavguduru-8988.jpg',
       title: 'Train With The Best',
       subtitle: 'Certified trainers and professional coaching sessions',
     },
     {
-      img: 'https://i.ibb.co/wC8jmQs/club-event.jpg',
+      img: 'https://i.ibb.co/Kp1BmZ0z/pexels-ajaybhargavgudu8988.jpg',
       title: 'Community & Events',
       subtitle: 'Participate, connect & grow with your community',
     },
   ];
+
+
+
+
+
+
+
+
 
   return (
     <div className="w-full overflow-hidden shadow-2xl mt-8 rounded-2xl">

@@ -1,11 +1,14 @@
 
 import { Helmet } from "react-helmet-async";
-import AdditionalSections from "../Components/AdditionalSections";
-import HeroSection from "../Components/HeroSection";
 
-import NewPlantsSection from "../Components/NewPlantsSection";
-import PromotionalOffers from "../Components/PromotionalOffers";
-// import TopMistakesSection from "../Components/TopMistakesSection";
+import HeroSection from "../Components/HeroSection";
+import AboutClub from '../Components/AboutClub';
+import LocationSection from '../Components/LocationSection';
+import PromotionsSection from "../Components/PromotionsSection";
+
+
+
+
 
 
 const Home = () => {
@@ -15,10 +18,11 @@ const Home = () => {
         <title>Home - ActiveArena</title>
       </Helmet>
       <HeroSection />
-      <NewPlantsSection />
-      <PromotionalOffers />
-       <AdditionalSections />
-      {/* <TopMistakesSection /> */}
+     <AboutClub />
+<LocationSection />   
+<PromotionsSection /> 
+       
+    
 
     </>
   );

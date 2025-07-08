@@ -23,29 +23,25 @@ const numberPulse = {
 
 const Overview = () => {
   const [user] = useAuthState(auth);
-  const [stats, setStats] = useState({ total: 0, mine: 0 });
+  const [stats, setStats] = useState({ totalBookings: 0, myBookings: 0 });
 
   useEffect(() => {
     if (!user?.email) return;
 
-    fetch("https://project-web-b11-a10-plant-care-serv.vercel.app/plants")
+    fetch("https://your-backend-domain/bookings")
       .then((res) => res.json())
       .then((data) => {
-        const myPlants = data.filter((item) => item.email === user.email);
-        setStats({ total: data.length, mine: myPlants.length });
+        const myBookings = data.filter((item) => item.email === user.email);
+        setStats({ totalBookings: data.length, myBookings: myBookings.length });
       });
   }, [user?.email]);
 
   return (
-    <div
-      className="min-h-screen flex items-center justify-center
-      bg-gradient-to-br from-blue-50 via-white to-blue-100
-      dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900
-      px-4 py-12 transition-colors duration-300"
-    >
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900 px-4 py-12 transition-colors duration-300">
       <Helmet>
         <title>Dashboard Overview - ActiveArena</title>
       </Helmet>
+
       <div className="w-full max-w-6xl space-y-8">
         {/* Welcome */}
         <Motion.div
@@ -55,16 +51,16 @@ const Overview = () => {
           className="text-center"
         >
           <h1 className="text-4xl font-extrabold text-blue-700 dark:text-blue-400 mb-2">
-            Welcome to your Dashboard!
+            Welcome to ActiveArena Dashboard!
           </h1>
           <p className="text-gray-700 dark:text-gray-300">
-            Here's a quick snapshot of your plant collection.
+            Here’s a quick look at your court booking stats.
           </p>
         </Motion.div>
 
-        {/* Grid of 3 Cards */}
+        {/* Grid of Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* Avatar Card */}
+          {/* Avatar */}
           <Motion.div
             className="bg-white dark:bg-zinc-900 rounded-3xl p-6 shadow-xl text-center cursor-default"
             custom={0}
@@ -83,7 +79,7 @@ const Overview = () => {
                 transition={{ duration: 0.6 }}
               />
               <span className="absolute -top-2 -right-2 bg-blue-600 text-white text-xs font-semibold px-2 py-0.5 rounded-full shadow">
-                ✅ User
+                ✅ {user?.role || "User"}
               </span>
             </div>
             <h3 className="text-xl font-semibold text-blue-700 dark:text-blue-400">
@@ -92,7 +88,7 @@ const Overview = () => {
             <p className="text-sm text-gray-600 dark:text-gray-400">{user?.email}</p>
           </Motion.div>
 
-          {/* Total Plants Card */}
+          {/* Total Bookings */}
           <Motion.div
             className="bg-white dark:bg-zinc-900 rounded-3xl p-6 shadow-xl text-center cursor-default"
             custom={1}
@@ -102,7 +98,7 @@ const Overview = () => {
             whileHover={{ scale: 1.05 }}
           >
             <h3 className="text-lg font-semibold text-blue-700 dark:text-blue-400 mb-2">
-              🌿 Total Plants
+              🏟 Total Bookings
             </h3>
             <Motion.p
               className="text-5xl font-extrabold text-blue-700 dark:text-blue-400"
@@ -111,11 +107,11 @@ const Overview = () => {
               animate="rest"
               variants={numberPulse}
             >
-              {stats.total}
+              {stats.totalBookings}
             </Motion.p>
           </Motion.div>
 
-          {/* My Plants Card */}
+          {/* My Bookings */}
           <Motion.div
             className="bg-white dark:bg-zinc-900 rounded-3xl p-6 shadow-xl text-center cursor-default"
             custom={2}
@@ -125,7 +121,7 @@ const Overview = () => {
             whileHover={{ scale: 1.05 }}
           >
             <h3 className="text-lg font-semibold text-blue-700 dark:text-blue-400 mb-2">
-              🪴 My Plants
+              🎯 My Bookings
             </h3>
             <Motion.p
               className="text-5xl font-extrabold text-blue-700 dark:text-blue-400"
@@ -134,7 +130,7 @@ const Overview = () => {
               animate="rest"
               variants={numberPulse}
             >
-              {stats.mine}
+              {stats.myBookings}
             </Motion.p>
           </Motion.div>
         </div>

@@ -74,8 +74,8 @@ export default function HeroSlider() {
                 loading="lazy"
                 className="w-full h-full object-cover object-center transition-transform duration-700 ease-in-out scale-100 hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 via-blue-700/40 to-transparent"></div>
-              <div className="absolute inset-0 flex flex-col justify-center items-center px-6 text-center">
+         <div className="absolute inset-0 bg-gradient-to-r from-blue-950/80 via-blue-700/40 to-transparent "></div>
+   <div className="absolute inset-0 flex flex-col justify-center items-center px-6 text-center">
                 <h2 className="text-white text-3xl md:text-5xl font-extrabold tracking-wide drop-shadow-lg">
                   {slide.title}
                 </h2>

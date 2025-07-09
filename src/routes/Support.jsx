@@ -1,23 +1,19 @@
-
 import { Helmet } from "react-helmet-async";
 import React, { useState } from "react";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 
 const faqs = [
   {
-    question: "How do I add a new plant?",
-    answer:
-      "Go to the 'Add Plant' section in the dashboard and fill out the required details about your plant.",
+    question: "How do I book a court session?",
+    answer: "Visit the Courts page, choose your preferred time slot, and submit a booking request. Your booking will be marked as pending until approved by the admin.",
   },
   {
-    question: "Can I edit or delete my plants?",
-    answer:
-      "Yes, you can manage your plants in the 'My Plants' section, where you can update or remove entries.",
+    question: "Can I cancel a pending or approved booking?",
+    answer: "Yes, go to your dashboard > Pending or Approved bookings section, and click the cancel button to remove the request.",
   },
   {
-    question: "How do I change the app theme?",
-    answer:
-      "Use the toggle switch at the bottom of the sidebar to switch between light and dark mode.",
+    question: "How do I apply a discount coupon during payment?",
+    answer: "On the payment page, enter the coupon code in the 'Apply Coupon' section. If the code is valid, the price will be automatically adjusted.",
   },
 ];
 
@@ -52,23 +48,24 @@ const Support = () => {
       <Helmet>
         <title>Support - ActiveArena</title>
       </Helmet>
-      {/* Left: Form + FAQs */}
-      <div className="w-full md:w-1/2 max-w-xl bg-white dark:bg-zinc-900 p-10 rounded-md shadow-md dark:shadow-blue-800/30 space-y-10">
+
+      {/* Left Column */}
+      <div className="w-full md:w-1/2 max-w-xl bg-white dark:bg-zinc-900 p-10 rounded-xl shadow-lg dark:shadow-blue-800/40 space-y-10">
         <div className="text-center">
           <h2 className="text-3xl font-bold text-blue-700 dark:text-blue-400 mb-2">
-            Support & Help
+            Help & Support
           </h2>
-          <p className="text-gray-700 dark:text-gray-400 leading-relaxed">
-            Find answers to your questions or get in touch with us below.
+          <p className="text-gray-600 dark:text-gray-400">
+            Browse FAQs or contact our team if you need personalized help.
           </p>
         </div>
 
-        {/* FAQ */}
+        {/* FAQ Section */}
         <div className="space-y-4">
           {faqs.map((item, idx) => (
             <div
               key={idx}
-              className="border border-blue-200 dark:border-blue-700 rounded-md bg-white dark:bg-zinc-800 shadow-sm"
+              className="border border-blue-200 dark:border-blue-600 rounded-md bg-white dark:bg-zinc-800"
             >
               <button
                 onClick={() => toggleCollapse(idx)}
@@ -76,7 +73,7 @@ const Support = () => {
                 aria-expanded={openIndex === idx}
                 aria-controls={`faq-panel-${idx}`}
               >
-                <span className="text-blue-700 dark:text-blue-400 font-semibold text-base">
+                <span className="text-blue-700 dark:text-blue-300 font-semibold">
                   {item.question}
                 </span>
                 {openIndex === idx ? (
@@ -104,45 +101,45 @@ const Support = () => {
           </h3>
 
           {submitted && (
-            <p className="text-blue-600 dark:text-blue-400 font-medium text-sm">
-              ✅ Thanks for reaching out! We’ll get back to you soon.
+            <p className="text-blue-600 dark:text-blue-300 text-sm font-medium">
+              ✅ Thanks for reaching out! We'll contact you shortly.
             </p>
           )}
 
           <input
             type="email"
             name="email"
-            value={formData.email}
-            onChange={handleChange}
             required
             placeholder="you@example.com"
-            className="w-full px-5 py-3 border border-blue-700 rounded-md dark:bg-zinc-800 dark:border-blue-400 dark:text-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+            value={formData.email}
+            onChange={handleChange}
+            className="w-full px-5 py-3 border border-blue-600 rounded-md dark:bg-zinc-800 dark:border-blue-500 dark:text-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
           />
 
           <textarea
             name="message"
+            required
+            rows="4"
+            placeholder="Write your issue here..."
             value={formData.message}
             onChange={handleChange}
-            required
-            placeholder="Describe your issue or question"
-            rows="4"
-            className="w-full px-5 py-3 border border-blue-700 rounded-md dark:bg-zinc-800 dark:border-blue-400 dark:text-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400 transition resize-none"
+            className="w-full px-5 py-3 border border-blue-600 rounded-md dark:bg-zinc-800 dark:border-blue-500 dark:text-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none transition"
           />
 
           <button
             type="submit"
-            className="w-full bg-blue-700 hover:bg-blue-800 text-white font-semibold px-6 py-3 rounded-md transition"
+            className="w-full bg-blue-700 hover:bg-blue-800 text-white font-semibold px-6 py-3 rounded-md transition duration-200"
           >
-            Submit
+            Submit Ticket
           </button>
         </form>
       </div>
 
-      {/* Right: Illustration */}
+      {/* Right Column: Illustration */}
       <div className="w-full md:w-1/2 flex justify-center">
         <img
           src="https://i.ibb.co/k2MQLycF/Active-Support-bro.png"
-          alt="Support illustration"
+          alt="Support"
           className="w-full max-w-md h-auto object-contain"
         />
       </div>

@@ -16,7 +16,7 @@ const UserAnnouncements = () => {
   const [announcements, setAnnouncements] = useState([]);
 
   useEffect(() => {
-    fetch('https://your-backend-domain/announcements')
+    fetch('http://localhost:5000/announcements')
       .then((res) => res.json())
       .then((data) => setAnnouncements(data))
       .catch((err) => console.error('Failed to load announcements:', err));

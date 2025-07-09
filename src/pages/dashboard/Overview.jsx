@@ -28,7 +28,7 @@ const Overview = () => {
   useEffect(() => {
     if (!user?.email) return;
 
-    fetch("https://your-backend-domain/bookings")
+    fetch("http://localhost:5000/bookings")
       .then((res) => res.json())
       .then((data) => {
         const myBookings = data.filter((item) => item.email === user.email);

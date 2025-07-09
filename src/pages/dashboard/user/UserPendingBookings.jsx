@@ -12,7 +12,7 @@ const UserPendingBookings = () => {
   useEffect(() => {
     if (!user?.email) return;
 
-    fetch(`https://your-backend-domain/bookings?email=${user.email}`)
+    fetch(`http://localhost:5000/bookings?email=${user.email}`)
       .then((res) => res.json())
       .then((data) => {
         const pending = data.filter((b) => b.status === 'pending');
@@ -31,7 +31,7 @@ const UserPendingBookings = () => {
     });
 
     if (confirm.isConfirmed) {
-      fetch(`https://your-backend-domain/bookings/${id}`, {
+      fetch(`http://localhost:5000/${id}`, {
         method: 'DELETE',
       })
         .then((res) => res.json())

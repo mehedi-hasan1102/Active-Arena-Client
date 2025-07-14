@@ -40,7 +40,7 @@ import ManageBookingsApproval from "./pages/dashboard/admin/ManageBookingsApprov
 import ManageMembers from "./pages/dashboard/admin/ManageMembers";
 import ManageAllUsers from "./pages/dashboard/admin/ManageAllUsers";
 import ManageCourts from "./pages/dashboard/admin/ManageCourts";
-import ManageConfirmedBookings from "./pages/dashboard/admin/ManageConfirmedBookings";
+// import ManageConfirmedBookings from "./pages/dashboard/admin/ManageConfirmedBookings";
 import ManageCoupons from "./pages/dashboard/admin/ManageCoupons";
 import MakeAnnouncement from "./pages/dashboard/admin/MakeAnnouncement";
 
@@ -80,7 +80,7 @@ const router = createBrowserRouter([
       { path: "manage-members", element: <ManageMembers /> },
       { path: "manage-users", element: <ManageAllUsers /> },
       { path: "manage-courts", element: <ManageCourts /> },
-      { path: "manage-confirmed-bookings", element: <ManageConfirmedBookings /> },
+      // { path: "manage-confirmed-bookings", element: <ManageConfirmedBookings /> },
       { path: "manage-coupons", element: <ManageCoupons /> },
       { path: "make-announcement", element: <MakeAnnouncement /> },
     ],

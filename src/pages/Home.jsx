@@ -1,10 +1,10 @@
 
 import { Helmet } from "react-helmet-async";
 
-import HeroSection from "../Components/HeroSection";
-import AboutClub from '../Components/AboutClub';
-import LocationSection from '../Components/LocationSection';
-import PromotionsSection from "../Components/PromotionsSection";
+import HeroSection from "../components/HeroSection";
+import AboutClub from '../components/AboutClub';
+import LocationSection from '../components/LocationSection';
+import PromotionsSection from "../components/PromotionsSection";
 
 
 

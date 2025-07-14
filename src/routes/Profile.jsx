@@ -6,7 +6,7 @@ import { auth } from "../context/firebase/firebase.config";
 import { updateProfile } from "firebase/auth";
 import { Navigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import Loading from "../Components/Loading";
+import Loading from "../components/Loading";
 
 const Profile = () => {
   const [user, loading] = useAuthState(auth);

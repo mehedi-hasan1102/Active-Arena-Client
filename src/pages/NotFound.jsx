@@ -2,7 +2,7 @@
 
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import Switch from "../Components/DarkModeSidebar";
+import Switch from "../components/DarkModeSidebar";
 
 const NotFound = () => {
   return (

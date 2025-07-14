@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import {
   signInWithEmailAndPassword,
   GoogleAuthProvider,
+  FacebookAuthProvider,
   signInWithPopup,
   sendPasswordResetEmail,
 } from "firebase/auth";
@@ -12,7 +13,8 @@ import { auth } from "../context/firebase/firebase.config";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import Swal from "sweetalert2";
 
-const provider = new GoogleAuthProvider();
+const googleProvider = new GoogleAuthProvider();
+const facebookProvider = new FacebookAuthProvider();
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -27,10 +29,29 @@ const Login = () => {
     color: isDark ? "#4ade80" : "#166534",
   };
 
+  const saveUserToDB = async (user) => {
+    try {
+      const res = await fetch("http://localhost:5000/users", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: user.displayName || "No Name",
+          email: user.email,
+          role: "member",
+        }),
+      });
+      const data = await res.json();
+      console.log("User saved in DB:", data);
+    } catch (err) {
+      console.error("Error saving user:", err);
+    }
+  };
+
   const handleLogin = async (e) => {
     e.preventDefault();
     setError(null);
 
+    // Password validation: at least one uppercase, one lowercase, min 6 chars
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
     if (!passwordRegex.test(password)) {
       setError(
@@ -40,7 +61,9 @@ const Login = () => {
     }
 
     try {
-      await signInWithEmailAndPassword(auth, email, password);
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      await saveUserToDB(userCredential.user);
+
       Swal.fire({
         icon: "success",
         title: "Login Successful",
@@ -49,6 +72,7 @@ const Login = () => {
         timer: 2000,
         showConfirmButton: false,
       });
+
       navigate("/");
     } catch (err) {
       Swal.fire({
@@ -63,7 +87,9 @@ const Login = () => {
 
   const handleGoogleLogin = async () => {
     try {
-      await signInWithPopup(auth, provider);
+      const result = await signInWithPopup(auth, googleProvider);
+      await saveUserToDB(result.user);
+
       Swal.fire({
         icon: "success",
         title: "Logged in with Google!",
@@ -72,6 +98,7 @@ const Login = () => {
         timer: 2000,
         showConfirmButton: false,
       });
+
       navigate("/");
     } catch (err) {
       Swal.fire({
@@ -84,7 +111,33 @@ const Login = () => {
     }
   };
 
-  const resetPassword = () => {
+  const handleFacebookLogin = async () => {
+    try {
+      const result = await signInWithPopup(auth, facebookProvider);
+      await saveUserToDB(result.user);
+
+      Swal.fire({
+        icon: "success",
+        title: "Logged in with Facebook!",
+        background: swalStyle.background,
+        color: swalStyle.color,
+        timer: 2000,
+        showConfirmButton: false,
+      });
+
+      navigate("/");
+    } catch (err) {
+      Swal.fire({
+        icon: "error",
+        title: "Facebook Login Failed",
+        text: err.message,
+        background: swalStyle.background,
+        color: swalStyle.color,
+      });
+    }
+  };
+
+  const resetPassword = async () => {
     if (!email) {
       Swal.fire({
         icon: "warning",
@@ -96,25 +149,24 @@ const Login = () => {
       return;
     }
 
-    sendPasswordResetEmail(auth, email)
-      .then(() => {
-        Swal.fire({
-          icon: "success",
-          title: "Reset Email Sent",
-          text: "Check your inbox for instructions.",
-          background: swalStyle.background,
-          color: swalStyle.color,
-        });
-      })
-      .catch((err) => {
-        Swal.fire({
-          icon: "error",
-          title: "Failed to Send Email",
-          text: err.message,
-          background: swalStyle.background,
-          color: swalStyle.color,
-        });
+    try {
+      await sendPasswordResetEmail(auth, email);
+      Swal.fire({
+        icon: "success",
+        title: "Reset Email Sent",
+        text: "Check your inbox for instructions.",
+        background: swalStyle.background,
+        color: swalStyle.color,
       });
+    } catch (err) {
+      Swal.fire({
+        icon: "error",
+        title: "Failed to Send Email",
+        text: err.message,
+        background: swalStyle.background,
+        color: swalStyle.color,
+      });
+    }
   };
 
   return (
@@ -127,7 +179,7 @@ const Login = () => {
       <Helmet>
         <title>Login - ActiveArena</title>
       </Helmet>
-      {/* Form Section */}
+
       <form
         onSubmit={handleLogin}
         className="w-full md:w-1/2 max-w-md bg-white dark:bg-zinc-900 shadow-md dark:shadow-blue-800/30 p-10 rounded-md space-y-6"
@@ -208,6 +260,15 @@ const Login = () => {
           Continue with Google
         </button>
 
+        <button
+          type="button"
+          onClick={handleFacebookLogin}
+          className="w-full border-2 border-blue-700 text-blue-700 dark:text-blue-400
+            hover:bg-blue-700 hover:text-white rounded-md py-3 font-semibold transition mt-3"
+        >
+          Continue with Facebook
+        </button>
+
         <p className="text-center text-blue-700 dark:text-blue-400 text-sm mt-5">
           Don&apos;t have an account?{" "}
           <a
@@ -219,10 +280,9 @@ const Login = () => {
         </p>
       </form>
 
-      {/* Image Section */}
       <div className="w-full md:w-1/2 flex justify-center">
         <img
-          src="https://i.ibb.co/xSJVc5d1/Tablet-login-bro.png" // 👈 Use your own login illustration image
+          src="https://i.ibb.co/xSJVc5d1/Tablet-login-bro.png"
           alt="Login illustration"
           className="w-full max-w-md h-auto object-contain"
         />

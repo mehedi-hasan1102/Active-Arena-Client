@@ -1,7 +1,7 @@
 import React from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import { useAuth } from "../context/Provider/AuthProvider";
-import Loading from "../Components/Loading";
+import Loading from "../components/Loading";
 
 const PrivateRoute = ({ children }) => {
   const { user, loading } = useAuth(); 

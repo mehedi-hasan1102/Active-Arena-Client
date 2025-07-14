@@ -1,0 +1,34 @@
+/* styles.css */
+
+.stripe-button {
+  background-color: #635bff;
+  color: #ffffff;
+  border-radius: 4px;
+  border: 0;
+  padding: 12px 16px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  display: block;
+  transition: all 0.2s ease;
+  box-shadow: 0px 4px 5.5px 0px rgba(0, 0, 0, 0.07);
+  width: 100%;
+  margin-top: 20px;
+}
+
+.stripe-button:hover {
+  filter: contrast(115%);
+}
+
+.stripe-button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+#payment-message {
+  color: rgb(105, 115, 134);
+  font-size: 16px;
+  line-height: 20px;
+  padding-top: 12px;
+  text-align: center;
+}

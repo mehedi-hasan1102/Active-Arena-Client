@@ -27,12 +27,12 @@ import UserAnnouncements from "./pages/dashboard/user/UserAnnouncements";
 
 // Member Dashboard
 import MemberProfile from "./pages/dashboard/member/MemberProfile";
-import MemberPendingBookings from "./pages/dashboard/member/MemberPendingBookings";
+// import MemberPendingBookings from "./pages/dashboard/member/MemberPendingBookings";
 import MemberApprovedBookings from "./pages/dashboard/member/MemberApprovedBookings";
 import MemberConfirmedBookings from "./pages/dashboard/member/MemberConfirmedBookings";
 import PaymentPage from "./pages/dashboard/member/PaymentPage";
 import PaymentHistory from "./pages/dashboard/member/PaymentHistory";
-import MemberAnnouncements from "./pages/dashboard/member/MemberAnnouncements";
+// import MemberAnnouncements from "./pages/dashboard/member/MemberAnnouncements";
 
 // Admin Dashboard
 import AdminProfile from "./pages/dashboard/admin/AdminProfile";

@@ -1,12 +1,12 @@
 import { Outlet, useLocation } from "react-router-dom";
-import Navbar from './Components/Navbar';
+import Navbar from './components/Navbar';
 import './App.css';
-import Footer from './Components/Footer';
+import Footer from './components/Footer';
 
 import { ToastContainer } from "react-toastify";
 import { useEffect, useState } from "react";
-import Loading from "./Components/Loading";
-import DarkModeSidebar from "./Components/DarkModeSidebar";
+import Loading from "./components/Loading";
+import DarkModeSidebar from "./components/DarkModeSidebar";
 
 
 
@@ -31,7 +31,7 @@ function App() {
         <Loading />
       ) : (
        
-        <div className="min-h-[calc(100vh-180px)] bg-white dark:bg-gray-800 text-gray-900 dark:text-white transition-colors duration-300">
+        <div className="min-h-[calc(100vh-180px)] bg-white dark:bg-gray-800 text-gray-900 dark:text-white transition-colors duration-300 pt-08">
           <Outlet />
         </div>
       )}

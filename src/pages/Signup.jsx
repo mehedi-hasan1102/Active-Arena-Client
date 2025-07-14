@@ -1,17 +1,20 @@
+
 import { Helmet } from "react-helmet-async";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import {
   createUserWithEmailAndPassword,
   updateProfile,
   GoogleAuthProvider,
+  FacebookAuthProvider,
   signInWithPopup,
 } from "firebase/auth";
 import { auth } from "../context/firebase/firebase.config";
 import Swal from "sweetalert2";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
-const provider = new GoogleAuthProvider();
+const googleProvider = new GoogleAuthProvider();
+const facebookProvider = new FacebookAuthProvider();
 
 const Signup = () => {
   const [name, setName] = useState("");
@@ -28,8 +31,50 @@ const Signup = () => {
     color: isDark ? "#4ade80" : "#166534",
   };
 
+  const saveUserToDB = async (user) => {
+    try {
+      const response = await fetch("http://localhost:5000/users", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: user.displayName || name || "No Name",
+          email: user.email,
+          role: "member",
+        }),
+      });
+      const data = await response.json();
+      console.log("User saved in DB:", data);
+    } catch (error) {
+      console.error("Failed to save user:", error);
+    }
+  };
+
   const handleSignup = async (e) => {
     e.preventDefault();
+
+    if (!name.trim()) {
+      setError("Name is required.");
+      Swal.fire({
+        icon: "error",
+        title: "Name Required",
+        text: "Please enter your full name.",
+        background: swalStyle.background,
+        color: swalStyle.color,
+      });
+      return;
+    }
+
+    if (!email.trim()) {
+      setError("Email is required.");
+      Swal.fire({
+        icon: "error",
+        title: "Email Required",
+        text: "Please enter your email.",
+        background: swalStyle.background,
+        color: swalStyle.color,
+      });
+      return;
+    }
 
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
     if (!passwordRegex.test(password)) {
@@ -51,6 +96,7 @@ const Signup = () => {
         displayName: name,
         photoURL: photoURL,
       });
+      await saveUserToDB(userCredential.user);
       Swal.fire({
         icon: "success",
         title: "Signup Successful!",
@@ -74,7 +120,8 @@ const Signup = () => {
 
   const handleGoogleSignup = async () => {
     try {
-      await signInWithPopup(auth, provider);
+      const result = await signInWithPopup(auth, googleProvider);
+      await saveUserToDB(result.user);
       Swal.fire({
         icon: "success",
         title: "Signed up with Google!",
@@ -96,6 +143,31 @@ const Signup = () => {
     }
   };
 
+  const handleFacebookSignup = async () => {
+    try {
+      const result = await signInWithPopup(auth, facebookProvider);
+      await saveUserToDB(result.user);
+      Swal.fire({
+        icon: "success",
+        title: "Signed up with Facebook!",
+        background: swalStyle.background,
+        color: swalStyle.color,
+        timer: 2000,
+        showConfirmButton: false,
+      });
+      navigate("/");
+    } catch (err) {
+      setError(err.message);
+      Swal.fire({
+        icon: "error",
+        title: "Facebook Signup Failed",
+        text: err.message,
+        background: swalStyle.background,
+        color: swalStyle.color,
+      });
+    }
+  };
+
   return (
     <div
       className="flex flex-col-reverse md:flex-row justify-center items-center gap-10 min-h-screen px-6 py-10
@@ -106,13 +178,13 @@ const Signup = () => {
       <Helmet>
         <title>Signup - ActiveArena</title>
       </Helmet>
-      {/* Signup Form */}
+
       <form
         onSubmit={handleSignup}
         className="w-full md:w-1/2 max-w-md bg-white dark:bg-zinc-900 shadow-md dark:shadow-blue-800/30 p-10 rounded-md space-y-6"
       >
         <h2 className="text-4xl font-bold text-center text-blue-700 dark:text-blue-400">
-          Register
+          Sign Up
         </h2>
 
         {error && (
@@ -123,7 +195,7 @@ const Signup = () => {
 
         <input
           type="text"
-          placeholder="Full Name"
+          placeholder="Name"
           className="w-full px-5 py-3 border border-blue-700 rounded-md
             dark:bg-zinc-800 dark:border-blue-400 dark:text-blue-300
             focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
@@ -133,8 +205,8 @@ const Signup = () => {
         />
 
         <input
-          type="url"
-          placeholder="Profile Image URL"
+          type="text"
+          placeholder="Photo URL (optional)"
           className="w-full px-5 py-3 border border-blue-700 rounded-md
             dark:bg-zinc-800 dark:border-blue-400 dark:text-blue-300
             focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
@@ -198,21 +270,29 @@ const Signup = () => {
           Continue with Google
         </button>
 
+        <button
+          type="button"
+          onClick={handleFacebookSignup}
+          className="w-full border-2 border-blue-700 text-blue-700 dark:text-blue-400
+            hover:bg-blue-700 hover:text-white rounded-md py-3 font-semibold transition mt-3"
+        >
+          Continue with Facebook
+        </button>
+
         <p className="text-center text-blue-700 dark:text-blue-400 text-sm mt-5">
           Already have an account?{" "}
-          <a
-            href="/login"
+          <Link
+            to="/login"
             className="font-semibold hover:underline text-blue-700 dark:text-blue-400"
           >
             Login
-          </a>
+          </Link>
         </p>
       </form>
 
-      {/* Image Section */}
       <div className="w-full md:w-1/2 flex justify-center">
         <img
-          src="https://i.ibb.co/678SMLSZ/Sign-up-bro.png" // 👈 Replace with your own image if needed
+          src="https://i.ibb.co/678SMLSZ/Sign-up-bro.png"
           alt="Signup illustration"
           className="w-full max-w-md h-auto object-contain"
         />

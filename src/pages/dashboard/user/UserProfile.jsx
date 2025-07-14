@@ -1,9 +1,22 @@
 import React from 'react';
 import { useAuth } from '../../../context/Provider/AuthProvider';
 import { Helmet } from 'react-helmet-async';
+import { useNavigate } from 'react-router-dom';
+import { useRole } from '../../../hooks/useRole'; // make sure this exists
 
 const UserProfile = () => {
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
+  const navigate = useNavigate();
+  const { role, isLoading: loadingRole } = useRole();
+
+  if (loading || loadingRole) {
+    return <div className="text-center mt-20">Loading...</div>;
+  }
+
+  if (!user) {
+    navigate('/login');
+    return null;
+  }
 
   const registrationDate = user?.metadata?.creationTime
     ? new Date(user.metadata.creationTime).toLocaleDateString('en-US', {
@@ -33,7 +46,7 @@ const UserProfile = () => {
               className="w-32 h-32 rounded-full border-4 border-blue-500 dark:border-blue-400 shadow-md object-cover"
             />
             <span className="absolute -bottom-2 right-0 bg-blue-600 text-white text-xs px-2 py-0.5 rounded-full shadow-sm font-semibold">
-              {user?.role || 'User'}
+              {role || 'User'}
             </span>
           </div>
 

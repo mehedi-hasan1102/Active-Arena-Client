@@ -22,19 +22,19 @@ const MemberConfirmedBookings = () => {
   }, [user?.uid]);
 
   return (
-    <div className="px-4 py-10 min-h-screen bg-gradient-to-br from-purple-50 via-white to-purple-100 dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900 transition-colors duration-300">
+    <div className="min-h-screen px-4 py-10 bg-white dark:bg-zinc-900 text-gray-800 dark:text-gray-200 transition-colors duration-300">
       <Helmet>
         <title>Confirmed Bookings - ActiveArena</title>
       </Helmet>
 
-      <h1 className="text-3xl font-bold text-center text-purple-700 dark:text-purple-400 mb-8">
+      <h1 className="text-3xl font-bold text-center text-blue-700 dark:text-blue-400 mb-8">
         ✅ Confirmed Bookings
       </h1>
 
       {loading ? (
         <p className="text-center text-gray-700 dark:text-gray-300">Loading...</p>
       ) : bookings.length === 0 ? (
-        <p className="text-center text-gray-700 dark:text-gray-300">
+        <p className="text-center text-gray-500 dark:text-gray-400">
           You have no confirmed bookings.
         </p>
       ) : (
@@ -42,21 +42,25 @@ const MemberConfirmedBookings = () => {
           {bookings.map((booking) => (
             <div
               key={booking._id}
-              className="bg-white dark:bg-zinc-800 p-6 rounded-xl shadow-md border-l-4 border-purple-500 space-y-2"
+              className="bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-lg shadow-md p-4 border border-gray-300 dark:border-gray-700 border-l-4 border-green-500"
             >
-              <h2 className="text-xl font-semibold text-purple-700 dark:text-purple-300">
+              <h2 className="text-xl font-semibold text-blue-700 dark:text-blue-400">
                 {booking.courtName || 'Unknown Court'}
               </h2>
-              <p className="text-gray-700 dark:text-gray-300">Slot(s): {booking.slots.join(', ')}</p>
-              <p className="text-gray-700 dark:text-gray-300">
-                Date: {new Date(booking.date).toLocaleDateString()}
+              <p>🕒 Slot(s): {booking.slots.join(', ')}</p>
+              <p>📅 Date: {new Date(booking.date).toLocaleDateString()}</p>
+              <p>💰 Price: ৳{booking.price}</p>
+              <p className="text-sm">
+                📌 Status:{' '}
+                <span className="font-semibold text-green-600">
+                  {booking.status}
+                </span>
               </p>
-              <p className="text-gray-700 dark:text-gray-300">Price: ${booking.price}</p>
-              <p className="text-sm text-gray-500 dark:text-gray-400">
-                Status: <span className="font-semibold text-green-600">{booking.status}</span>
-              </p>
-              <p className="text-sm text-gray-500 dark:text-gray-400">
-                Payment: <span className="font-semibold text-purple-600">{booking.paymentStatus}</span>
+              <p className="text-sm">
+                💳 Payment:{' '}
+                <span className="font-semibold text-green-600">
+                  {booking.paymentStatus}
+                </span>
               </p>
             </div>
           ))}

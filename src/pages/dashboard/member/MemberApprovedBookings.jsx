@@ -57,7 +57,7 @@ const MemberApprovedBookings = () => {
               className="bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-lg shadow-md p-4 border border-gray-200 dark:border-gray-700"
             >
               <div className="space-y-2">
-                <h2 className="text-xl font-semibold text-green-700 dark:text-green-300">
+                <h2 className="text-xl font-semibold  text-blue-700 dark:text-blue-400">
                   {booking.courtName || 'Unknown Court'}
                 </h2>
                 <p>🕒 Slot(s): {booking.slots.join(', ')}</p>

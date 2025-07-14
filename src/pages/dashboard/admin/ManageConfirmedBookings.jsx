@@ -11,11 +11,9 @@ const ManageConfirmedBookings = () => {
       setLoading(true);
       setError(null);
       try {
-        const res = await fetch("http://localhost:5000/bookings?status=confirmed"); // Your API endpoint
+        const res = await fetch("http://localhost:5000/bookings?status=confirmed");
         if (!res.ok) throw new Error("Failed to fetch bookings");
         const data = await res.json();
-
-        // Assuming your API returns an array of bookings
         setBookings(data.bookings || []);
       } catch (err) {
         setError(err.message);
@@ -29,51 +27,66 @@ const ManageConfirmedBookings = () => {
 
   const filteredBookings = bookings.filter(
     (booking) =>
+      booking.status?.toLowerCase() === "confirmed" &&
       (booking.userName?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-       booking.court?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-       booking.date?.toLowerCase().includes(searchTerm.toLowerCase())) &&
-      booking.status.toLowerCase() === "confirmed"
+        booking.court?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        booking.date?.toLowerCase().includes(searchTerm.toLowerCase()))
   );
 
-  if (loading)
-    return <p className="text-center py-10 text-gray-800 dark:text-gray-200">Loading bookings...</p>;
-
-  if (error)
-    return <p className="text-center py-10 text-red-600 dark:text-red-400">{error}</p>;
-
   return (
-    <div>
+    <div className="bg-white dark:bg-zinc-900 text-gray-800 dark:text-gray-200 p-4 rounded-lg shadow-md">
       <h1 className="text-2xl font-bold mb-4 text-center">📋 Confirmed Bookings</h1>
-      <div className="mb-4">
+
+      <div className="mb-6">
         <input
           type="text"
           placeholder="Search by user, court, or date..."
-          className="p-2 border rounded w-full"
+          className="w-full p-2 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-black dark:text-white placeholder-gray-400 dark:placeholder-gray-500"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           aria-label="Search bookings"
         />
       </div>
-      {filteredBookings.length === 0 ? (
-        <p className="text-center text-gray-600 dark:text-gray-400">No confirmed bookings found.</p>
-      ) : (
+
+      {loading && (
+        <p className="text-center text-gray-800 dark:text-gray-200 py-8">
+          Loading bookings...
+        </p>
+      )}
+
+      {error && (
+        <p className="text-center text-red-600 dark:text-red-400 py-8">
+          {error}
+        </p>
+      )}
+
+      {!loading && !error && filteredBookings.length === 0 && (
+        <p className="text-center text-gray-600 dark:text-gray-400 py-8">
+          No confirmed bookings found.
+        </p>
+      )}
+
+      {!loading && !error && filteredBookings.length > 0 && (
         <div className="overflow-x-auto">
-          <table className="min-w-full bg-white border border-gray-200 dark:bg-zinc-800 dark:border-gray-700 rounded-md">
+          <table className="min-w-full bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-md">
             <thead>
-              <tr className="bg-gray-100 dark:bg-zinc-700 text-gray-800 dark:text-gray-200">
-                <th className="py-2 px-4 border-b">User Name</th>
-                <th className="py-2 px-4 border-b">Court</th>
-                <th className="py-2 px-4 border-b">Date</th>
-                <th className="py-2 px-4 border-b">Time</th>
+              <tr className="bg-gray-100 dark:bg-gray-800 text-left text-gray-800 dark:text-gray-200">
+                <th className="py-2 px-4 border-b dark:border-gray-700">User Name</th>
+                <th className="py-2 px-4 border-b dark:border-gray-700">Court</th>
+                <th className="py-2 px-4 border-b dark:border-gray-700">Date</th>
+                <th className="py-2 px-4 border-b dark:border-gray-700">Time</th>
               </tr>
             </thead>
             <tbody>
               {filteredBookings.map((booking) => (
-                <tr key={booking.id} className="hover:bg-gray-50 dark:hover:bg-zinc-700 text-center">
-                  <td className="py-2 px-4 border-b">{booking.userName}</td>
-                  <td className="py-2 px-4 border-b">{booking.court}</td>
-                  <td className="py-2 px-4 border-b">{booking.date}</td>
-                  <td className="py-2 px-4 border-b">{booking.time}</td>
+                <tr
+                  key={booking.id}
+                  className="hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-200 text-center"
+                >
+                  <td className="py-2 px-4 border-b dark:border-gray-700">{booking.userName}</td>
+                  <td className="py-2 px-4 border-b dark:border-gray-700">{booking.court}</td>
+                  <td className="py-2 px-4 border-b dark:border-gray-700">{booking.date}</td>
+                  <td className="py-2 px-4 border-b dark:border-gray-700">{booking.time}</td>
                 </tr>
               ))}
             </tbody>

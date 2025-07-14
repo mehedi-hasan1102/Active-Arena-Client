@@ -26,7 +26,10 @@ const ManageAllUsers = () => {
 
   return (
     <div className="min-h-screen bg-white dark:bg-zinc-900 p-6 sm:p-10 text-gray-800 dark:text-gray-200">
-      <h1 className="text-3xl font-extrabold mb-8 tracking-tight">Manage All Users</h1>
+     
+<h1 className="text-2xl sm:text-3xl font-bold mb-6 text-center">
+  Manage All Users
+</h1>
 
       <div className="mb-8 max-w-lg mx-auto">
         <input

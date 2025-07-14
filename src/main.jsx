@@ -1,7 +1,7 @@
 import "react-toastify/dist/ReactToastify.css";
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Navigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { HelmetProvider } from "react-helmet-async";
@@ -27,12 +27,10 @@ import UserAnnouncements from "./pages/dashboard/user/UserAnnouncements";
 
 // Member Dashboard
 import MemberProfile from "./pages/dashboard/member/MemberProfile";
-// import MemberPendingBookings from "./pages/dashboard/member/MemberPendingBookings";
 import MemberApprovedBookings from "./pages/dashboard/member/MemberApprovedBookings";
 import MemberConfirmedBookings from "./pages/dashboard/member/MemberConfirmedBookings";
 import PaymentPage from "./pages/dashboard/member/PaymentPage";
 import PaymentHistory from "./pages/dashboard/member/PaymentHistory";
-// import MemberAnnouncements from "./pages/dashboard/member/MemberAnnouncements";
 
 // Admin Dashboard
 import AdminProfile from "./pages/dashboard/admin/AdminProfile";
@@ -40,10 +38,19 @@ import ManageBookingsApproval from "./pages/dashboard/admin/ManageBookingsApprov
 import ManageMembers from "./pages/dashboard/admin/ManageMembers";
 import ManageAllUsers from "./pages/dashboard/admin/ManageAllUsers";
 import ManageCourts from "./pages/dashboard/admin/ManageCourts";
-// import ManageConfirmedBookings from "./pages/dashboard/admin/ManageConfirmedBookings";
+import ManageConfirmedBookings from "./pages/dashboard/admin/ManageConfirmedBookings";
 import ManageCoupons from "./pages/dashboard/admin/ManageCoupons";
 import MakeAnnouncement from "./pages/dashboard/admin/MakeAnnouncement";
 
+import Loading from "./components/Loading";
+import { useRole } from "./hooks/useRole";
+
+// Role-based route wrapper
+const RoleRoute = ({ allowedRoles, children }) => {
+  const { role, isLoading } = useRole();
+  if (isLoading) return <Loading />;
+  return allowedRoles.includes(role) ? children : <Navigate to="/dashboard" replace />;
+};
 
 const router = createBrowserRouter([
   {
@@ -61,28 +68,147 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <PrivateRoute><DashboardLayout /></PrivateRoute>,
+    element: (
+      <PrivateRoute>
+        <DashboardLayout />
+      </PrivateRoute>
+    ),
     children: [
       { index: true, element: <Overview /> },
-      // User routes
-      { path: "user-profile", element: <UserProfile /> },
-      { path: "pending-bookings", element: <UserPendingBookings /> },
-      { path: "announcements", element: <UserAnnouncements /> },
-      // Member routes
-      { path: "member-profile", element: <MemberProfile /> },
-      { path: "approved-bookings", element: <MemberApprovedBookings /> },
-      { path: "confirmed-bookings", element: <MemberConfirmedBookings /> },
-      { path: "payment", element: <PaymentPage /> },
-      { path: "payment-history", element: <PaymentHistory /> },
-      // Admin routes
-      { path: "admin-profile", element: <AdminProfile /> },
-      { path: "manage-bookings", element: <ManageBookingsApproval /> },
-      { path: "manage-members", element: <ManageMembers /> },
-      { path: "manage-users", element: <ManageAllUsers /> },
-      { path: "manage-courts", element: <ManageCourts /> },
-      // { path: "manage-confirmed-bookings", element: <ManageConfirmedBookings /> },
-      { path: "manage-coupons", element: <ManageCoupons /> },
-      { path: "make-announcement", element: <MakeAnnouncement /> },
+
+      // User Routes
+      {
+        path: "user-profile",
+        element: (
+          <RoleRoute allowedRoles={["user"]}>
+            <UserProfile />
+          </RoleRoute>
+        ),
+      },
+      {
+        path: "pending-bookings",
+        element: (
+          <RoleRoute allowedRoles={["user", "member"]}>
+            <UserPendingBookings />
+          </RoleRoute>
+        ),
+      },
+      {
+        path: "announcements",
+        element: (
+          <RoleRoute allowedRoles={["user", "member", "admin"]}>
+            <UserAnnouncements />
+          </RoleRoute>
+        ),
+      },
+
+      // Member Routes
+      {
+        path: "member-profile",
+        element: (
+          <RoleRoute allowedRoles={["member"]}>
+            <MemberProfile />
+          </RoleRoute>
+        ),
+      },
+      {
+        path: "approved-bookings",
+        element: (
+          <RoleRoute allowedRoles={["member"]}>
+            <MemberApprovedBookings />
+          </RoleRoute>
+        ),
+      },
+      {
+        path: "confirmed-bookings",
+        element: (
+          <RoleRoute allowedRoles={["member"]}>
+            <MemberConfirmedBookings />
+          </RoleRoute>
+        ),
+      },
+      {
+        path: "payment",
+        element: (
+          <RoleRoute allowedRoles={["member"]}>
+            <PaymentPage />
+          </RoleRoute>
+        ),
+      },
+      {
+        path: "payment-history",
+        element: (
+          <RoleRoute allowedRoles={["member"]}>
+            <PaymentHistory />
+          </RoleRoute>
+        ),
+      },
+
+      // Admin Routes
+      {
+        path: "admin-profile",
+        element: (
+          <RoleRoute allowedRoles={["admin"]}>
+            <AdminProfile />
+          </RoleRoute>
+        ),
+      },
+      {
+        path: "manage-bookings", // Pending approval bookings list
+        element: (
+          <RoleRoute allowedRoles={["admin"]}>
+            <ManageBookingsApproval />
+          </RoleRoute>
+        ),
+      },
+      {
+        path: "manage-confirmed-bookings", // Confirmed bookings list
+        element: (
+          <RoleRoute allowedRoles={["admin"]}>
+            <ManageConfirmedBookings />
+          </RoleRoute>
+        ),
+      },
+      {
+        path: "manage-members",
+        element: (
+          <RoleRoute allowedRoles={["admin"]}>
+            <ManageMembers />
+          </RoleRoute>
+        ),
+      },
+      {
+        path: "manage-users",
+        element: (
+          <RoleRoute allowedRoles={["admin"]}>
+            <ManageAllUsers />
+          </RoleRoute>
+        ),
+      },
+      {
+        path: "manage-courts",
+        element: (
+          <RoleRoute allowedRoles={["admin"]}>
+            <ManageCourts />
+          </RoleRoute>
+        ),
+      },
+      {
+        path: "manage-coupons",
+        element: (
+          <RoleRoute allowedRoles={["admin"]}>
+            <ManageCoupons />
+          </RoleRoute>
+        ),
+      },
+      {
+        path: "make-announcement",
+        element: (
+          <RoleRoute allowedRoles={["admin"]}>
+            <MakeAnnouncement />
+          </RoleRoute>
+        ),
+      },
     ],
   },
   { path: "*", element: <NotFound /> },

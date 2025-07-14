@@ -1,7 +1,4 @@
 
-
-
-
 import { Outlet, NavLink, Link } from "react-router-dom";
 import { useState } from "react";
 import {
@@ -16,13 +13,15 @@ import {
   MdOutlineCardMembership,
   MdOutlinePeople,
   MdOutlineDiscount,
+  MdCheckCircleOutline,
+  MdPendingActions,
 } from "react-icons/md";
 import { FaTrophy } from "react-icons/fa";
 import Switch from "../components/DarkModeSidebar";
 import { useRole } from "../hooks/useRole";
-import Loading from "../components/Loading"; // ✅ make sure this component exists
+import Loading from "../components/Loading";
 
-// Reusable links
+// Reusable common links for all roles
 const commonLinks = [
   {
     to: "/dashboard/announcements",
@@ -31,6 +30,7 @@ const commonLinks = [
   },
 ];
 
+// Role-based navigation links
 const userLinks = [
   { to: "/dashboard/user-profile", label: "My Profile", icon: <MdOutlinePerson size={20} /> },
   { to: "/dashboard/pending-bookings", label: "Pending Bookings", icon: <MdOutlineBook size={20} /> },
@@ -48,7 +48,21 @@ const memberLinks = [
 
 const adminLinks = [
   { to: "/dashboard/admin-profile", label: "Admin Profile", icon: <MdAdminPanelSettings size={20} /> },
-  { to: "/dashboard/manage-bookings", label: "Manage Bookings", icon: <MdOutlineBook size={20} /> },
+
+  // Pending booking approvals
+  {
+    to: "/dashboard/manage-bookings",
+    label: "Manage Bookings (Pending)",
+    icon: <MdPendingActions size={20} />,
+  },
+
+  // Confirmed bookings list
+  {
+    to: "/dashboard/manage-confirmed-bookings",
+    label: "Confirmed Bookings",
+    icon: <MdCheckCircleOutline size={20} />,
+  },
+
   { to: "/dashboard/manage-members", label: "Manage Members", icon: <MdOutlineCardMembership size={20} /> },
   { to: "/dashboard/manage-users", label: "All Users", icon: <MdOutlinePeople size={20} /> },
   { to: "/dashboard/manage-courts", label: "Manage Courts", icon: <MdOutlineSportsTennis size={20} /> },
@@ -63,13 +77,12 @@ const DashboardLayout = () => {
 
   if (isLoading) return <Loading />;
 
-  const navItems =
-    role === "admin" ? adminLinks : role === "member" ? memberLinks : userLinks;
+  const navItems = role === "admin" ? adminLinks : role === "member" ? memberLinks : userLinks;
 
   return (
     <div className="min-h-screen flex bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900 transition-colors duration-300">
       <aside
-        className={`$ {
+        className={`${
           collapsed ? "w-20" : "w-64"
         } bg-white dark:bg-zinc-900 border-r-2 border-blue-300 dark:border-blue-700 p-4 flex flex-col justify-between transition-all duration-300 rounded-md`}
       >

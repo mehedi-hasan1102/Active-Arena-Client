@@ -55,22 +55,26 @@ const PaymentPage = () => {
   }, [finalPrice, booking]);
 
   const handleApplyCoupon = async () => {
-    if (!coupon)
+    if (!coupon) {
       return Swal.fire("Oops!", "Please enter a coupon code.", "warning");
-    if (couponApplied)
+    }
+    if (couponApplied) {
       return Swal.fire("Info", "A coupon has already been applied.", "info");
+    }
 
     try {
-      const res = await axiosInstance.post("/validate-coupon", { code: coupon });
+      const res = await axiosInstance.post("/validate-coupon", {
+        code: coupon,
+      });
       const { discount } = res.data;
 
       const discountAmount = (booking.price * discount) / 100;
       setFinalPrice(booking.price - discountAmount);
-      setCouponApplied(true);
+      setCouponApplied(true); // Mark coupon as applied
 
       Swal.fire(
         "Success!",
-        `Coupon applied! You saved ${discountAmount.toFixed(2)}.`,
+        `Coupon applied! You received a ${discount}% discount.`,
         "success"
       );
     } catch (err) {

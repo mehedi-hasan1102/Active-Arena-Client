@@ -104,9 +104,12 @@ const ManageBookingsApproval = () => {
 
   return (
     <div className="min-h-screen p-6 sm:p-10 bg-white dark:bg-zinc-900 text-gray-800 dark:text-gray-200">
-      <h1 className="text-3xl font-extrabold mb-8 tracking-tight">
-        📋 Manage Booking Requests
-      </h1>
+      
+      <h1 className="text-2xl sm:text-3xl font-bold mb-6 text-center">
+  📋 Manage Booking Requests
+</h1>
+
+      
 
       {/* Search Input */}
       <div className="mb-8 max-w-md mx-auto">

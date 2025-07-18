@@ -190,7 +190,9 @@ const PaymentPage = () => {
       {/* Stripe Payment Form */}
       {clientSecret && (
         <Elements options={options} stripe={stripePromise}>
-          <CheckoutForm bookingDetails={{ price: finalPrice }} />
+          {/* <CheckoutForm bookingDetails={{ price: finalPrice }} /> */}
+          <CheckoutForm bookingDetails={{ price: finalPrice, bookingId: booking._id }} />
+
         </Elements>
       )}
     </div>

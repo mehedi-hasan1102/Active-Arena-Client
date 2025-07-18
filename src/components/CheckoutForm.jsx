@@ -1,12 +1,12 @@
-
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   PaymentElement,
   useStripe,
   useElements,
 } from "@stripe/react-stripe-js";
 import PropTypes from "prop-types";
-import "./styles.css"; // Assuming you have a shared styles file
+import axiosInstance from "../api/axiosInstance"; // Make sure this path is correct
+import "./styles.css";
 
 const CheckoutForm = ({ bookingDetails }) => {
   const stripe = useStripe();
@@ -19,8 +19,7 @@ const CheckoutForm = ({ bookingDetails }) => {
     e.preventDefault();
 
     if (!stripe || !elements) {
-      // Stripe.js has not yet loaded.
-      // Make sure to disable form submission until Stripe.js has loaded.
+      setMessage("Stripe is not ready. Please wait...");
       return;
     }
 
@@ -29,9 +28,9 @@ const CheckoutForm = ({ bookingDetails }) => {
     const { error, paymentIntent } = await stripe.confirmPayment({
       elements,
       confirmParams: {
-        // Make sure to change this to your payment completion page
         return_url: `${window.location.origin}/dashboard/payment-history`,
       },
+      redirect: "if_required", // Prevents full redirect unless needed
     });
 
     if (error) {
@@ -40,11 +39,22 @@ const CheckoutForm = ({ bookingDetails }) => {
       } else {
         setMessage("An unexpected error occurred.");
       }
-    } else if (paymentIntent && paymentIntent.status === 'succeeded') {
-      setMessage("Payment successful! Redirecting...");
-      // The return_url will handle the redirect.
-    }
+    } else if (paymentIntent && paymentIntent.status === "succeeded") {
+      // Manually send payment result to your backend
+      try {
+        await axiosInstance.post("/payment-success", {
+          bookingId: bookingDetails.bookingId,
+          transactionId: paymentIntent.id,
+        });
 
+        setMessage("Payment successful! Redirecting...");
+        // Optionally redirect manually:
+        window.location.href = "/dashboard/payment-history";
+      } catch (err) {
+        setMessage("Payment succeeded, but failed to save to database.");
+        console.error("Payment save error:", err);
+      }
+    }
 
     setIsProcessing(false);
   };
@@ -61,7 +71,6 @@ const CheckoutForm = ({ bookingDetails }) => {
           {isProcessing ? "Processing..." : `Pay $${bookingDetails.price}`}
         </span>
       </button>
-      {/* Show any error or success messages */}
       {message && <div id="payment-message">{message}</div>}
     </form>
   );
@@ -70,6 +79,7 @@ const CheckoutForm = ({ bookingDetails }) => {
 CheckoutForm.propTypes = {
   bookingDetails: PropTypes.shape({
     price: PropTypes.number.isRequired,
+    bookingId: PropTypes.string.isRequired,
   }).isRequired,
 };
 

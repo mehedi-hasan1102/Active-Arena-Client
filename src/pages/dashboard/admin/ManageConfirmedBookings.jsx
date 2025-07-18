@@ -11,7 +11,9 @@ const ManageConfirmedBookings = () => {
       setLoading(true);
       setError(null);
       try {
-        const res = await fetch("http://localhost:5000/bookings?status=confirmed");
+        const res = await fetch(
+          "http://localhost:5000/bookings?status=Approved&paymentStatus=paid"
+        );
         if (!res.ok) throw new Error("Failed to fetch bookings");
         const data = await res.json();
         setBookings(data.bookings || []);
@@ -25,68 +27,103 @@ const ManageConfirmedBookings = () => {
     fetchBookings();
   }, []);
 
-  const filteredBookings = bookings.filter(
-    (booking) =>
-      booking.status?.toLowerCase() === "confirmed" &&
-      (booking.userName?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        booking.court?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        booking.date?.toLowerCase().includes(searchTerm.toLowerCase()))
-  );
+  const filteredBookings = bookings.filter((booking) => {
+    const courtName = booking.courtName?.toLowerCase() || "";
+    const userEmail = booking.userEmail?.toLowerCase() || "";
+    const date = new Date(booking.date).toLocaleDateString("en-GB").toLowerCase();
+    const time = (booking.slots || []).join(", ").toLowerCase();
+    const search = searchTerm.toLowerCase();
+
+    return (
+      booking.status?.toLowerCase() === "approved" &&
+      (userEmail.includes(search) ||
+        courtName.includes(search) ||
+        date.includes(search) ||
+        time.includes(search))
+    );
+  });
 
   return (
-    <div className="bg-white dark:bg-zinc-900 text-gray-800 dark:text-gray-200 p-4 rounded-lg shadow-md">
-      <h1 className="text-2xl font-bold mb-4 text-center">📋 Confirmed Bookings</h1>
+    <div className="bg-white dark:bg-zinc-900 text-gray-800 dark:text-gray-200 p-6 rounded-lg shadow-lg max-w-7xl mx-auto">
+      <h1 className="text-3xl font-extrabold mb-6 text-center">📋 Confirmed Bookings</h1>
 
-      <div className="mb-6">
-        <input
-          type="text"
-          placeholder="Search by user, court, or date..."
-          className="w-full p-2 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-black dark:text-white placeholder-gray-400 dark:placeholder-gray-500"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          aria-label="Search bookings"
-        />
-      </div>
+      {/* <input
+        type="text"
+        placeholder="Search by user email, court, date or time..."
+        className="w-full max-w-xl mx-auto mb-8 px-4 py-3 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        aria-label="Search bookings"
+      /> */}
+
+      <div className="flex justify-center mb-8">
+  <input
+    type="text"
+    placeholder="Search by user email, court, date or time..."
+    className="w-full max-w-xl px-4 py-3 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+    value={searchTerm}
+    onChange={(e) => setSearchTerm(e.target.value)}
+    aria-label="Search bookings"
+  />
+</div>
+
 
       {loading && (
-        <p className="text-center text-gray-800 dark:text-gray-200 py-8">
+        <p className="text-center text-lg py-12 text-gray-800 dark:text-gray-200">
           Loading bookings...
         </p>
       )}
 
       {error && (
-        <p className="text-center text-red-600 dark:text-red-400 py-8">
+        <p className="text-center text-lg py-12 text-red-600 dark:text-red-400">
           {error}
         </p>
       )}
 
       {!loading && !error && filteredBookings.length === 0 && (
-        <p className="text-center text-gray-600 dark:text-gray-400 py-8">
+        <p className="text-center text-lg py-12 text-gray-600 dark:text-gray-400">
           No confirmed bookings found.
         </p>
       )}
 
       {!loading && !error && filteredBookings.length > 0 && (
-        <div className="overflow-x-auto">
-          <table className="min-w-full bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-md">
-            <thead>
-              <tr className="bg-gray-100 dark:bg-gray-800 text-left text-gray-800 dark:text-gray-200">
-                <th className="py-2 px-4 border-b dark:border-gray-700">User Name</th>
-                <th className="py-2 px-4 border-b dark:border-gray-700">Court</th>
-                <th className="py-2 px-4 border-b dark:border-gray-700">Date</th>
-                <th className="py-2 px-4 border-b dark:border-gray-700">Time</th>
+        <div className="overflow-x-auto rounded-md border border-gray-300 dark:border-gray-700 shadow-md">
+          <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+            <thead className="bg-gray-100 dark:bg-gray-800 sticky top-0 z-10">
+              <tr>
+                <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700 dark:text-gray-300 whitespace-nowrap">
+                  User Email
+                </th>
+                <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700 dark:text-gray-300 whitespace-nowrap">
+                  Court
+                </th>
+                <th className="px-6 py-4 text-center text-sm font-semibold text-gray-700 dark:text-gray-300 whitespace-nowrap">
+                  Date
+                </th>
+                <th className="px-6 py-4 text-center text-sm font-semibold text-gray-700 dark:text-gray-300 whitespace-nowrap">
+                  Time Slots
+                </th>
               </tr>
             </thead>
-            <tbody>
+
+            <tbody className="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-700">
               {filteredBookings.map((booking) => (
                 <tr
-                  key={booking.id}
-                  className="hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-200 text-center"
+                  key={booking._id?.$oid || booking._id || booking.id}
+                  className="hover:bg-gray-50 dark:hover:bg-gray-800 cursor-pointer"
                 >
-                  <td className="py-2 px-4 border-b dark:border-gray-700">{booking.userName}</td>
-                  <td className="py-2 px-4 border-b dark:border-gray-700">{booking.court}</td>
-                  <td className="py-2 px-4 border-b dark:border-gray-700">{booking.date}</td>
-                  <td className="py-2 px-4 border-b dark:border-gray-700">{booking.time}</td>
+                  <td className="px-6 py-3 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-gray-100">
+                    {booking.userEmail}
+                  </td>
+                  <td className="px-6 py-3 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">
+                    {booking.courtName}
+                  </td>
+                  <td className="px-6 py-3 whitespace-nowrap text-sm text-center text-gray-700 dark:text-gray-300">
+                    {new Date(booking.date).toLocaleDateString("en-GB")}
+                  </td>
+                  <td className="px-6 py-3 whitespace-nowrap text-sm text-center text-gray-700 dark:text-gray-300">
+                    {(booking.slots || []).join(", ")}
+                  </td>
                 </tr>
               ))}
             </tbody>

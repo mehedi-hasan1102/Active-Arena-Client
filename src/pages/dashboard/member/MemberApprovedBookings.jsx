@@ -21,7 +21,7 @@ const MemberApprovedBookings = () => {
         const approvedUserBookings = (data.bookings || []).filter(
           (booking) =>
             booking.userEmail === user.email &&
-            booking.paymentStatus !== 'completed'
+            booking.paymentStatus !== 'paid'
         );
         setBookings(approvedUserBookings);
       })

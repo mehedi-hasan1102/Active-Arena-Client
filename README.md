@@ -6,7 +6,7 @@ This is the **frontend** of the **Active Arena** — a dynamic and responsive **
 
 🔗 **Live Site:** [https://buildbox-a12.web.app](https://buildbox-a12.web.app)  
 👤 **Admin Email:** `admin@activearena.com`  
-🔒 **Admin Password:** `admin123`
+🔒 **Admin Password:** `Admin123`
 
 ---
 

@@ -8,6 +8,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "../../../components/CheckoutForm";
 import axiosInstance from "../../../api/axiosInstance";
+import Loading from "../../../components/Loading";
 
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
 
@@ -86,9 +87,7 @@ const PaymentPage = () => {
 
   if (!booking) {
     return (
-      <div className="text-center py-10 text-gray-800 dark:text-gray-200">
-        <p>Loading booking details...</p>
-      </div>
+     < Loading />
     );
   }
 

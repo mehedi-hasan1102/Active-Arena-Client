@@ -12,7 +12,7 @@ const PromotionsSection = () => {
   return (
     <section
       id="promotions"
-      className="max-w-7xl mx-auto px-6 py-16 bg-blue-50 dark:bg-gray-900 rounded-lg shadow-md transition-colors duration-300"
+      className=" mx-auto px-6 py-16 bg-blue-50 dark:bg-gray-900 rounded-lg shadow-md transition-colors duration-300"
     >
       <h2 className="text-4xl font-extrabold text-center text-blue-900 dark:text-blue-300 mb-12">
         Special Promotions & Discount Coupons

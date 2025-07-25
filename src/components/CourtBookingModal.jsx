@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/Provider/AuthProvider';
 import { toast } from 'react-toastify';
+import axiosInstance from '../api/axiosInstance';
 
 const CourtBookingModal = ({ court, closeModal }) => {
   const { user } = useAuth();
@@ -43,7 +44,7 @@ const CourtBookingModal = ({ court, closeModal }) => {
     };
 
     try {
-      const response = await fetch('http://localhost:5000/bookings', {
+      const response = await axiosInstance.post('/bookings', bookingDetails);
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -51,12 +52,11 @@ const CourtBookingModal = ({ court, closeModal }) => {
         body: JSON.stringify(bookingDetails),
       });
 
-      if (response.ok) {
+      if (response.status === 200) {
         toast.success('Booking request sent successfully!');
         closeModal();
       } else {
-        const isJson = response.headers.get('content-type')?.includes('application/json');
-        const err = isJson ? await response.json() : { error: 'Unknown error occurred.' };
+        const err = response.data;
         toast.error(err.error || 'Failed to send booking request.');
       }
     } catch (error) {

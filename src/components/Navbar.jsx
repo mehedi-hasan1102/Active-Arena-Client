@@ -41,46 +41,60 @@ const Navbar = () => {
   };
 
   const navLinks = (
+    
     <>
-      <NavLink
-        to="/"
-        className={({ isActive }) =>
-          isActive ? "text-blue-700 font-semibold" : "hover:text-blue-600"
-        }
-      >
-        Home
-      </NavLink>
-      <NavLink
-        to="/all-courts"
-        className={({ isActive }) =>
-          isActive ? "text-blue-700 font-semibold" : "hover:text-blue-600"
-        }
-      >
-        Courts
-      </NavLink>
-      <NavLink
-        to="/about"
-        className={({ isActive }) =>
-          isActive ? "text-blue-700 font-semibold" : "hover:text-blue-600"
-        }
-      >
-        About
-      </NavLink><NavLink
-        to="/contact"
-        className={({ isActive }) =>
-          isActive ? "text-blue-700 font-semibold" : "hover:text-blue-600"
-        }
-      >
-        Contact
-      </NavLink><NavLink
-        to="/support"
-        className={({ isActive }) =>
-          isActive ? "text-blue-700 font-semibold" : "hover:text-blue-600"
-        }
-      >
-        Support
-      </NavLink>
-    </>
+  <NavLink
+    to="/"
+    className={({ isActive }) =>
+      (isActive
+        ? "text-blue-700 font-semibold dark:text-white"
+        : "hover:text-blue-600 dark:text-white dark:hover:text-gray-300")
+    }
+  >
+    Home
+  </NavLink>
+  <NavLink
+    to="/all-courts"
+    className={({ isActive }) =>
+      (isActive
+        ? "text-blue-700 font-semibold dark:text-white"
+        : "hover:text-blue-600 dark:text-white dark:hover:text-gray-300")
+    }
+  >
+    Courts
+  </NavLink>
+  <NavLink
+    to="/about"
+    className={({ isActive }) =>
+      (isActive
+        ? "text-blue-700 font-semibold dark:text-white"
+        : "hover:text-blue-600 dark:text-white dark:hover:text-gray-300")
+    }
+  >
+    About
+  </NavLink>
+  <NavLink
+    to="/contact"
+    className={({ isActive }) =>
+      (isActive
+        ? "text-blue-700 font-semibold dark:text-white"
+        : "hover:text-blue-600 dark:text-white dark:hover:text-gray-300")
+    }
+  >
+    Contact
+  </NavLink>
+  <NavLink
+    to="/support"
+    className={({ isActive }) =>
+      (isActive
+        ? "text-blue-700 font-semibold dark:text-white"
+        : "hover:text-blue-600 dark:text-white dark:hover:text-gray-300")
+    }
+  >
+    Support
+  </NavLink>
+</>
+
   );
 
   return (

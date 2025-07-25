@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import axiosInstance from "../../../api/axiosInstance";
+import Loading from "../../../components/Loading";
 
 const ManageMembers = () => {
   const [members, setMembers] = useState([]);
@@ -12,7 +13,7 @@ const ManageMembers = () => {
     try {
       setLoading(true);
       setError(null);
-      const res = await axios.get("http://localhost:5000/users");
+      const res = await axiosInstance.get("/users");
       const onlyMembers = res.data.users.filter((user) => user.role === "member");
       setMembers(onlyMembers);
     } catch {
@@ -29,7 +30,7 @@ const ManageMembers = () => {
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this member?")) return;
     try {
-      await axios.delete(`http://localhost:5000/users/${id}`);
+      await axiosInstance.delete(`/users/${id}`);
       alert("Member deleted!");
       fetchMembers();
     } catch {
@@ -43,7 +44,7 @@ const ManageMembers = () => {
 
   if (loading) {
     return (
-      <div className="text-center py-10 text-lg dark:text-gray-300">🔄 Loading members...</div>
+     < Loading />
     );
   }
 

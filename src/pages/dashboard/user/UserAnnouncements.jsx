@@ -4,6 +4,8 @@ import { motion as Motion } from 'framer-motion';
 import { useQuery } from '@tanstack/react-query';
 import Swal from 'sweetalert2';
 import axiosInstance from '../../../api/axiosInstance';
+import { useAuth } from '../../../context/Provider/AuthProvider';
+import Loading from '../../../components/Loading';
 
 const cardVariant = {
   hidden: { opacity: 0, y: 20 },
@@ -16,6 +18,7 @@ const cardVariant = {
 
 const UserAnnouncements = () => {
   const [searchTerm, setSearchTerm] = useState('');
+  const { user, loading: authLoading } = useAuth();
 
   const { data: announcements = [], isLoading, error } = useQuery({
     queryKey: ['announcements', searchTerm],
@@ -25,6 +28,7 @@ const UserAnnouncements = () => {
       });
       return res.data.announcements || [];
     },
+    enabled: !!user && !authLoading, // Only run query if user is logged in and auth is not loading
   });
 
   const handleSearch = (e) => {
@@ -64,9 +68,7 @@ const UserAnnouncements = () => {
 
       {/* Announcements List */}
       {isLoading ? (
-        <div className="text-center py-10 text-lg text-gray-700 dark:text-gray-300">
-          🔄 Loading announcements...
-        </div>
+        < Loading />
       ) : announcements.length === 0 ? (
         <p className="text-center text-gray-600 dark:text-gray-300">
           No announcements at the moment.

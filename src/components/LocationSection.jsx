@@ -5,7 +5,7 @@ const LocationSection = () => {
   return (
     <section
       id="location"
-      className="max-w-7xl mx-auto px-6 py-16 bg-blue-50 dark:bg-gray-900 rounded-lg shadow-lg "
+      className=" mx-auto px-6 py-16 bg-blue-50 dark:bg-gray-900 rounded-lg shadow-lg "
     >
       <h2 className="text-4xl font-extrabold text-blue-800 dark:text-blue-300 text-center mb-8">
         Location

@@ -12,9 +12,10 @@ import {
 import { auth } from "../context/firebase/firebase.config";
 import Swal from "sweetalert2";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import axiosInstance from '../api/axiosInstance';
 
 const googleProvider = new GoogleAuthProvider();
-const facebookProvider = new FacebookAuthProvider();
+
 
 const Signup = () => {
   const [name, setName] = useState("");
@@ -33,16 +34,12 @@ const Signup = () => {
 
   const saveUserToDB = async (user) => {
     try {
-      const response = await fetch("http://localhost:5000/users", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: user.displayName || name || "No Name",
-          email: user.email,
-          role: "member",
-        }),
+      const response = await axiosInstance.post("/users", {
+        name: user.displayName || name || "No Name",
+        email: user.email,
+        role: "member",
       });
-      const data = await response.json();
+      const data = response.data;
       console.log("User saved in DB:", data);
     } catch (error) {
       console.error("Failed to save user:", error);
@@ -143,30 +140,6 @@ const Signup = () => {
     }
   };
 
-  const handleFacebookSignup = async () => {
-    try {
-      const result = await signInWithPopup(auth, facebookProvider);
-      await saveUserToDB(result.user);
-      Swal.fire({
-        icon: "success",
-        title: "Signed up with Facebook!",
-        background: swalStyle.background,
-        color: swalStyle.color,
-        timer: 2000,
-        showConfirmButton: false,
-      });
-      navigate("/");
-    } catch (err) {
-      setError(err.message);
-      Swal.fire({
-        icon: "error",
-        title: "Facebook Signup Failed",
-        text: err.message,
-        background: swalStyle.background,
-        color: swalStyle.color,
-      });
-    }
-  };
 
   return (
     <div
@@ -270,14 +243,7 @@ const Signup = () => {
           Continue with Google
         </button>
 
-        <button
-          type="button"
-          onClick={handleFacebookSignup}
-          className="w-full border-2 border-blue-700 text-blue-700 dark:text-blue-400
-            hover:bg-blue-700 hover:text-white rounded-md py-3 font-semibold transition mt-3"
-        >
-          Continue with Facebook
-        </button>
+        
 
         <p className="text-center text-blue-700 dark:text-blue-400 text-sm mt-5">
           Already have an account?{" "}

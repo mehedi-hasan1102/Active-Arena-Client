@@ -3,6 +3,8 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { Helmet } from 'react-helmet-async';
 import Swal from 'sweetalert2';
 import { auth } from '../../../context/firebase/firebase.config';
+import Loading from '../../../components/Loading';
+import axiosInstance from '../../../api/axiosInstance';
 
 const UserPendingBookings = () => {
   const [user] = useAuthState(auth);
@@ -13,10 +15,9 @@ const UserPendingBookings = () => {
     if (!user?.uid) return;
 
     setLoading(true);
-    fetch(`http://localhost:5000/bookings?userId=${user.uid}&status=pending`)
-      .then((res) => res.json())
-      .then((data) => {
-        setBookings(data.bookings || []);
+    axiosInstance.get(`/bookings?userId=${user.uid}&status=pending`)
+      .then((res) => {
+        setBookings(res.data.bookings || []);
       })
       .catch((err) => console.error("Error fetching bookings:", err))
       .finally(() => setLoading(false));
@@ -32,10 +33,7 @@ const UserPendingBookings = () => {
     });
 
     if (confirm.isConfirmed) {
-      fetch(`http://localhost:5000/bookings/${id}`, {
-        method: 'DELETE',
-      })
-        .then((res) => res.json())
+      axiosInstance.delete(`/bookings/${id}`)
         .then(() => {
           Swal.fire('Cancelled!', 'Your booking has been cancelled.', 'success');
           setBookings((prev) => prev.filter((item) => item._id !== id));
@@ -55,7 +53,7 @@ const UserPendingBookings = () => {
       </h1>
 
       {loading ? (
-        <p className="text-center text-gray-800 dark:text-gray-200">Loading...</p>
+       <Loading/>
       ) : bookings.length === 0 ? (
         <p className="text-center text-gray-800 dark:text-gray-200">
           You have no pending bookings.

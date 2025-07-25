@@ -1,7 +1,7 @@
 
 
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import axiosInstance from '../../../api/axiosInstance';
 import Swal from 'sweetalert2';
 
 const ManageCourts = () => {
@@ -18,7 +18,7 @@ const ManageCourts = () => {
 
   const fetchCourts = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/courts');
+      const res = await axiosInstance.get('/courts');
       setCourts(res.data.courts);
     } catch {
       Swal.fire('Error', 'Failed to fetch courts', 'error');
@@ -38,7 +38,7 @@ const ManageCourts = () => {
         availableSlots: newCourt.availableSlots.split(',').map(s => s.trim()),
       };
 
-      const res = await axios.post('http://localhost:5000/courts', courtData);
+      const res = await axiosInstance.post('/courts', courtData);
       Swal.fire('Success', res.data.message, 'success');
       setNewCourt({ name: '', type: '', status: 'Available', price: '', image: '', availableSlots: '' });
       fetchCourts();
@@ -58,7 +58,7 @@ const ManageCourts = () => {
           : editingCourt.availableSlots.split(',').map(s => s.trim()),
       };
 
-      const res = await axios.put(`http://localhost:5000/courts/${editingCourt._id}`, updatedCourt);
+      const res = await axiosInstance.put(`/courts/${editingCourt._id}`, updatedCourt);
       Swal.fire('Updated', res.data.message, 'success');
       setEditingCourt(null);
       fetchCourts();
@@ -69,7 +69,7 @@ const ManageCourts = () => {
 
   const handleDeleteCourt = async (id) => {
     try {
-      const res = await axios.delete(`http://localhost:5000/courts/${id}`);
+      const res = await axiosInstance.delete(`/courts/${id}`);
       Swal.fire('Deleted', res.data.message, 'success');
       fetchCourts();
     } catch {

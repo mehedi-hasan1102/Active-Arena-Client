@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useAuth } from "../../../context/Provider/AuthProvider";
+import Loading from "../../../components/Loading";
+import axiosInstance from '../../../api/axiosInstance';
 
 const AdminProfile = () => {
   const { user } = useAuth();
@@ -14,11 +16,11 @@ const AdminProfile = () => {
     async function fetchCounts() {
       try {
         const [courtsRes, usersRes] = await Promise.all([
-          fetch("http://localhost:5000/courts"),
-          fetch("http://localhost:5000/users"),
+          axiosInstance.get("/courts"),
+          axiosInstance.get("/users"),
         ]);
-        const courtsData = await courtsRes.json();
-        const usersData = await usersRes.json();
+        const courtsData = courtsRes.data;
+        const usersData = usersRes.data;
 
         const totalCourts = courtsData.courts?.length || 0;
         const totalUsers = usersData.users?.length || 0;
@@ -43,9 +45,7 @@ const AdminProfile = () => {
 
   if (loading) {
     return (
-      <div className="p-4 text-center text-gray-800 dark:text-gray-200">
-        Loading profile stats...
-      </div>
+     < Loading />
     );
   }
 

@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import Swal from 'sweetalert2';
 import axiosInstance from '../../../api/axiosInstance';
+import Loading from '../../../components/Loading';
 
 const ManageCoupons = () => {
   const queryClient = useQueryClient();
@@ -117,9 +118,7 @@ const ManageCoupons = () => {
 
   if (isLoading)
     return (
-      <div className="text-center py-10 text-lg text-gray-800 dark:text-gray-200" role="status">
-        🔄 Loading coupons...
-      </div>
+      < Loading />
     );
   if (error)
     return (

@@ -4,6 +4,8 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { Helmet } from 'react-helmet-async';
 import { useNavigate } from 'react-router-dom';
 import { auth } from '../../../context/firebase/firebase.config';
+import Loading from '../../../components/Loading';
+import axiosInstance from '../../../api/axiosInstance';
 
 const MemberApprovedBookings = () => {
   const [user] = useAuthState(auth);
@@ -15,9 +17,9 @@ const MemberApprovedBookings = () => {
     if (!user?.email) return;
 
     setLoading(true);
-    fetch(`http://localhost:5000/bookings?status=Approved`)
-      .then((res) => res.json())
-      .then((data) => {
+    axiosInstance.get(`/bookings?status=Approved`)
+      .then((res) => {
+        const data = res.data;
         const approvedUserBookings = (data.bookings || []).filter(
           (booking) =>
             booking.userEmail === user.email &&
@@ -44,7 +46,7 @@ const MemberApprovedBookings = () => {
       </h1>
 
       {loading ? (
-        <p className="text-center text-gray-700 dark:text-gray-300">Loading...</p>
+        <Loading/>
       ) : bookings.length === 0 ? (
         <p className="text-center text-gray-500 dark:text-gray-400">
           You have no approved bookings waiting for payment.

@@ -10,6 +10,7 @@ import {
   signOut,
   updateProfile,
 } from 'firebase/auth';
+import axios from '../../api/axiosInstance.js';
 
 export const AuthContext = createContext();
 const auth = getAuth(app);
@@ -37,7 +38,11 @@ const AuthProvider = ({ children }) => {
 
   const logout = () => {
     setLoading(true);
-    return signOut(auth).finally(() => setLoading(false));
+    return signOut(auth).then(() => {
+      axios.post('/logout').finally(() => {
+        setLoading(false);
+      });
+    });
   };
 
   const profile = (updateData) => {
@@ -45,8 +50,18 @@ const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
+      if (currentUser) {
+        const setJwtCookie = async () => {
+          try {
+            await axios.post('/jwt', { email: currentUser.email });
+          } catch (error) {
+            console.error("Error setting JWT cookie:", error);
+          }
+        };
+        setJwtCookie();
+      }
       setLoading(false);
     });
 
@@ -54,7 +69,7 @@ const AuthProvider = ({ children }) => {
   }, []);
 
   const authData = {
-    user,          // Firebase auth user
+    user,
     setUser,
     createUser,
     loginUser,

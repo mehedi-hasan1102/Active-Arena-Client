@@ -3,6 +3,7 @@ import { useAuth } from '../../../context/Provider/AuthProvider';
 import { Helmet } from 'react-helmet-async';
 import { useNavigate } from 'react-router-dom';
 import { useRole } from '../../../hooks/useRole'; // make sure this exists
+import Loading from '../../../components/Loading';
 
 const UserProfile = () => {
   const { user, loading } = useAuth();
@@ -10,7 +11,7 @@ const UserProfile = () => {
   const { role, isLoading: loadingRole } = useRole();
 
   if (loading || loadingRole) {
-    return <div className="text-center mt-20">Loading...</div>;
+    return < Loading/>;
   }
 
   if (!user) {

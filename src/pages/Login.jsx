@@ -12,9 +12,10 @@ import {
 import { auth } from "../context/firebase/firebase.config";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import Swal from "sweetalert2";
+import axiosInstance from '../api/axiosInstance';
 
 const googleProvider = new GoogleAuthProvider();
-const facebookProvider = new FacebookAuthProvider();
+
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -31,16 +32,12 @@ const Login = () => {
 
   const saveUserToDB = async (user) => {
     try {
-      const res = await fetch("http://localhost:5000/users", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: user.displayName || "No Name",
-          email: user.email,
-          role: "member",
-        }),
+      const res = await axiosInstance.post("/users", {
+        name: user.displayName || "No Name",
+        email: user.email,
+        role: "member",
       });
-      const data = await res.json();
+      const data = res.data;
       console.log("User saved in DB:", data);
     } catch (err) {
       console.error("Error saving user:", err);
@@ -111,31 +108,7 @@ const Login = () => {
     }
   };
 
-  const handleFacebookLogin = async () => {
-    try {
-      const result = await signInWithPopup(auth, facebookProvider);
-      await saveUserToDB(result.user);
 
-      Swal.fire({
-        icon: "success",
-        title: "Logged in with Facebook!",
-        background: swalStyle.background,
-        color: swalStyle.color,
-        timer: 2000,
-        showConfirmButton: false,
-      });
-
-      navigate("/");
-    } catch (err) {
-      Swal.fire({
-        icon: "error",
-        title: "Facebook Login Failed",
-        text: err.message,
-        background: swalStyle.background,
-        color: swalStyle.color,
-      });
-    }
-  };
 
   const resetPassword = async () => {
     if (!email) {
@@ -260,14 +233,7 @@ const Login = () => {
           Continue with Google
         </button>
 
-        <button
-          type="button"
-          onClick={handleFacebookLogin}
-          className="w-full border-2 border-blue-700 text-blue-700 dark:text-blue-400
-            hover:bg-blue-700 hover:text-white rounded-md py-3 font-semibold transition mt-3"
-        >
-          Continue with Facebook
-        </button>
+        
 
         <p className="text-center text-blue-700 dark:text-blue-400 text-sm mt-5">
           Don&apos;t have an account?{" "}

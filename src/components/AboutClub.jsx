@@ -5,7 +5,7 @@ const AboutClub = () => {
   return (
     <section
       id="about"
-      className="max-w-7xl mx-auto px-6 py-16 bg-white dark:bg-gray-900 rounded-lg shadow-lg"
+      className=" mx-auto px-6 py-16 bg-white dark:bg-gray-900 rounded-lg shadow-lg"
     >
       <div className="text-center max-w-3xl mx-auto">
         <h2 className="text-4xl font-extrabold text-blue-800 dark:text-blue-300 mb-4">

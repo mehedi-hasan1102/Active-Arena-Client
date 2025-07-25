@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import Loading from '../../../components/Loading';
+import axiosInstance from '../../../api/axiosInstance';
 
 const ManageAllUsers = () => {
   const [users, setUsers] = useState([]);
@@ -6,10 +8,9 @@ const ManageAllUsers = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://localhost:5000/users')
-      .then((res) => res.json())
-      .then((data) => {
-        setUsers(data.users || []);
+    axiosInstance.get('/users')
+      .then((res) => {
+        setUsers(res.data.users || []);
         setLoading(false);
       })
       .catch((err) => {
@@ -43,9 +44,7 @@ const ManageAllUsers = () => {
       </div>
 
       {loading ? (
-        <p className="text-center text-lg font-semibold text-gray-700 dark:text-gray-300 py-16">
-          🔄 Loading users...
-        </p>
+       < Loading />
       ) : (
         <div className="overflow-x-auto rounded-lg shadow-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900">
           <table

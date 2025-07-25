@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import Swal from 'sweetalert2';
 import axiosInstance from '../../../api/axiosInstance';
+import Loading from '../../../components/Loading';
 
 const MakeAnnouncement = () => {
   const queryClient = useQueryClient();
@@ -121,9 +122,7 @@ const MakeAnnouncement = () => {
 
   if (isLoading)
     return (
-      <div className="text-center py-12 text-lg font-semibold text-gray-800 dark:text-gray-200" role="status">
-        🔄 Loading announcements...
-      </div>
+     < Loading />
     );
   if (error)
     return (

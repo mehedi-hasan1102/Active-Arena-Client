@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import axiosInstance from "../../../api/axiosInstance";
 
 const ManageConfirmedBookings = () => {
   const [bookings, setBookings] = useState([]);
@@ -11,11 +12,11 @@ const ManageConfirmedBookings = () => {
       setLoading(true);
       setError(null);
       try {
-        const res = await fetch(
-          "http://localhost:5000/bookings?status=Approved&paymentStatus=paid"
+        const res = await axiosInstance.get(
+          "/bookings?status=Approved&paymentStatus=paid"
         );
-        if (!res.ok) throw new Error("Failed to fetch bookings");
-        const data = await res.json();
+        if (res.status !== 200) throw new Error("Failed to fetch bookings");
+        const data = res.data;
         setBookings(data.bookings || []);
       } catch (err) {
         setError(err.message);

@@ -3,6 +3,7 @@ import { useAuth } from '../../../context/Provider/AuthProvider';
 import { useQuery } from '@tanstack/react-query';
 import Swal from 'sweetalert2';
 import axiosInstance from '../../../api/axiosInstance';
+import Loading from '../../../components/Loading';
 
 const MemberProfile = () => {
   const { user } = useAuth();
@@ -52,13 +53,7 @@ const MemberProfile = () => {
 
       {/* Loading State */}
       {(isUserLoading || isBookingsLoading) && (
-        <div
-          className="text-center py-10 text-gray-700 dark:text-gray-300"
-          role="status"
-          aria-live="polite"
-        >
-          🔄 Loading profile...
-        </div>
+        < Loading />
       )}
 
       {/* Profile Section */}

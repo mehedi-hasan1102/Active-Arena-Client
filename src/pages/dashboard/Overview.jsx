@@ -2,8 +2,11 @@ import { Helmet } from "react-helmet-async";
 import { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../context/firebase/firebase.config";
+import axios from '../../api/axiosInstance';
 import { motion as Motion } from "framer-motion";
 import { useRole } from "../../hooks/useRole";
+import { useAuth } from "../../context/Provider/AuthProvider";
+import Loading from '../../components/Loading';
 
 const cardVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -23,19 +26,19 @@ const numberPulse = {
 };
 
 const Overview = () => {
-  const [user, loadingUser] = useAuthState(auth);
+  const { user, loading: authLoading } = useAuth();
   const { role, isLoading: loadingRole } = useRole();
   const [stats, setStats] = useState({ totalBookings: 0, myBookings: 0 });
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (!user?.uid) return;
+    if (!user?.uid || authLoading) return;
 
     async function fetchBookings() {
       setLoading(true);
       try {
-        const res = await fetch("http://localhost:5000/bookings");
-        const data = await res.json();
+        const res = await axios.get("/bookings");
+        const data = res.data;
 
         const myBookings = data.bookings.filter(
           (booking) => booking.userEmail === user.email
@@ -50,13 +53,13 @@ const Overview = () => {
     }
 
     fetchBookings();
-  }, [user?.uid]);
+  },   [user?.uid, user?.email, authLoading]); // ✅ Added user?.email here
 
-  if (loadingUser || loadingRole || loading) {
+  if (authLoading || loadingRole || loading) {
     return (
-      <div className="text-center mt-20 text-gray-800 dark:text-gray-200">
-        Loading...
-      </div>
+      
+        < Loading />
+      
     );
   }
 

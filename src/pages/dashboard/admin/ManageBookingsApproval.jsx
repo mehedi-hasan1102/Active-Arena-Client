@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import Swal from 'sweetalert2';
 import axiosInstance from '../../../api/axiosInstance';
+import Loading from '../../../components/Loading';
 
 const ManageBookingsApproval = () => {
   const queryClient = useQueryClient();
@@ -85,12 +86,7 @@ const ManageBookingsApproval = () => {
 
   if (isLoading)
     return (
-      <div
-        className="text-center py-10 text-lg text-gray-700 dark:text-gray-300"
-        role="status"
-      >
-        🔄 Loading booking requests...
-      </div>
+      < Loading />
     );
   if (error)
     return (

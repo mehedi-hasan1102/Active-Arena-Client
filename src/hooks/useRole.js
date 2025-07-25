@@ -25,15 +25,15 @@
 // };
 import { useAuth } from '../context/Provider/AuthProvider';
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+import axios from '../api/axiosInstance';
 
 export const useRole = () => {
-  const { user } = useAuth();
+  const { user, loading: authLoading } = useAuth();
   const [role, setRole] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    if (!user?.email) {
+    if (!user?.email || authLoading) {
       setRole('user'); // default role when no user logged in
       setIsLoading(false);
       return;
@@ -42,7 +42,7 @@ export const useRole = () => {
     const fetchUserRole = async () => {
       setIsLoading(true);
       try {
-        const response = await axios.get(`http://localhost:5000/users?email=${user.email}`);
+        const response = await axios.get(`/users?email=${user.email}`);
         // Assuming your backend supports filtering by email query param
         // Or you can fetch all users and filter client-side (not ideal)
         // Let's say the backend returns { users: [...] }
@@ -58,7 +58,7 @@ export const useRole = () => {
     };
 
     fetchUserRole();
-  }, [user?.email]);
+  }, [user?.email, authLoading]);
 
   return { role, isLoading };
 };

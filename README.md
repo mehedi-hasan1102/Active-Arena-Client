@@ -52,7 +52,7 @@ This is the **frontend** of the **Active Arena** — a dynamic and responsive **
 ### 1. Clone the repo:
 
 ```bash
-git clone https://github.com/hasancodex/active-arena-client.git
+git clone https://github.com/mehedi-hasan1102/active-arena-client.git
 cd active-arena-client
 ```
 

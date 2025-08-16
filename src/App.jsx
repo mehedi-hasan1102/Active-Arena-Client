@@ -24,7 +24,8 @@ function App() {
   }, [location]);
 
   return (
-    <>
+    <div className="max-w-7xl mx-auto ">
+       
       <Navbar />
        <DarkModeSidebar />
       {loading ? (
@@ -38,7 +39,7 @@ function App() {
      
       <ToastContainer position="top-center" autoClose={1000} />
       <Footer />
-    </>
+    </div>
   );
 }
 

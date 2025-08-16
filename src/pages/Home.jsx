@@ -13,7 +13,7 @@ import PromotionsSection from "../components/PromotionsSection";
 
 const Home = () => {
   return (
-    < >
+    <div >
       <Helmet>
         <title>Home - ActiveArena</title>
       </Helmet>
@@ -24,7 +24,7 @@ const Home = () => {
        
     
 
-    </>
+    </div>
   );
 };
 

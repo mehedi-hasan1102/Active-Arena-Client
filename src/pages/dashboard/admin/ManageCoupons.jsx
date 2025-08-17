@@ -1,5 +1,3 @@
-
-
 import React, { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import Swal from 'sweetalert2';
@@ -128,9 +126,9 @@ const ManageCoupons = () => {
     );
 
   return (
-    <div className="p-4 sm:p-6 bg-white dark:bg-zinc-900 min-h-screen text-gray-800 dark:text-gray-200">
+    <div className="p-4 sm:p-6 bg-white dark:bg-zinc-900 min-h-screen text-emerald-600 dark:text-emerald-400">
     <h1 className="text-2xl sm:text-3xl font-bold mb-6 text-center">
-  🎁 Manage Coupons
+   Manage Coupons
 </h1>
 
       <div className="mb-6 flex justify-center">
@@ -139,7 +137,7 @@ const ManageCoupons = () => {
           value={searchTerm}
           onChange={handleSearch}
           placeholder="Search by coupon code..."
-          className="w-full max-w-md bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-black dark:text-white placeholder-gray-400 dark:placeholder-gray-500 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-600"
+          className="w-full max-w-md bg-white dark:bg-zinc-900 border border-emerald-300 dark:border-emerald-700 text-emerald-600 dark:text-emerald-400 placeholder-emerald-400 dark:placeholder-emerald-600 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-emerald-500"
         />
       </div>
 
@@ -148,7 +146,7 @@ const ManageCoupons = () => {
       <div className="mb-6 flex justify-center">
   <button
     onClick={() => setIsAddModalOpen(true)}
-    className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-md transition"
+    className="bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-6 py-2 rounded-md transition"
   >
     ➕ Add New Coupon
   </button>
@@ -158,7 +156,7 @@ const ManageCoupons = () => {
       {/* Add Coupon Modal */}
       {isAddModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-lg shadow-md p-4 w-full max-w-md">
+          <div className="bg-white dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 rounded-lg shadow-md p-4 w-full max-w-md">
             <h2 className="text-xl font-semibold mb-4">➕ Add New Coupon</h2>
             <form onSubmit={handleAddCoupon} className="space-y-4">
               <div>
@@ -167,7 +165,7 @@ const ManageCoupons = () => {
                   type="text"
                   value={newCoupon.code}
                   onChange={(e) => setNewCoupon({ ...newCoupon, code: e.target.value })}
-                  className="w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-black dark:text-white placeholder-gray-400 dark:placeholder-gray-500 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-600"
+                  className="w-full bg-white dark:bg-zinc-900 border border-emerald-300 dark:border-emerald-700 text-emerald-600 dark:text-emerald-400 placeholder-emerald-400 dark:placeholder-emerald-600 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-emerald-500"
                   required
                 />
               </div>
@@ -179,7 +177,7 @@ const ManageCoupons = () => {
                   onChange={(e) => setNewCoupon({ ...newCoupon, discount: e.target.value })}
                   min="1"
                   max="100"
-                  className="w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-black dark:text-white placeholder-gray-400 dark:placeholder-gray-500 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-600"
+                  className="w-full bg-white dark:bg-zinc-900 border border-emerald-300 dark:border-emerald-700 text-emerald-600 dark:text-emerald-400 placeholder-emerald-400 dark:placeholder-emerald-600 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-emerald-500"
                   required
                 />
               </div>
@@ -188,7 +186,7 @@ const ManageCoupons = () => {
                 <select
                   value={newCoupon.status}
                   onChange={(e) => setNewCoupon({ ...newCoupon, status: e.target.value })}
-                  className="w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-black dark:text-white rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-600"
+                  className="w-full bg-white dark:bg-zinc-900 border border-emerald-300 dark:border-emerald-700 text-emerald-600 dark:text-emerald-400 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-emerald-500"
                 >
                   <option value="active">Active</option>
                   <option value="inactive">Inactive</option>
@@ -198,7 +196,7 @@ const ManageCoupons = () => {
                 <button
                   type="submit"
                   disabled={addCouponMutation.isLoading}
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-md transition disabled:opacity-50"
+                  className="bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-2 rounded-md transition disabled:opacity-50"
                 >
                   Add Coupon
                 </button>
@@ -218,7 +216,7 @@ const ManageCoupons = () => {
       {/* Edit Coupon Modal */}
       {isEditModalOpen && editingCoupon && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-lg shadow-md p-4 w-full max-w-md">
+          <div className="bg-white dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 rounded-lg shadow-md p-4 w-full max-w-md">
             <h2 className="text-xl font-semibold mb-4">✏️ Edit Coupon</h2>
             <form onSubmit={handleUpdateCoupon} className="space-y-4">
               <div>
@@ -227,7 +225,7 @@ const ManageCoupons = () => {
                   type="text"
                   value={editingCoupon.code}
                   onChange={(e) => setEditingCoupon({ ...editingCoupon, code: e.target.value })}
-                  className="w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-black dark:text-white rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-600"
+                  className="w-full bg-white dark:bg-zinc-900 border border-emerald-300 dark:border-emerald-700 text-emerald-600 dark:text-emerald-400 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-emerald-500"
                   required
                 />
               </div>
@@ -239,7 +237,7 @@ const ManageCoupons = () => {
                   onChange={(e) => setEditingCoupon({ ...editingCoupon, discount: e.target.value })}
                   min="1"
                   max="100"
-                  className="w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-black dark:text-white rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-600"
+                  className="w-full bg-white dark:bg-zinc-900 border border-emerald-300 dark:border-emerald-700 text-emerald-600 dark:text-emerald-400 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-emerald-500"
                   required
                 />
               </div>
@@ -248,7 +246,7 @@ const ManageCoupons = () => {
                 <select
                   value={editingCoupon.status}
                   onChange={(e) => setEditingCoupon({ ...editingCoupon, status: e.target.value })}
-                  className="w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-black dark:text-white rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-600"
+                  className="w-full bg-white dark:bg-zinc-900 border border-emerald-300 dark:border-emerald-700 text-emerald-600 dark:text-emerald-400 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-emerald-500"
                 >
                   <option value="active">Active</option>
                   <option value="inactive">Inactive</option>
@@ -258,7 +256,7 @@ const ManageCoupons = () => {
                 <button
                   type="submit"
                   disabled={updateCouponMutation.isLoading}
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-md transition disabled:opacity-50"
+                  className="bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-2 rounded-md transition disabled:opacity-50"
                 >
                   Update Coupon
                 </button>
@@ -276,9 +274,9 @@ const ManageCoupons = () => {
       )}
 
       {/* Coupon Table */}
-      <div className="overflow-x-auto rounded-lg shadow-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900">
-        <table className="min-w-full text-sm text-gray-800 dark:text-gray-200">
-          <thead className="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 uppercase text-xs">
+      <div className="overflow-x-auto rounded-lg shadow-md border border-emerald-300 dark:border-emerald-700 bg-white dark:bg-zinc-900">
+        <table className="min-w-full text-sm text-emerald-600 dark:text-emerald-400">
+          <thead className="bg-emerald-50 dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 uppercase text-xs">
             <tr>
               <th className="py-3 px-4 text-left">Code</th>
               <th className="py-3 px-4 text-left">Discount (%)</th>
@@ -297,7 +295,7 @@ const ManageCoupons = () => {
               coupons.map((coupon) => (
                 <tr
                   key={coupon._id}
-                  className="hover:bg-gray-50 dark:hover:bg-gray-800 border-b border-gray-200 dark:border-gray-700"
+                  className="hover:bg-emerald-50 dark:hover:bg-zinc-900 border-b border-emerald-300 dark:border-emerald-700"
                 >
                   <td className="py-3 px-4">{coupon.code}</td>
                   <td className="py-3 px-4">{coupon.discount}%</td>
@@ -319,7 +317,7 @@ const ManageCoupons = () => {
                           setEditingCoupon(coupon);
                           setIsEditModalOpen(true);
                         }}
-                        className="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded-md text-sm transition"
+                        className="bg-emerald-500 hover:bg-emerald-600 text-white px-3 py-1 rounded-md text-sm transition"
                       >
                         Edit
                       </button>

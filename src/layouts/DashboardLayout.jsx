@@ -1,4 +1,3 @@
-
 import { Outlet, NavLink, Link } from "react-router-dom";
 import { useState } from "react";
 import {
@@ -83,7 +82,7 @@ const DashboardLayout = () => {
       <aside
         className={`${
           collapsed ? "w-20" : "w-64"
-        } bg-white dark:bg-zinc-900 border-r-2 border-emerald-500 dark:border-emerald-700 p-4 flex flex-col justify-between transition-all duration-300 rounded-md`}
+        } bg-white dark:bg-zinc-900 border-r-2 border-emerald-300 dark:border-emerald-700 p-4 flex flex-col justify-between transition-all duration-300 rounded-md`}
       >
         <div>
           <div className="flex items-center justify-between mb-6">
@@ -110,7 +109,7 @@ const DashboardLayout = () => {
 
           <NavLink
             to="/"
-            className="flex items-center gap-3 px-3 py-2 rounded-md transition-colors hover:bg-emerald-50 dark:hover:bg-emerald-700 mb-2 text-gray-800 dark:text-zinc-300"
+            className="flex items-center gap-3 px-3 py-2 rounded-md transition-colors hover:bg-emerald-50 dark:hover:bg-emerald-700 mb-2 text-emerald-600 dark:text-emerald-400"
           >
             <MdHome size={20} />
             {!collapsed && "Home"}
@@ -124,7 +123,7 @@ const DashboardLayout = () => {
                 `flex items-center gap-3 px-3 py-2 rounded-md transition-colors hover:bg-emerald-50 dark:hover:bg-emerald-700 ${
                   isActive
                     ? "bg-emerald-500 dark:bg-emerald-700 font-semibold text-white dark:text-emerald-400"
-                    : "text-gray-800 dark:text-zinc-300"
+                    : "text-emerald-600 dark:text-emerald-400"
                 }`
               }
             >
@@ -140,7 +139,7 @@ const DashboardLayout = () => {
                   `flex items-center gap-3 px-3 py-2 rounded-md transition-colors hover:bg-emerald-50 dark:hover:bg-emerald-700 ${
                     isActive
                       ? "bg-emerald-500 dark:bg-emerald-700 font-semibold text-white dark:text-emerald-400"
-                      : "text-gray-800 dark:text-zinc-300"
+                      : "text-emerald-600 dark:text-emerald-400"
                   }`
                 }
               >
@@ -151,12 +150,12 @@ const DashboardLayout = () => {
           </nav>
         </div>
 
-        <div className="pt-4 border-t border-emerald-500 dark:border-emerald-700 flex justify-center">
+        <div className="pt-4 border-t border-emerald-300 dark:border-emerald-700 flex justify-center">
           {!collapsed && <Switch />}
         </div>
       </aside>
 
-      <main className="flex-1 p-6 overflow-y-auto bg-emerald-50 dark:bg-zinc-900 text-gray-900 dark:text-zinc-200 transition-colors duration-300 rounded-md">
+      <main className="flex-1 p-6 overflow-y-auto bg-emerald-50 dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 transition-colors duration-300 rounded-md">
         <Outlet />
       </main>
     </div>

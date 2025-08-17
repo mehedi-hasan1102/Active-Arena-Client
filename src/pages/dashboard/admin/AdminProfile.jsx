@@ -50,8 +50,8 @@ const AdminProfile = () => {
   }
 
   return (
-    <div className="min-h-screen bg-white dark:bg-zinc-900 text-gray-800 dark:text-gray-200 p-4 md:p-6">
-      <h1 className="text-3xl font-bold mb-6 text-blue-600 dark:text-blue-300">
+    <div className="min-h-screen bg-white dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 p-4 md:p-6">
+      <h1 className="text-3xl font-bold mb-6 text-emerald-600 dark:text-emerald-400">
         Admin Profile
       </h1>
 
@@ -60,17 +60,17 @@ const AdminProfile = () => {
         <img
           src={user?.photoURL || "https://via.placeholder.com/150"}
           alt="Admin Avatar"
-          className="w-24 h-24 rounded-full object-cover border-4 border-blue-300 shadow-md"
+          className="w-24 h-24 rounded-full object-cover border-4 border-emerald-300 shadow-md"
         />
         <div className="space-y-1">
           <p>
-            <span className="font-semibold text-gray-700 dark:text-gray-300">
+            <span className="font-semibold text-emerald-600 dark:text-emerald-400">
               Name:
             </span>{" "}
             {user?.displayName || "Anonymous"}
           </p>
           <p>
-            <span className="font-semibold text-gray-700 dark:text-gray-300">
+            <span className="font-semibold text-emerald-600 dark:text-emerald-400">
               Email:
             </span>{" "}
             {user?.email}
@@ -80,17 +80,17 @@ const AdminProfile = () => {
 
       {/* Stats cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-lg shadow-md p-4 text-center">
+        <div className="bg-white dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 rounded-lg shadow-md p-4 text-center">
           <h2 className="text-lg font-semibold mb-2">Total Courts</h2>
-          <p className="text-4xl font-bold text-blue-600">{counts.courts}</p>
+          <p className="text-4xl font-bold text-emerald-600">{counts.courts}</p>
         </div>
-        <div className="bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-lg shadow-md p-4 text-center">
+        <div className="bg-white dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 rounded-lg shadow-md p-4 text-center">
           <h2 className="text-lg font-semibold mb-2">Total Users</h2>
-          <p className="text-4xl font-bold text-green-600">{counts.users}</p>
+          <p className="text-4xl font-bold text-emerald-600">{counts.users}</p>
         </div>
-        <div className="bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-lg shadow-md p-4 text-center">
+        <div className="bg-white dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 rounded-lg shadow-md p-4 text-center">
           <h2 className="text-lg font-semibold mb-2">Total Members</h2>
-          <p className="text-4xl font-bold text-yellow-500">{counts.members}</p>
+          <p className="text-4xl font-bold text-emerald-600">{counts.members}</p>
         </div>
       </div>
     </div>

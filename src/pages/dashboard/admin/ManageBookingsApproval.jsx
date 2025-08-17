@@ -99,10 +99,10 @@ const ManageBookingsApproval = () => {
     );
 
   return (
-    <div className="min-h-screen p-6 sm:p-10 bg-white dark:bg-zinc-900 text-gray-800 dark:text-gray-200">
+    <div className="min-h-screen p-6 sm:p-10 bg-white dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400">
       
       <h1 className="text-2xl sm:text-3xl font-bold mb-6 text-center">
-  📋 Manage Booking 
+   Manage Booking 
 </h1>
 
       
@@ -115,17 +115,17 @@ const ManageBookingsApproval = () => {
           onChange={handleSearch}
           placeholder="Search by court name..."
           aria-label="Search booking requests by court name"
-          className="w-full p-3 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-black dark:text-white placeholder-gray-400 dark:placeholder-gray-500 shadow-sm transition focus:outline-none focus:ring-4 focus:ring-gray-500"
+          className="w-full p-3 rounded-md border border-emerald-300 dark:border-emerald-700 bg-white dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 placeholder-emerald-400 dark:placeholder-emerald-600 shadow-sm transition focus:outline-none focus:ring-4 focus:ring-emerald-500"
         />
       </div>
 
       {/* Table */}
-      <div className="overflow-x-auto rounded-lg shadow-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800">
+      <div className="overflow-x-auto rounded-lg shadow-md border border-emerald-300 dark:border-emerald-700 bg-white dark:bg-zinc-900">
         <table
-          className="min-w-full text-sm text-gray-700 dark:text-gray-300"
+          className="min-w-full text-sm text-emerald-600 dark:text-emerald-400"
           aria-label="Booking requests table"
         >
-          <thead className="bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 uppercase text-xs select-none rounded-t-md">
+          <thead className="bg-emerald-50 dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 uppercase text-xs select-none rounded-t-md">
             <tr>
               <th className="py-4 px-6 text-left font-semibold rounded-tl-md">
                 User
@@ -153,7 +153,7 @@ const ManageBookingsApproval = () => {
               bookings.map((booking) => (
                 <tr
                   key={booking._id}
-                  className="border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                  className="border-b border-emerald-300 dark:border-emerald-700 hover:bg-emerald-50 dark:hover:bg-zinc-900 transition-colors"
                 >
                   <td className="py-4 px-6 text-center font-medium">
                     {booking.userName || booking.userEmail || 'N/A'}
@@ -187,7 +187,7 @@ const ManageBookingsApproval = () => {
                           aria-label={`Approve booking for ${
                             booking.userName || booking.userEmail || 'user'
                           } on ${booking.courtName || 'court'}`}
-                          className="bg-green-600 hover:bg-green-700 text-white px-5 py-2 rounded-md text-sm font-semibold transition disabled:opacity-50"
+                          className="bg-emerald-500 hover:bg-emerald-600 text-white px-5 py-2 rounded-md text-sm font-semibold transition disabled:opacity-50"
                         >
                           Approve
                         </button>

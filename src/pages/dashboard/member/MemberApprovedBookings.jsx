@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Helmet } from 'react-helmet-async';
@@ -36,13 +35,13 @@ const MemberApprovedBookings = () => {
   };
 
   return (
-    <div className="min-h-screen px-4 py-10 bg-white dark:bg-zinc-900 text-gray-800 dark:text-gray-200 transition-colors duration-300">
+    <div className="min-h-screen px-4 py-10 bg-white dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 transition-colors duration-300">
       <Helmet>
         <title>Approved Bookings - ActiveArena</title>
       </Helmet>
 
-      <h1 className="text-3xl font-bold text-center text-blue-700 dark:text-blue-400 mb-8">
-        ✅ Approved Bookings
+      <h1 className="text-3xl font-bold text-center text-emerald-600 dark:text-emerald-400 mb-8">
+         Approved Bookings
       </h1>
 
       {loading ? (
@@ -56,10 +55,10 @@ const MemberApprovedBookings = () => {
           {bookings.map((booking) => (
             <div
               key={booking._id}
-              className="bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-lg shadow-md p-4 border border-gray-200 dark:border-gray-700"
+              className="bg-white dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 rounded-lg shadow-md p-4 border border-emerald-300 dark:border-emerald-700"
             >
               <div className="space-y-2">
-                <h2 className="text-xl font-semibold  text-blue-700 dark:text-blue-400">
+                <h2 className="text-xl font-semibold  text-emerald-600 dark:text-emerald-400">
                   {booking.courtName || 'Unknown Court'}
                 </h2>
                 <p>🕒 Slot(s): {booking.slots.join(', ')}</p>
@@ -78,7 +77,7 @@ const MemberApprovedBookings = () => {
 
               <button
                 onClick={() => handlePayNow(booking)}
-                className="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded-md transition"
+                className="mt-4 w-full bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-2 rounded-md transition"
               >
                 💳 Pay Now
               </button>

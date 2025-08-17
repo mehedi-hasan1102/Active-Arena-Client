@@ -26,7 +26,7 @@ const ManageAllUsers = () => {
   );
 
   return (
-    <div className="min-h-screen bg-white dark:bg-zinc-900 p-6 sm:p-10 text-gray-800 dark:text-gray-200">
+    <div className="min-h-screen bg-white dark:bg-zinc-900 p-6 sm:p-10 text-emerald-600 dark:text-emerald-400">
      
 <h1 className="text-2xl sm:text-3xl font-bold mb-6 text-center">
   Manage All Users
@@ -38,7 +38,7 @@ const ManageAllUsers = () => {
           placeholder="Search by name or email..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="w-full p-3 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-black dark:text-white placeholder-gray-400 dark:placeholder-gray-500 shadow-sm transition focus:outline-none focus:ring-4 focus:ring-blue-600"
+          className="w-full p-3 rounded-md border border-emerald-300 dark:border-emerald-700 bg-white dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 placeholder-emerald-400 dark:placeholder-emerald-600 shadow-sm transition focus:outline-none focus:ring-4 focus:ring-emerald-500"
           aria-label="Search users by name or email"
         />
       </div>
@@ -46,12 +46,12 @@ const ManageAllUsers = () => {
       {loading ? (
        < Loading />
       ) : (
-        <div className="overflow-x-auto rounded-lg shadow-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900">
+        <div className="overflow-x-auto rounded-lg shadow-md border border-emerald-300 dark:border-emerald-700 bg-white dark:bg-zinc-900">
           <table
-            className="min-w-full text-gray-900 dark:text-gray-200 text-sm"
+            className="min-w-full text-emerald-600 dark:text-emerald-400 text-sm"
             aria-label="Users table"
           >
-            <thead className="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 uppercase text-xs select-none rounded-t-md">
+            <thead className="bg-emerald-50 dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 uppercase text-xs select-none rounded-t-md">
               <tr>
                 <th className="py-4 px-6 text-left rounded-tl-md font-semibold">Name</th>
                 <th className="py-4 px-6 text-left font-semibold">Email</th>
@@ -63,7 +63,7 @@ const ManageAllUsers = () => {
                 filteredUsers.map((user) => (
                   <tr
                     key={user._id}
-                    className="border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                    className="border-b border-emerald-300 dark:border-emerald-700 hover:bg-emerald-50 dark:hover:bg-zinc-900 transition-colors"
                   >
                     <td className="py-4 px-6 text-center font-medium">{user.name}</td>
                     <td className="py-4 px-6 text-center">{user.email}</td>

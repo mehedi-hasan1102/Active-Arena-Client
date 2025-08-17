@@ -64,7 +64,7 @@ const Overview = () => {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-white dark:bg-zinc-900 text-gray-800 dark:text-gray-200 px-4 py-12 transition-colors duration-300">
+    <div className="min-h-screen flex items-center justify-center bg-white dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 px-4 py-12 transition-colors duration-300">
       <Helmet>
         <title>Dashboard Overview - ActiveArena</title>
       </Helmet>
@@ -77,10 +77,10 @@ const Overview = () => {
           transition={{ duration: 0.6 }}
           className="text-center"
         >
-          <h1 className="text-4xl font-extrabold text-gray-800 dark:text-gray-200 mb-2">
+          <h1 className="text-4xl font-extrabold text-emerald-600 dark:text-emerald-400 mb-2">
             Welcome to ActiveArena Dashboard!
           </h1>
-          <p className="text-gray-700 dark:text-gray-300">
+          <p className="text-emerald-600 dark:text-emerald-400">
             Here’s a quick look at your court booking stats.
           </p>
         </Motion.div>
@@ -89,7 +89,7 @@ const Overview = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Avatar */}
           <Motion.div
-            className="bg-white dark:bg-zinc-800 rounded-lg p-6 shadow-md text-center cursor-default"
+            className="bg-white dark:bg-zinc-900 rounded-lg p-6 shadow-md text-center cursor-default"
             custom={0}
             variants={cardVariants}
             initial="hidden"
@@ -100,35 +100,35 @@ const Overview = () => {
               <Motion.img
                 src={user?.photoURL || "https://i.ibb.co/5r5C1fJ/user.png"}
                 alt="User Avatar"
-                className="w-full h-full rounded-full border-4 border-gray-300 dark:border-gray-600 object-cover shadow-md"
+                className="w-full h-full rounded-full border-4 border-emerald-300 dark:border-emerald-700 object-cover shadow-md"
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.6 }}
               />
-              <span className="absolute -top-2 -right-2 bg-[#059669] text-white text-xs font-semibold px-2 py-0.5 rounded-full shadow">
+              <span className="absolute -top-2 -right-2 bg-emerald-500 text-white text-xs font-semibold px-2 py-0.5 rounded-full shadow">
                 ✅ {role || "User"}
               </span>
             </div>
-            <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-200">
+            <h3 className="text-xl font-semibold text-emerald-600 dark:text-emerald-400">
               {user?.displayName || "Anonymous"}
             </h3>
-            <p className="text-sm text-gray-600 dark:text-gray-400">{user?.email}</p>
+            <p className="text-sm text-emerald-600 dark:text-emerald-400">{user?.email}</p>
           </Motion.div>
 
           {/* Total Bookings */}
           <Motion.div
-            className="bg-white dark:bg-zinc-800 rounded-lg p-6 shadow-md text-center cursor-default"
+            className="bg-white dark:bg-zinc-900 rounded-lg p-6 shadow-md text-center cursor-default"
             custom={1}
             variants={cardVariants}
             initial="hidden"
             animate="visible"
             whileHover={{ scale: 1.05 }}
           >
-            <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">
+            <h3 className="text-lg font-semibold text-emerald-600 dark:text-emerald-400 mb-2">
               🏟 Total Bookings
             </h3>
             <Motion.p
-              className="text-5xl font-extrabold text-gray-800 dark:text-gray-200"
+              className="text-5xl font-extrabold text-emerald-600 dark:text-emerald-400"
               initial="rest"
               whileHover="hover"
               animate="rest"
@@ -140,18 +140,18 @@ const Overview = () => {
 
           {/* My Bookings */}
           <Motion.div
-            className="bg-white dark:bg-zinc-800 rounded-lg p-6 shadow-md text-center cursor-default"
+            className="bg-white dark:bg-zinc-900 rounded-lg p-6 shadow-md text-center cursor-default"
             custom={2}
             variants={cardVariants}
             initial="hidden"
             animate="visible"
             whileHover={{ scale: 1.05 }}
           >
-            <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">
+            <h3 className="text-lg font-semibold text-emerald-600 dark:text-emerald-400 mb-2">
               🎯 My Bookings
             </h3>
             <Motion.p
-              className="text-5xl font-extrabold text-gray-800 dark:text-gray-200"
+              className="text-5xl font-extrabold text-emerald-600 dark:text-emerald-400"
               initial="rest"
               whileHover="hover"
               animate="rest"

@@ -1,5 +1,3 @@
-
-
 import React, { useState, useEffect } from 'react';
 import axiosInstance from '../../../api/axiosInstance';
 import Swal from 'sweetalert2';
@@ -79,9 +77,9 @@ const ManageCourts = () => {
 
   return (
     <div className="p-6 dark:bg-zinc-900 min-h-screen">
-      <h1 className="text-3xl font-bold text-center text-gray-800 dark:text-gray-200 mb-6">🏟 Manage Courts</h1>
+      <h1 className="text-3xl font-bold text-center text-emerald-600 dark:text-emerald-400 mb-6"> Manage Courts</h1>
 
-      <div className="bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-lg shadow-md p-6 mb-10">
+      <div className="bg-white dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 rounded-lg shadow-md p-6 mb-10">
         <h2 className="text-xl  mb-4 font-semibold  rounded-md 
  ">
           {editingCourt ? '✏️ Edit Court' : '➕ Add New Court'}
@@ -103,7 +101,7 @@ const ManageCourts = () => {
                   ? setEditingCourt({ ...editingCourt, [field]: e.target.value })
                   : setNewCourt({ ...newCourt, [field]: e.target.value })
               }
-              className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-black dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="w-full p-2 border border-emerald-300 dark:border-emerald-700 rounded-md bg-white dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 placeholder-emerald-400 dark:placeholder-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-400"
               required
             />
           ))}
@@ -115,7 +113,7 @@ const ManageCourts = () => {
                 ? setEditingCourt({ ...editingCourt, status: e.target.value })
                 : setNewCourt({ ...newCourt, status: e.target.value })
             }
-            className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className="w-full p-2 border border-emerald-300 dark:border-emerald-700 rounded-md bg-white dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-400"
           >
             <option value="Available">Available</option>
             <option value="Booked">Booked</option>
@@ -125,7 +123,7 @@ const ManageCourts = () => {
           <div className="flex flex-wrap gap-3">
             <button
               type="submit"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-md font-semibold transition"
+              className="bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-2 rounded-md font-semibold transition"
             >
               {editingCourt ? 'Update Court' : 'Add Court'}
             </button>
@@ -133,7 +131,7 @@ const ManageCourts = () => {
               <button
                 type="button"
                 onClick={() => setEditingCourt(null)}
-                className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-md font-semibold transition"
+                className="bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-2 rounded-md font-semibold transition"
               >
                 Cancel
               </button>
@@ -142,23 +140,23 @@ const ManageCourts = () => {
         </form>
       </div>
 
-      <h2 className="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-4">📋 Existing Courts</h2>
+      <h2 className="text-xl font-semibold text-emerald-600 dark:text-emerald-400 mb-4"> Existing Courts</h2>
       <div className="overflow-x-auto">
-        <table className="min-w-full bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-t-md overflow-hidden text-sm">
-          <thead className="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200">
+        <table className="min-w-full bg-white dark:bg-zinc-900 border border-emerald-300 dark:border-emerald-700 rounded-t-md overflow-hidden text-sm">
+          <thead className="bg-emerald-50 dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400">
             <tr>
               {['Name', 'Type', 'Status', 'Price', 'Slots', 'Actions'].map((heading) => (
-                <th key={heading} className="py-3 px-4 border border-gray-300 dark:border-gray-700">
+                <th key={heading} className="py-3 px-4 border border-emerald-300 dark:border-emerald-700">
                   {heading}
                 </th>
               ))}
             </tr>
           </thead>
-          <tbody className="text-center text-gray-800 dark:text-gray-200">
+          <tbody className="text-center text-emerald-600 dark:text-emerald-400">
             {courts.map((court) => (
               <tr
                 key={court._id}
-                className="hover:bg-gray-50 dark:hover:bg-gray-800 transition border-b border-gray-300 dark:border-gray-700"
+                className="hover:bg-emerald-50 dark:hover:bg-zinc-900 transition border-b border-emerald-300 dark:border-emerald-700"
               >
                 <td className="py-2 px-4 border">{court.name}</td>
                 <td className="py-2 px-4 border">{court.type}</td>

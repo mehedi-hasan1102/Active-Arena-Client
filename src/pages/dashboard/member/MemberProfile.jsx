@@ -48,7 +48,7 @@ const MemberProfile = () => {
   }
 
   return (
-    <div className="p-6 max-w-4xl mx-auto min-h-screen bg-white dark:bg-zinc-900 text-gray-800 dark:text-gray-200 transition-colors duration-300">
+    <div className="p-6 max-w-4xl mx-auto min-h-screen bg-white dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 transition-colors duration-300">
       <h1 className="text-3xl font-bold mb-8 text-center">My Profile</h1>
 
       {/* Loading State */}
@@ -59,24 +59,24 @@ const MemberProfile = () => {
       {/* Profile Section */}
       {user && !isUserLoading && !isBookingsLoading && (
         <>
-          <section className="flex flex-col sm:flex-row items-center gap-6 mb-10 bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 border border-gray-300 dark:border-gray-700">
+          <section className="flex flex-col sm:flex-row items-center gap-6 mb-10 bg-white dark:bg-zinc-900 rounded-lg shadow-md p-6 border border-emerald-300 dark:border-emerald-700">
             <img
               src={user?.photoURL || 'https://via.placeholder.com/150'}
               alt="Member Avatar"
-              className="w-24 h-24 rounded-full object-cover border-4 border-blue-600 shadow-md"
+              className="w-24 h-24 rounded-full object-cover border-4 border-emerald-500 shadow-md"
               aria-label="User profile picture"
             />
             <div className="space-y-1 text-center sm:text-left">
               <p>
-                <span className="font-semibold text-gray-700 dark:text-gray-300">Name: </span>
+                <span className="font-semibold text-emerald-600 dark:text-emerald-400">Name: </span>
                 {user?.displayName || 'Anonymous User'}
               </p>
               <p>
-                <span className="font-semibold text-gray-700 dark:text-gray-300">Email: </span>
+                <span className="font-semibold text-emerald-600 dark:text-emerald-400">Email: </span>
                 {user?.email}
               </p>
               <p>
-                <span className="font-semibold text-gray-700 dark:text-gray-300">Member Since: </span>
+                <span className="font-semibold text-emerald-600 dark:text-emerald-400">Member Since: </span>
                 {userData?.memberSince
                   ? new Date(userData.memberSince).toLocaleDateString()
                   : 'Not a member yet'}
@@ -86,15 +86,15 @@ const MemberProfile = () => {
 
           {/* Stats Cards */}
           <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-lg shadow-md p-6 border border-gray-300 dark:border-gray-700 text-center">
+            <div className="bg-white dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 rounded-lg shadow-md p-6 border border-emerald-300 dark:border-emerald-700 text-center">
               <h2 className="text-lg font-semibold mb-2">Bookings Made</h2>
               <p className="text-4xl font-bold">{stats.totalBookings}</p>
             </div>
-            <div className="bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-lg shadow-md p-6 border border-gray-300 dark:border-gray-700 text-center">
+            <div className="bg-white dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 rounded-lg shadow-md p-6 border border-emerald-300 dark:border-emerald-700 text-center">
               <h2 className="text-lg font-semibold mb-2">Upcoming Bookings</h2>
               <p className="text-4xl font-bold">{stats.upcomingBookings}</p>
             </div>
-            <div className="bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 rounded-lg shadow-md p-6 border border-gray-300 dark:border-gray-700 text-center">
+            <div className="bg-white dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 rounded-lg shadow-md p-6 border border-emerald-300 dark:border-emerald-700 text-center">
               <h2 className="text-lg font-semibold mb-2">Membership Level</h2>
               <p className="text-4xl font-bold">{stats.membershipLevel}</p>
             </div>

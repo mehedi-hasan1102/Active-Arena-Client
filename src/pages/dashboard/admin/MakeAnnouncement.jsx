@@ -1,5 +1,3 @@
-
-
 import React, { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import Swal from 'sweetalert2';
@@ -107,7 +105,7 @@ const MakeAnnouncement = () => {
       cancelButtonText: 'Cancel',
       background: document.documentElement.classList.contains('dark') ? '#18181b' : '#fff',
       color: document.documentElement.classList.contains('dark') ? '#e4e4e7' : '#111827',
-      confirmButtonColor: '#2563eb',
+      confirmButtonColor: '#059669',
       cancelButtonColor: '#d33',
     }).then((result) => {
       if (result.isConfirmed) {
@@ -132,11 +130,11 @@ const MakeAnnouncement = () => {
     );
 
   return (
-    <div className="min-h-screen bg-white dark:bg-zinc-900 text-gray-800 dark:text-gray-200 p-6 sm:p-10">
+    <div className="min-h-screen bg-white dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 p-6 sm:p-10">
       
 
       <h1 className="text-2xl sm:text-3xl font-bold mb-6 text-center">
-  📢 Make Announcement</h1>
+   Make Announcement</h1>
       {/* Search Bar */}
       <div className="mb-8 max-w-lg mx-auto">
         <input
@@ -145,7 +143,7 @@ const MakeAnnouncement = () => {
           onChange={handleSearch}
           placeholder="Search announcements by title..."
           aria-label="Search announcements by title"
-          className="w-full p-3 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 shadow-sm transition focus:ring-4 focus:ring-blue-600 focus:outline-none"
+          className="w-full p-3 rounded-md border border-emerald-300 dark:border-emerald-700 bg-white dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 placeholder-emerald-400 dark:placeholder-emerald-600 shadow-sm transition focus:ring-4 focus:ring-emerald-500 focus:outline-none"
         />
       </div>
 
@@ -153,7 +151,7 @@ const MakeAnnouncement = () => {
       <div className="mb-10 flex justify-center">
         <button
           onClick={() => setIsAddModalOpen(true)}
-          className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-md shadow-md transition-transform transform hover:scale-[1.05] focus:outline-none focus:ring-4 focus:ring-blue-500"
+          className="bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-8 py-3 rounded-md shadow-md transition-transform transform hover:scale-[1.05] focus:outline-none focus:ring-4 focus:ring-emerald-500"
           aria-label="Add new announcement"
         >
           ➕ Add New Announcement
@@ -163,26 +161,26 @@ const MakeAnnouncement = () => {
       {/* Add Announcement Modal */}
       {isAddModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 animate-fadeIn">
-          <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-xl w-full max-w-md animate-slideInUp">
-            <h2 className="text-2xl font-semibold mb-6 text-gray-900 dark:text-gray-100">➕ Add New Announcement</h2>
+          <div className="bg-white dark:bg-zinc-900 p-8 rounded-lg shadow-xl w-full max-w-md animate-slideInUp">
+            <h2 className="text-2xl font-semibold mb-6 text-emerald-600 dark:text-emerald-400">➕ Add New Announcement</h2>
             <form onSubmit={handleAddAnnouncement} className="space-y-6">
               <div>
-                <label className="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">Title</label>
+                <label className="block mb-2 text-sm font-medium text-emerald-600 dark:text-emerald-400">Title</label>
                 <input
                   type="text"
                   value={newAnnouncement.title}
                   onChange={(e) => setNewAnnouncement({ ...newAnnouncement, title: e.target.value })}
-                  className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 shadow-sm focus:outline-none focus:ring-4 focus:ring-purple-500 transition"
+                  className="w-full p-3 border border-emerald-300 dark:border-emerald-700 rounded-md bg-white dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 placeholder-emerald-400 dark:placeholder-emerald-600 shadow-sm focus:outline-none focus:ring-4 focus:ring-emerald-500 transition"
                   required
                   autoFocus
                 />
               </div>
               <div>
-                <label className="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">Content</label>
+                <label className="block mb-2 text-sm font-medium text-emerald-600 dark:text-emerald-400">Content</label>
                 <textarea
                   value={newAnnouncement.content}
                   onChange={(e) => setNewAnnouncement({ ...newAnnouncement, content: e.target.value })}
-                  className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 shadow-sm focus:outline-none focus:ring-4 focus:ring-purple-500 transition h-28 resize-none"
+                  className="w-full p-3 border border-emerald-300 dark:border-emerald-700 rounded-md bg-white dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 placeholder-emerald-400 dark:placeholder-emerald-600 shadow-sm focus:outline-none focus:ring-4 focus:ring-emerald-500 transition h-28 resize-none"
                   required
                 />
               </div>
@@ -190,7 +188,7 @@ const MakeAnnouncement = () => {
                 <button
                   type="submit"
                   disabled={addAnnouncementMutation.isLoading}
-                  className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-md shadow-md transition disabled:opacity-60 disabled:cursor-not-allowed"
+                  className="bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-6 py-2 rounded-md shadow-md transition disabled:opacity-60 disabled:cursor-not-allowed"
                 >
                   Add Announcement
                 </button>
@@ -210,30 +208,30 @@ const MakeAnnouncement = () => {
       {/* Edit Announcement Modal */}
       {isEditModalOpen && editingAnnouncement && (
         <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 animate-fadeIn">
-          <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-xl w-full max-w-md animate-slideInUp">
-            <h2 className="text-2xl font-semibold mb-6 text-gray-900 dark:text-gray-100">✏️ Edit Announcement</h2>
+          <div className="bg-white dark:bg-zinc-900 p-8 rounded-lg shadow-xl w-full max-w-md animate-slideInUp">
+            <h2 className="text-2xl font-semibold mb-6 text-emerald-600 dark:text-emerald-400">✏️ Edit Announcement</h2>
             <form onSubmit={handleUpdateAnnouncement} className="space-y-6">
               <div>
-                <label className="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">Title</label>
+                <label className="block mb-2 text-sm font-medium text-emerald-600 dark:text-emerald-400">Title</label>
                 <input
                   type="text"
                   value={editingAnnouncement.title}
                   onChange={(e) =>
                     setEditingAnnouncement({ ...editingAnnouncement, title: e.target.value })
                   }
-                  className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 shadow-sm focus:outline-none focus:ring-4 focus:ring-purple-500 transition"
+                  className="w-full p-3 border border-emerald-300 dark:border-emerald-700 rounded-md bg-white dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 placeholder-emerald-400 dark:placeholder-emerald-600 shadow-sm focus:outline-none focus:ring-4 focus:ring-emerald-500 transition"
                   required
                   autoFocus
                 />
               </div>
               <div>
-                <label className="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">Content</label>
+                <label className="block mb-2 text-sm font-medium text-emerald-600 dark:text-emerald-400">Content</label>
                 <textarea
                   value={editingAnnouncement.content}
                   onChange={(e) =>
                     setEditingAnnouncement({ ...editingAnnouncement, content: e.target.value })
                   }
-                  className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 shadow-sm focus:outline-none focus:ring-4 focus:ring-purple-500 transition h-28 resize-none"
+                  className="w-full p-3 border border-emerald-300 dark:border-emerald-700 rounded-md bg-white dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 placeholder-emerald-400 dark:placeholder-emerald-600 shadow-sm focus:outline-none focus:ring-4 focus:ring-emerald-500 transition h-28 resize-none"
                   required
                 />
               </div>
@@ -241,7 +239,7 @@ const MakeAnnouncement = () => {
                 <button
                   type="submit"
                   disabled={updateAnnouncementMutation.isLoading}
-                  className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-md shadow-md transition disabled:opacity-60 disabled:cursor-not-allowed"
+                  className="bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-6 py-2 rounded-md shadow-md transition disabled:opacity-60 disabled:cursor-not-allowed"
                 >
                   Update Announcement
                 </button>
@@ -259,12 +257,12 @@ const MakeAnnouncement = () => {
       )}
 
       {/* Announcement Table */}
-      <div className="overflow-x-auto shadow-lg rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900">
+      <div className="overflow-x-auto shadow-lg rounded-lg border border-emerald-300 dark:border-emerald-700 bg-white dark:bg-zinc-900">
         <table
-          className="min-w-full text-gray-800 dark:text-gray-200 text-sm"
+          className="min-w-full text-emerald-600 dark:text-emerald-400 text-sm"
           aria-label="Announcements table"
         >
-          <thead className="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200 uppercase text-xs select-none">
+          <thead className="bg-emerald-50 dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 uppercase text-xs select-none">
             <tr>
               <th className="py-4 px-6 text-left rounded-tl-lg font-semibold">Title</th>
               <th className="py-4 px-6 text-left font-semibold">Content</th>
@@ -285,7 +283,7 @@ const MakeAnnouncement = () => {
               announcements.map((announcement) => (
                 <tr
                   key={announcement._id}
-                  className="border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                  className="border-b border-emerald-300 dark:border-emerald-700 hover:bg-emerald-50 dark:hover:bg-zinc-900 transition-colors"
                 >
                   <td className="py-4 px-6 font-medium">{announcement.title}</td>
                   <td className="py-4 px-6 whitespace-pre-wrap">{announcement.content}</td>
@@ -296,7 +294,7 @@ const MakeAnnouncement = () => {
                           setEditingAnnouncement(announcement);
                           setIsEditModalOpen(true);
                         }}
-                        className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md text-sm font-semibold shadow-md transition-transform transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-green-400"
+                        className="bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 rounded-md text-sm font-semibold shadow-md transition-transform transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-emerald-400"
                         aria-label={`Edit announcement ${announcement.title}`}
                       >
                         Edit
@@ -321,7 +319,3 @@ const MakeAnnouncement = () => {
 };
 
 export default MakeAnnouncement;
-
-
-
-

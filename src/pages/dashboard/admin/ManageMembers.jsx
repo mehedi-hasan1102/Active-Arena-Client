@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import axiosInstance from "../../../api/axiosInstance";
 import Loading from "../../../components/Loading";
@@ -96,7 +97,7 @@ const ManageMembers = () => {
                   <td className="py-3 px-4 text-center">
                     <button
                       onClick={() => handleDelete(member._id)}
-                      className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md transition"
+                      className="px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg font-semibold shadow-md hover:shadow-lg transition-all duration-300 dark:bg-red-700 dark:hover:bg-red-800 dark:text-gray-200"
                     >
                       Delete
                     </button>

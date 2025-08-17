@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -178,7 +179,7 @@ const PaymentPage = () => {
             <button
               onClick={handleApplyCoupon}
               type="button"
-              className="bg-emerald-500 hover:bg-emerald-600 text-white rounded-md px-4 py-2"
+              className="px-6 py-3 bg-gradient-to-r from-emerald-600 to-cyan-600 hover:from-emerald-700 hover:to-cyan-700 text-white rounded-lg font-semibold shadow-md hover:shadow-lg transition-all duration-300 dark:from-emerald-400 dark:to-cyan-400 dark:hover:from-emerald-500 dark:hover:to-cyan-500 dark:text-gray-900"
             >
               Apply
             </button>

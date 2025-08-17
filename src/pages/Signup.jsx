@@ -1,4 +1,3 @@
-
 import { Helmet } from "react-helmet-async";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
@@ -297,9 +296,7 @@ const Signup = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 type="submit"
-                className="w-full bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-700 hover:to-emerald-600
-                  text-white font-medium sm:font-semibold px-4 py-2 sm:px-6 sm:py-3 rounded-lg shadow-lg hover:shadow-emerald-500/20 transition-all
-                  flex items-center justify-center gap-2 text-sm sm:text-base"
+                className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-emerald-600 to-cyan-600 hover:from-emerald-700 hover:to-cyan-700 text-white rounded-lg font-semibold shadow-md hover:shadow-lg transition-all duration-300 dark:from-emerald-400 dark:to-cyan-400 dark:hover:from-emerald-500 dark:hover:to-cyan-500 dark:text-gray-900"
               >
                 Create Account
               </motion.button>
@@ -320,8 +317,7 @@ const Signup = () => {
                 whileTap={{ scale: 0.98 }}
                 type="button"
                 onClick={handleGoogleSignup}
-                className="w-full flex items-center justify-center gap-2 border border-gray-300 dark:border-zinc-700
-                  text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-zinc-800 rounded-lg py-2 sm:py-3 font-medium transition text-sm sm:text-base"
+                className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-gray-300 hover:bg-gray-400 text-gray-900 rounded-lg font-semibold shadow-md hover:shadow-lg transition-all duration-300 dark:bg-zinc-800 dark:hover:bg-zinc-700 dark:text-gray-200"
               >
                 <FaGoogle className="text-cyan-500 text-base sm:text-lg" />
                 Google

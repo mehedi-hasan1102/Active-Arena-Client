@@ -146,7 +146,7 @@ const ManageCoupons = () => {
       <div className="mb-6 flex justify-center">
   <button
     onClick={() => setIsAddModalOpen(true)}
-    className="bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-6 py-2 rounded-md transition"
+    className="px-6 py-3 bg-gradient-to-r from-emerald-600 to-cyan-600 hover:from-emerald-700 hover:to-cyan-700 text-white rounded-lg font-semibold shadow-md hover:shadow-lg transition-all duration-300 dark:from-emerald-400 dark:to-cyan-400 dark:hover:from-emerald-500 dark:hover:to-cyan-500 dark:text-gray-900"
   >
     ➕ Add New Coupon
   </button>
@@ -196,14 +196,14 @@ const ManageCoupons = () => {
                 <button
                   type="submit"
                   disabled={addCouponMutation.isLoading}
-                  className="bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-2 rounded-md transition disabled:opacity-50"
+                  className="px-6 py-3 bg-gradient-to-r from-emerald-600 to-cyan-600 hover:from-emerald-700 hover:to-cyan-700 text-white rounded-lg font-semibold shadow-md hover:shadow-lg transition-all duration-300 dark:from-emerald-400 dark:to-cyan-400 dark:hover:from-emerald-500 dark:hover:to-cyan-500 dark:text-gray-900 disabled:opacity-50"
                 >
                   Add Coupon
                 </button>
                 <button
                   type="button"
                   onClick={() => setIsAddModalOpen(false)}
-                  className="bg-gray-400 hover:bg-gray-500 text-white px-6 py-2 rounded-md transition"
+                  className="px-6 py-3 bg-gray-300 hover:bg-gray-400 text-gray-900 rounded-lg font-semibold shadow-md hover:shadow-lg transition-all duration-300 dark:bg-zinc-800 dark:hover:bg-zinc-700 dark:text-gray-200"
                 >
                   Cancel
                 </button>
@@ -256,14 +256,14 @@ const ManageCoupons = () => {
                 <button
                   type="submit"
                   disabled={updateCouponMutation.isLoading}
-                  className="bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-2 rounded-md transition disabled:opacity-50"
+                  className="px-6 py-3 bg-gradient-to-r from-emerald-600 to-cyan-600 hover:from-emerald-700 hover:to-cyan-700 text-white rounded-lg font-semibold shadow-md hover:shadow-lg transition-all duration-300 dark:from-emerald-400 dark:to-cyan-400 dark:hover:from-emerald-500 dark:hover:to-cyan-500 dark:text-gray-900 disabled:opacity-50"
                 >
                   Update Coupon
                 </button>
                 <button
                   type="button"
                   onClick={() => setIsEditModalOpen(false)}
-                  className="bg-gray-400 hover:bg-gray-500 text-white px-6 py-2 rounded-md transition"
+                  className="px-6 py-3 bg-gray-300 hover:bg-gray-400 text-gray-900 rounded-lg font-semibold shadow-md hover:shadow-lg transition-all duration-300 dark:bg-zinc-800 dark:hover:bg-zinc-700 dark:text-gray-200"
                 >
                   Cancel
                 </button>
@@ -317,13 +317,13 @@ const ManageCoupons = () => {
                           setEditingCoupon(coupon);
                           setIsEditModalOpen(true);
                         }}
-                        className="bg-emerald-500 hover:bg-emerald-600 text-white px-3 py-1 rounded-md text-sm transition"
+                        className="px-4 py-2 bg-gray-300 hover:bg-gray-400 text-gray-900 rounded-lg font-semibold shadow-md hover:shadow-lg transition-all duration-300 dark:bg-zinc-800 dark:hover:bg-zinc-700 dark:text-gray-200"
                       >
                         Edit
                       </button>
                       <button
                         onClick={() => handleDeleteCoupon(coupon)}
-                        className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md text-sm transition"
+                        className="px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg font-semibold shadow-md hover:shadow-lg transition-all duration-300 dark:bg-red-700 dark:hover:bg-red-800 dark:text-gray-200"
                       >
                         Delete
                       </button>

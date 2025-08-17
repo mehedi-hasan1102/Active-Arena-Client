@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import Swal from 'sweetalert2';
@@ -151,7 +152,7 @@ const MakeAnnouncement = () => {
       <div className="mb-10 flex justify-center">
         <button
           onClick={() => setIsAddModalOpen(true)}
-          className="bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-8 py-3 rounded-md shadow-md transition-transform transform hover:scale-[1.05] focus:outline-none focus:ring-4 focus:ring-emerald-500"
+          className="px-8 py-3 bg-gradient-to-r from-emerald-600 to-cyan-600 hover:from-emerald-700 hover:to-cyan-700 text-white rounded-lg font-semibold shadow-md hover:shadow-lg transition-all duration-300 dark:from-emerald-400 dark:to-cyan-400 dark:hover:from-emerald-500 dark:hover:to-cyan-500 dark:text-gray-900 transform hover:scale-[1.05]"
           aria-label="Add new announcement"
         >
           ➕ Add New Announcement
@@ -188,14 +189,14 @@ const MakeAnnouncement = () => {
                 <button
                   type="submit"
                   disabled={addAnnouncementMutation.isLoading}
-                  className="bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-6 py-2 rounded-md shadow-md transition disabled:opacity-60 disabled:cursor-not-allowed"
+                  className="px-6 py-3 bg-gradient-to-r from-emerald-600 to-cyan-600 hover:from-emerald-700 hover:to-cyan-700 text-white rounded-lg font-semibold shadow-md hover:shadow-lg transition-all duration-300 dark:from-emerald-400 dark:to-cyan-400 dark:hover:from-emerald-500 dark:hover:to-cyan-500 dark:text-gray-900 disabled:opacity-60 disabled:cursor-not-allowed"
                 >
                   Add Announcement
                 </button>
                 <button
                   type="button"
                   onClick={() => setIsAddModalOpen(false)}
-                  className="bg-gray-400 hover:bg-gray-500 text-white font-semibold px-6 py-2 rounded-md shadow-md transition"
+                  className="px-6 py-3 bg-gray-300 hover:bg-gray-400 text-gray-900 rounded-lg font-semibold shadow-md hover:shadow-lg transition-all duration-300 dark:bg-zinc-800 dark:hover:bg-zinc-700 dark:text-gray-200"
                 >
                   Cancel
                 </button>
@@ -239,14 +240,14 @@ const MakeAnnouncement = () => {
                 <button
                   type="submit"
                   disabled={updateAnnouncementMutation.isLoading}
-                  className="bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-6 py-2 rounded-md shadow-md transition disabled:opacity-60 disabled:cursor-not-allowed"
+                  className="px-6 py-3 bg-gradient-to-r from-emerald-600 to-cyan-600 hover:from-emerald-700 hover:to-cyan-700 text-white rounded-lg font-semibold shadow-md hover:shadow-lg transition-all duration-300 dark:from-emerald-400 dark:to-cyan-400 dark:hover:from-emerald-500 dark:hover:to-cyan-500 dark:text-gray-900 disabled:opacity-60 disabled:cursor-not-allowed"
                 >
                   Update Announcement
                 </button>
                 <button
                   type="button"
                   onClick={() => setIsEditModalOpen(false)}
-                  className="bg-gray-400 hover:bg-gray-500 text-white font-semibold px-6 py-2 rounded-md shadow-md transition"
+                  className="px-6 py-3 bg-gray-300 hover:bg-gray-400 text-gray-900 rounded-lg font-semibold shadow-md hover:shadow-lg transition-all duration-300 dark:bg-zinc-800 dark:hover:bg-zinc-700 dark:text-gray-200"
                 >
                   Cancel
                 </button>
@@ -294,7 +295,7 @@ const MakeAnnouncement = () => {
                           setEditingAnnouncement(announcement);
                           setIsEditModalOpen(true);
                         }}
-                        className="bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 rounded-md text-sm font-semibold shadow-md transition-transform transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-emerald-400"
+                        className="px-4 py-2 bg-gray-300 hover:bg-gray-400 text-gray-900 rounded-lg font-semibold shadow-md hover:shadow-lg transition-all duration-300 dark:bg-zinc-800 dark:hover:bg-zinc-700 dark:text-gray-200"
                         aria-label={`Edit announcement ${announcement.title}`}
                       >
                         Edit

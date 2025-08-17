@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
 import { FiGift, FiPercent, FiClipboard, FiShoppingCart } from "react-icons/fi";
@@ -179,7 +180,7 @@ const PromotionsSection = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="mt-6 w-full py-2 text-sm font-medium rounded-lg bg-gray-100 dark:bg-zinc-700 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-zinc-600 transition-colors duration-300"
+                  className="mt-6 w-full px-6 py-3 bg-gray-300 hover:bg-gray-400 text-gray-900 rounded-lg font-semibold shadow-md hover:shadow-lg transition-all duration-300 dark:bg-zinc-800 dark:hover:bg-zinc-700 dark:text-gray-200"
                 >
                   Copy Code
                 </motion.button>

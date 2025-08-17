@@ -6,7 +6,6 @@ import {
 } from "@stripe/react-stripe-js";
 import PropTypes from "prop-types";
 import axiosInstance from "../api/axiosInstance"; // Make sure this path is correct
-import "./styles.css";
 
 const CheckoutForm = ({ bookingDetails }) => {
   const stripe = useStripe();
@@ -65,7 +64,7 @@ const CheckoutForm = ({ bookingDetails }) => {
       <button
         disabled={isProcessing || !stripe || !elements}
         id="submit"
-        className="stripe-button"
+        className="w-full mt-4 px-6 py-3 bg-gradient-to-r from-emerald-600 to-cyan-600 hover:from-emerald-700 hover:to-cyan-700 text-white rounded-lg font-semibold shadow-md hover:shadow-lg transition-all duration-300 dark:from-emerald-400 dark:to-cyan-400 dark:hover:from-emerald-500 dark:hover:to-cyan-500 dark:text-gray-900"
       >
         <span id="button-text">
           {isProcessing ? "Processing..." : `Pay $${bookingDetails.price}`}

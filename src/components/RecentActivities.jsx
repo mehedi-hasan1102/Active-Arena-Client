@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 
@@ -171,7 +172,7 @@ const RecentActivity = () => {
                 </p>
                 <div className="mt-4 pt-4 border-t border-gray-100 dark:border-zinc-700 flex justify-between items-center">
                   <span className="text-xs text-gray-500 dark:text-gray-400">Member since 2023</span>
-                  <button className="text-xs text-blue-600 dark:text-blue-400 hover:underline">
+                  <button className="px-2 py-1 bg-gray-300 hover:bg-gray-400 text-gray-900 rounded-lg font-semibold shadow-md hover:shadow-lg transition-all duration-300 dark:bg-zinc-800 dark:hover:bg-zinc-700 dark:text-gray-200 text-xs">
                     View Profile
                   </button>
                 </div>

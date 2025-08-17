@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Helmet } from 'react-helmet-async';
@@ -77,7 +78,7 @@ const MemberApprovedBookings = () => {
 
               <button
                 onClick={() => handlePayNow(booking)}
-                className="mt-4 w-full bg-emerald-500 hover:bg-emerald-600 text-white font-semibold py-2 rounded-md transition"
+                className="mt-4 w-full px-6 py-3 bg-gradient-to-r from-emerald-600 to-cyan-600 hover:from-emerald-700 hover:to-cyan-700 text-white rounded-lg font-semibold shadow-md hover:shadow-lg transition-all duration-300 dark:from-emerald-400 dark:to-cyan-400 dark:hover:from-emerald-500 dark:hover:to-cyan-500 dark:text-gray-900"
               >
                 💳 Pay Now
               </button>

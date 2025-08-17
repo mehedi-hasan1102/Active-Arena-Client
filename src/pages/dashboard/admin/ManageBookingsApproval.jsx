@@ -187,7 +187,7 @@ const ManageBookingsApproval = () => {
                           aria-label={`Approve booking for ${
                             booking.userName || booking.userEmail || 'user'
                           } on ${booking.courtName || 'court'}`}
-                          className="bg-emerald-500 hover:bg-emerald-600 text-white px-5 py-2 rounded-md text-sm font-semibold transition disabled:opacity-50"
+                          className="px-6 py-3 bg-gradient-to-r from-emerald-600 to-cyan-600 hover:from-emerald-700 hover:to-cyan-700 text-white rounded-lg font-semibold shadow-md hover:shadow-lg transition-all duration-300 dark:from-emerald-400 dark:to-cyan-400 dark:hover:from-emerald-500 dark:hover:to-cyan-500 dark:text-gray-900 disabled:opacity-50"
                         >
                           Approve
                         </button>
@@ -197,7 +197,7 @@ const ManageBookingsApproval = () => {
                           aria-label={`Reject booking for ${
                             booking.userName || booking.userEmail || 'user'
                           } on ${booking.courtName || 'court'}`}
-                          className="bg-red-600 hover:bg-red-700 text-white px-5 py-2 rounded-md text-sm font-semibold transition disabled:opacity-50"
+                          className="px-6 py-3 bg-red-500 hover:bg-red-600 text-white rounded-lg font-semibold shadow-md hover:shadow-lg transition-all duration-300 dark:bg-red-700 dark:hover:bg-red-800 dark:text-gray-200 disabled:opacity-50"
                         >
                           Reject
                         </button>

@@ -123,7 +123,7 @@ const ManageCourts = () => {
           <div className="flex flex-wrap gap-3">
             <button
               type="submit"
-              className="bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-2 rounded-md font-semibold transition"
+              className="px-6 py-3 bg-gradient-to-r from-emerald-600 to-cyan-600 hover:from-emerald-700 hover:to-cyan-700 text-white rounded-lg font-semibold shadow-md hover:shadow-lg transition-all duration-300 dark:from-emerald-400 dark:to-cyan-400 dark:hover:from-emerald-500 dark:hover:to-cyan-500 dark:text-gray-900"
             >
               {editingCourt ? 'Update Court' : 'Add Court'}
             </button>
@@ -131,7 +131,7 @@ const ManageCourts = () => {
               <button
                 type="button"
                 onClick={() => setEditingCourt(null)}
-                className="bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-2 rounded-md font-semibold transition"
+                className="px-6 py-3 bg-gray-300 hover:bg-gray-400 text-gray-900 rounded-lg font-semibold shadow-md hover:shadow-lg transition-all duration-300 dark:bg-zinc-800 dark:hover:bg-zinc-700 dark:text-gray-200"
               >
                 Cancel
               </button>
@@ -166,13 +166,13 @@ const ManageCourts = () => {
                 <td className="py-2 px-4 border space-x-2">
                   <button
                     onClick={() => setEditingCourt(court)}
-                    className="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded-md"
+                    className="px-4 py-2 bg-gray-300 hover:bg-gray-400 text-gray-900 rounded-lg font-semibold shadow-md hover:shadow-lg transition-all duration-300 dark:bg-zinc-800 dark:hover:bg-zinc-700 dark:text-gray-200"
                   >
                     Edit
                   </button>
                   <button
                     onClick={() => handleDeleteCourt(court._id)}
-                    className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md"
+                    className="px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg font-semibold shadow-md hover:shadow-lg transition-all duration-300 dark:bg-red-700 dark:hover:bg-red-800 dark:text-gray-200"
                   >
                     Delete
                   </button>

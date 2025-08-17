@@ -1,5 +1,4 @@
-
-import { FaFacebookF, FaInstagram, FaTwitter, FaTrophy, FaMapMarkerAlt, FaPhone, FaEnvelope } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaTwitter, FaTrophy, FaMapMarkerAlt, FaPhone, FaEnvelope, FaLinkedinIn } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
@@ -158,7 +157,8 @@ const Footer = () => {
               {[
                 { icon: <FaFacebookF />, url: "#", color: "bg-blue-600 hover:bg-blue-700" },
                 { icon: <FaInstagram />, url: "#", color: "bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-700 hover:to-purple-700" },
-                { icon: <FaTwitter />, url: "#", color: "bg-sky-500 hover:bg-sky-600" }
+                { icon: <FaTwitter />, url: "#", color: "bg-sky-500 hover:bg-sky-600" },
+                { icon: <FaLinkedinIn />, url: "#", color: "bg-blue-700 hover:bg-blue-800" }
               ].map((social, index) => (
                 <motion.a
                   key={index}

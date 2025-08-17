@@ -7,6 +7,7 @@ import { ToastContainer } from "react-toastify";
 import { useEffect, useState } from "react";
 import Loading from "./components/Loading";
 import DarkModeSidebar from "./components/DarkModeSidebar";
+import BackToTopButton from "./components/BackToTopButton";
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -39,6 +40,7 @@ function App() {
         <ToastContainer position="top-center" autoClose={1000} />
         <Footer />
       </div>
+      <BackToTopButton />
     </div>
   );
 }

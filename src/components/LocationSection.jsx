@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
 import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaDirections } from "react-icons/fa";
@@ -56,7 +57,7 @@ const LocationSection = () => {
     <section
       id="location"
       ref={ref}
-      className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900 py-24 transition-colors duration-300"
+      className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900 py-24 transition-colors duration-300 rounded-xl"
     >
       {/* Animated background elements */}
       <motion.div

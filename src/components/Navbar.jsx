@@ -100,7 +100,7 @@ const Navbar = () => {
   return (
     // <nav className="max-w-7xl mx-auto bg-white dark:bg-zinc-900 border-b shadow-md fixed w-full z-50 transition-all duration-300">
 
-    <nav className="max-w-7xl mx-auto bg-white/80 dark:bg-zinc-900/80 backdrop-blur-sm border-b shadow-md fixed w-full z-50 transition-all duration-300">
+    <nav className="rounded-t-none rounded-xl max-w-7xl mx-auto bg-white/80 dark:bg-zinc-900/80 backdrop-blur-sm border-b shadow-md fixed w-full z-50 transition-all duration-300">
       <div className="px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link

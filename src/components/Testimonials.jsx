@@ -1,60 +1,4 @@
-// import React from 'react';
 
-// const testimonials = [
-//   {
-//     name: 'John Doe',
-//     role: 'Professional Player',
-//     message: 'ActiveArena has the best courts and facilities I have ever used. Highly recommended!',
-//     avatar: 'https://i.pravatar.cc/100?img=1',
-//   },
-//   {
-//     name: 'Jane Smith',
-//     role: 'Member',
-//     message: 'Booking courts is super easy and the staff is really helpful. Love it!',
-//     avatar: 'https://i.pravatar.cc/100?img=2',
-//   },
-//   {
-//     name: 'Ali Hasan',
-//     role: 'Amateur Player',
-//     message: 'Great experience and friendly environment. Definitely coming back!',
-//     avatar: 'https://i.pravatar.cc/100?img=3',
-//   },
-// ];
-
-// const TestimonialSection = () => {
-//   return (
-//     <section className="py-16 px-4 bg-gradient-to-r from-blue-50 to-blue-100 dark:from-zinc-900 dark:to-zinc-800 transition-colors duration-300">
-//       <div className="max-w-5xl mx-auto text-center">
-//         <h2 className="text-3xl font-bold mb-8 text-blue-700 dark:text-blue-400">
-//           What Our Members Say
-//         </h2>
-//         <div className="grid md:grid-cols-3 gap-6">
-//           {testimonials.map((t, index) => (
-//             <div
-//               key={index}
-//               className="p-6 bg-white dark:bg-zinc-900 rounded-lg shadow-md dark:shadow-blue-800/20 transition flex flex-col items-center"
-//             >
-//               <img
-//                 src={t.avatar}
-//                 alt={t.name}
-//                 className="w-20 h-20 rounded-full mb-4"
-//               />
-//               <p className="text-gray-700 dark:text-blue-300 italic mb-4 text-center">
-//                 "{t.message}"
-//               </p>
-//               <h3 className="font-semibold text-blue-700 dark:text-blue-400">
-//                 {t.name}
-//               </h3>
-//               <span className="text-sm text-gray-500 dark:text-gray-400">{t.role}</span>
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default TestimonialSection;
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 
@@ -153,7 +97,7 @@ const TestimonialSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative py-16 px-6 overflow-hidden bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900 transition-colors duration-300"
+      className="relative py-16 px-6 overflow-hidden bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900 transition-colors duration-300 rounded-xl"
     >
       {/* Animated background elements */}
       <motion.div

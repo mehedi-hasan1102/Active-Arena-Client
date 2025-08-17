@@ -1,65 +1,4 @@
-// import React, { useState } from 'react';
-// import Swal from 'sweetalert2';
 
-// const NewsletterSection = () => {
-//   const [email, setEmail] = useState('');
-
-//   const handleSubscribe = (e) => {
-//     e.preventDefault();
-//     if (!email) {
-//       const isDark = document.documentElement.classList.contains('dark');
-//       Swal.fire({
-//         icon: 'warning',
-//         title: 'Please enter your email',
-//         background: isDark ? '#18181b' : '#fff',
-//         color: isDark ? '#facc15' : '#b45309',
-//       });
-//       return;
-//     }
-
-//     // Example: Show success message (replace with actual API call)
-//     const isDark = document.documentElement.classList.contains('dark');
-//     Swal.fire({
-//       icon: 'success',
-//       title: 'Subscribed Successfully!',
-//       background: isDark ? '#18181b' : '#fff',
-//       color: isDark ? '#4ade80' : '#166534',
-//       timer: 1500,
-//       showConfirmButton: false,
-//     });
-//     setEmail('');
-//   };
-
-//   return (
-//     <section className="py-16 px-4 bg-gradient-to-r from-blue-50 to-blue-100 dark:from-zinc-900 dark:to-zinc-800 transition-colors duration-300">
-//       <div className="max-w-4xl mx-auto text-center">
-//         <h2 className="text-3xl font-bold mb-4 text-blue-700 dark:text-blue-400">
-//           Subscribe to Our Newsletter
-//         </h2>
-//         <p className="text-gray-700 dark:text-gray-300 mb-8">
-//           Get updates about the latest events, membership plans, and featured courts directly to your inbox.
-//         </p>
-//         <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row justify-center gap-2">
-//           <input
-//             type="email"
-//             placeholder="Enter your email"
-//             value={email}
-//             onChange={(e) => setEmail(e.target.value)}
-//             className="w-full sm:w-72 px-4 py-2 rounded-md border border-blue-700 dark:border-blue-400 dark:bg-zinc-800 dark:text-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
-//           />
-//           <button
-//             type="submit"
-//             className="px-6 py-2 bg-blue-700 hover:bg-blue-800 text-white rounded-md font-semibold transition"
-//           >
-//             Subscribe
-//           </button>
-//         </form>
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default NewsletterSection;
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import Swal from 'sweetalert2';
@@ -162,7 +101,7 @@ const NewsletterSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative py-16 px-6 overflow-hidden bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900 transition-colors duration-300"
+      className="relative py-16 px-6 overflow-hidden bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900 transition-colors duration-300 rounded-xl"
     >
       {/* Animated background elements */}
       <motion.div

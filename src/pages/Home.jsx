@@ -1,3 +1,4 @@
+
 import { Helmet } from "react-helmet-async";
 import HeroSection from "../components/HeroSection";
 import FeaturedCourts from "../components/FeaturedCourts";
@@ -13,45 +14,47 @@ import LocationSection from '../components/LocationSection';
 
 const Home = () => {
   return (
-    <div className="bg-white dark:bg-zinc-900 transition-colors duration-300">
+    <div className="rounded-xl">
       <Helmet>
         <title>Home - ActiveArena</title>
       </Helmet>
 
-      {/* 1. Hero Section - Eye-catching, call-to-action */}
-      <HeroSection />
+      <div className="max-w-7xl mx-auto">
+        {/* 1. Hero Section - Eye-catching, call-to-action */}
+        <HeroSection />
 
-      {/* 2. Featured Courts - Immediate highlight of main offerings */}
-      <FeaturedCourts />
+        {/* 2. Featured Courts - Immediate highlight of main offerings */}
+        <FeaturedCourts />
 
-      {/* 3. Upcoming Events - Keep users engaged with what’s next */}
-      <UpcomingEvents />
+        {/* 3. Upcoming Events - Keep users engaged with what’s next */}
+        <UpcomingEvents />
 
-      {/* 4. Promotions - Special deals to encourage booking */}
-      <PromotionsSection />
+        {/* 4. Promotions - Special deals to encourage booking */}
+        <PromotionsSection />
 
-      {/* 5. Recent Activities - Show community & activity */}
-      <RecentActivities />
+        {/* 5. Recent Activities - Show community & activity */}
+        <RecentActivities />
 
-      {/* 6. Testimonials - Build trust & social proof */}
-      <Testimonials />
+        {/* 6. Testimonials - Build trust & social proof */}
+        <Testimonials />
 
-      {/* 7. About Club - Story & mission, after credibility established */}
-      <AboutClub />
+        {/* 7. About Club - Story & mission, after credibility established */}
+        <AboutClub />
 
-      {/* 8. Membership Plans - Optional for conversions */}
-      {/* <MembershipPlans /> */}
+        {/* 8. Membership Plans - Optional for conversions */}
+        {/* <MembershipPlans /> */}
 
-      {/* 9. Gallery - Visual appeal & highlight club vibe */}
-      {/* <GallerySection /> */}
+        {/* 9. Gallery - Visual appeal & highlight club vibe */}
+        {/* <GallerySection /> */}
 
-      {/* 10. Newsletter - Capture leads / stay connected */}
-      <Newsletter />
+        {/* 10. Newsletter - Capture leads / stay connected */}
+        <Newsletter />
 
-      {/* 11. Location - At the end for users ready to visit */}
-      <LocationSection />
+        {/* 11. Location - At the end for users ready to visit */}
+        <LocationSection />
 
-      {/* Footer - Already included in layout */}
+        {/* Footer - Already included in layout */}
+      </div>
     </div>
   );
 };

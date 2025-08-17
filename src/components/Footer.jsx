@@ -42,7 +42,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="relative overflow-hidden bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 pt-16 pb-8">
+    <footer className="relative overflow-hidden bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 pt-16 pb-8 rounded-b-none rounded-xl">
       {/* Floating decorative elements */}
       <motion.div 
         animate="float"

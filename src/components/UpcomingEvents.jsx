@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, useAnimation, useInView } from 'framer-motion';
 
@@ -99,7 +100,7 @@ const UpcomingEvents = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative py-16 px-6 overflow-hidden bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900 transition-colors duration-300"
+      className="relative py-16 px-6 overflow-hidden bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900 transition-colors duration-300 rounded-xl"
     >
       {/* Animated background elements */}
       <motion.div

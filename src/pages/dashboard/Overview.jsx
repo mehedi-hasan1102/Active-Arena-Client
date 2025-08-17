@@ -53,7 +53,7 @@ const Overview = () => {
     }
 
     fetchBookings();
-  },   [user?.uid, user?.email, authLoading]); // ✅ Added user?.email here
+  },   [user?.uid, user?.email, authLoading]); //  Added user?.email here
 
   if (authLoading || loadingRole || loading) {
     return (
@@ -105,7 +105,7 @@ const Overview = () => {
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.6 }}
               />
-              <span className="absolute -top-2 -right-2 bg-blue-600 text-white text-xs font-semibold px-2 py-0.5 rounded-full shadow">
+              <span className="absolute -top-2 -right-2 bg-[#059669] text-white text-xs font-semibold px-2 py-0.5 rounded-full shadow">
                 ✅ {role || "User"}
               </span>
             </div>

@@ -48,7 +48,7 @@ const UserPendingBookings = () => {
         <title>Pending Bookings - ActiveArena</title>
       </Helmet>
 
-      <h1 className="text-3xl font-bold text-center text-blue-700 dark:text-blue-400 mb-8">
+      <h1 className="text-3xl font-bold text-center text-[#059669]  dark:text-[#059669]  mb-8">
         🕒 Pending Bookings
       </h1>
 
@@ -63,16 +63,16 @@ const UserPendingBookings = () => {
           {bookings.map((booking) => (
             <div
               key={booking._id}
-              className="bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 p-4 rounded-lg shadow-md border-l-4 border-blue-500"
+              className="bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 p-4 rounded-lg shadow-md border-l-4 border-[#059669] "
             >
-              <h2 className="text-xl font-semibold text-blue-700 dark:text-blue-400">
+              <h2 className="text-xl font-semibold text-blue-700 dark:text-[#059669] ">
                 {booking.courtName || 'Unknown Court'}
               </h2>
               <p>Slot(s): {booking.slots.join(', ')}</p>
               <p>Date: {new Date(booking.date).toLocaleDateString()}</p>
               <p>Price: ৳{booking.price}</p>
               <p className="text-sm text-gray-500 dark:text-gray-400">
-                Status: <span className="font-semibold text-blue-600 dark:text-blue-400">{booking.status}</span>
+                Status: <span className="font-semibold text-blue-600 dark:text-[#059669] ">{booking.status}</span>
               </p>
               <button
                 onClick={() => handleCancel(booking._id)}

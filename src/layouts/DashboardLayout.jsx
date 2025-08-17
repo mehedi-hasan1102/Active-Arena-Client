@@ -70,7 +70,6 @@ const adminLinks = [
   { to: "/dashboard/make-announcement", label: "Make Announcement", icon: <MdCampaign size={20} /> },
   ...commonLinks,
 ];
-
 const DashboardLayout = () => {
   const [collapsed, setCollapsed] = useState(false);
   const { role, isLoading } = useRole();
@@ -80,17 +79,17 @@ const DashboardLayout = () => {
   const navItems = role === "admin" ? adminLinks : role === "member" ? memberLinks : userLinks;
 
   return (
-    <div className="min-h-screen flex bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900 transition-colors duration-300">
+    <div className="min-h-screen flex bg-emerald-50 dark:bg-zinc-900 transition-colors duration-300">
       <aside
         className={`${
           collapsed ? "w-20" : "w-64"
-        } bg-white dark:bg-zinc-900 border-r-2 border-blue-300 dark:border-blue-700 p-4 flex flex-col justify-between transition-all duration-300 rounded-md`}
+        } bg-white dark:bg-zinc-900 border-r-2 border-emerald-500 dark:border-emerald-700 p-4 flex flex-col justify-between transition-all duration-300 rounded-md`}
       >
         <div>
           <div className="flex items-center justify-between mb-6">
             <Link
               to="/"
-              className="flex items-center gap-2 text-blue-700 dark:text-blue-400"
+              className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400"
             >
               <FaTrophy size={24} />
               {!collapsed && (
@@ -101,7 +100,7 @@ const DashboardLayout = () => {
             </Link>
             <button
               onClick={() => setCollapsed(!collapsed)}
-              className="text-blue-600 dark:text-blue-400 text-lg font-bold select-none rounded-md"
+              className="text-emerald-600 dark:text-emerald-400 text-lg font-bold select-none rounded-md"
               aria-label="Toggle sidebar"
               title={collapsed ? "Expand sidebar" : "Collapse sidebar"}
             >
@@ -111,7 +110,7 @@ const DashboardLayout = () => {
 
           <NavLink
             to="/"
-            className="flex items-center gap-3 px-3 py-2 rounded-md transition-colors hover:bg-blue-100 dark:hover:bg-blue-700 mb-2 text-gray-800 dark:text-zinc-300"
+            className="flex items-center gap-3 px-3 py-2 rounded-md transition-colors hover:bg-emerald-50 dark:hover:bg-emerald-700 mb-2 text-gray-800 dark:text-zinc-300"
           >
             <MdHome size={20} />
             {!collapsed && "Home"}
@@ -122,9 +121,9 @@ const DashboardLayout = () => {
               to="/dashboard"
               end
               className={({ isActive }) =>
-                `flex items-center gap-3 px-3 py-2 rounded-md transition-colors hover:bg-blue-100 dark:hover:bg-blue-700 ${
+                `flex items-center gap-3 px-3 py-2 rounded-md transition-colors hover:bg-emerald-50 dark:hover:bg-emerald-700 ${
                   isActive
-                    ? "bg-blue-200 dark:bg-blue-700 font-semibold text-blue-700 dark:text-blue-300"
+                    ? "bg-emerald-500 dark:bg-emerald-700 font-semibold text-white dark:text-emerald-400"
                     : "text-gray-800 dark:text-zinc-300"
                 }`
               }
@@ -138,9 +137,9 @@ const DashboardLayout = () => {
                 key={to}
                 to={to}
                 className={({ isActive }) =>
-                  `flex items-center gap-3 px-3 py-2 rounded-md transition-colors hover:bg-blue-100 dark:hover:bg-blue-700 ${
+                  `flex items-center gap-3 px-3 py-2 rounded-md transition-colors hover:bg-emerald-50 dark:hover:bg-emerald-700 ${
                     isActive
-                      ? "bg-blue-200 dark:bg-blue-700 font-semibold text-blue-700 dark:text-blue-300"
+                      ? "bg-emerald-500 dark:bg-emerald-700 font-semibold text-white dark:text-emerald-400"
                       : "text-gray-800 dark:text-zinc-300"
                   }`
                 }
@@ -152,12 +151,12 @@ const DashboardLayout = () => {
           </nav>
         </div>
 
-        <div className="pt-4 border-t border-blue-300 dark:border-blue-700 flex justify-center">
+        <div className="pt-4 border-t border-emerald-500 dark:border-emerald-700 flex justify-center">
           {!collapsed && <Switch />}
         </div>
       </aside>
 
-      <main className="flex-1 p-6 overflow-y-auto bg-white dark:bg-zinc-900 text-gray-900 dark:text-zinc-200 transition-colors duration-300 rounded-md">
+      <main className="flex-1 p-6 overflow-y-auto bg-emerald-50 dark:bg-zinc-900 text-gray-900 dark:text-zinc-200 transition-colors duration-300 rounded-md">
         <Outlet />
       </main>
     </div>

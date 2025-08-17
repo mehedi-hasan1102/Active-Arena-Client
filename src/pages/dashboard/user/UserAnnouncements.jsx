@@ -78,13 +78,13 @@ const UserAnnouncements = () => {
           {announcements.map((item, index) => (
             <Motion.div
               key={item._id}
-              className="bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 border-l-4 border-blue-600 rounded-lg shadow-md p-4"
+              className="bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-200 border-l-4 border-[#059669] rounded-lg shadow-md p-4"
               custom={index}
               initial="hidden"
               animate="visible"
               variants={cardVariant}
             >
-              <h2 className="text-xl font-semibold text-blue-700 dark:text-blue-400 mb-2">
+              <h2 className="text-xl font-semibold text-[#059669] dark:text-[#059669] mb-2">
                 {item.title}
               </h2>
               <p className="text-gray-700 dark:text-gray-200">{item.content}</p>

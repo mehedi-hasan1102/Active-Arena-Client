@@ -34,8 +34,8 @@ const UserProfile = () => {
       </Helmet>
 
       <div className="max-w-3xl mx-auto bg-white dark:bg-zinc-800 rounded-2xl shadow-lg p-8 space-y-6">
-        <h1 className="text-3xl font-bold text-blue-700 dark:text-blue-400 text-center">
-          👤 My Profile
+        <h1 className="text-3xl font-bold text-[#059669]  dark:text-[#059669]  text-center">
+           My Profile
         </h1>
 
         <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10">
@@ -44,9 +44,9 @@ const UserProfile = () => {
             <img
               src={user?.photoURL || 'https://i.ibb.co/5r5C1fJ/user.png'}
               alt="Profile"
-              className="w-32 h-32 rounded-full border-4 border-blue-500 dark:border-blue-400 shadow-md object-cover"
+              className="w-32 h-32 rounded-full border-4 border-[#059669]  dark:border-blue-400 shadow-md object-cover"
             />
-            <span className="absolute -bottom-2 right-0 bg-blue-600 text-white text-xs px-2 py-0.5 rounded-full shadow-sm font-semibold">
+            <span className="absolute -bottom-2 right-0 bg-[#059669]  text-white text-xs px-2 py-0.5 rounded-full shadow-sm font-semibold">
               {role || 'User'}
             </span>
           </div>
@@ -57,7 +57,7 @@ const UserProfile = () => {
               <h2 className="text-lg font-medium text-gray-700 dark:text-gray-300">
                 Full Name
               </h2>
-              <p className="text-xl font-semibold text-blue-700 dark:text-blue-300">
+              <p className="text-xl font-semibold text-blue-700 dark:text-[#059669] ">
                 {user?.displayName || 'Anonymous User'}
               </p>
             </div>

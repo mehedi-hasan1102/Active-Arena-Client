@@ -5,12 +5,12 @@ import FeaturedCourts from "../components/FeaturedCourts";
 import UpcomingEvents from "../components/UpcomingEvents";
 import PromotionsSection from "../components/PromotionsSection";
 import RecentActivities from "../components/RecentActivities";
-// import MembershipPlans from "../components/MembershipPlans";
+
 import Testimonials from "../components/Testimonials";
 import AboutClub from '../components/AboutClub';
 import Newsletter from "../components/Newsletter";
 import LocationSection from '../components/LocationSection';
-// import GallerySection from "../components/GallerySection";
+import GallerySection from "../components/GallerySection";
 
 const Home = () => {
   return (
@@ -41,11 +41,10 @@ const Home = () => {
         {/* 7. About Club - Story & mission, after credibility established */}
         <AboutClub />
 
-        {/* 8. Membership Plans - Optional for conversions */}
-        {/* <MembershipPlans /> */}
+        
 
-        {/* 9. Gallery - Visual appeal & highlight club vibe */}
-        {/* <GallerySection /> */}
+        {/* 9. Gallery - Visual appeal & highlight club vibe  */}
+         <GallerySection />
 
         {/* 10. Newsletter - Capture leads / stay connected */}
         <Newsletter />

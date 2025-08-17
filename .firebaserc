@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "plant-care-tracker-bd"
-  }
+    "default": "plant-care-tracker-bd",
+    "active-arena": "buildbox-a12"
+  },
+  "targets": {},
+  "etags": {}
 }

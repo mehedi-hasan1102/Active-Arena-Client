@@ -1,12 +1,14 @@
 import { Helmet } from "react-helmet-async";
 import { useEffect, useState } from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../../context/firebase/firebase.config";
-import axios from '../../api/axiosInstance';
 import { motion as Motion } from "framer-motion";
 import { useRole } from "../../hooks/useRole";
 import { useAuth } from "../../context/Provider/AuthProvider";
 import Loading from '../../components/Loading';
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from "chart.js";
+import { Bar } from "react-chartjs-2";
+import axios from '../../api/axiosInstance';
+
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const cardVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -30,6 +32,12 @@ const Overview = () => {
   const { role, isLoading: loadingRole } = useRole();
   const [stats, setStats] = useState({ totalBookings: 0, myBookings: 0 });
   const [loading, setLoading] = useState(true);
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    const html = document.documentElement;
+    setDarkMode(html.classList.contains("dark"));
+  }, []);
 
   useEffect(() => {
     if (!user?.uid || authLoading) return;
@@ -39,11 +47,9 @@ const Overview = () => {
       try {
         const res = await axios.get("/bookings");
         const data = res.data;
-
         const myBookings = data.bookings.filter(
           (booking) => booking.userEmail === user.email
         );
-
         setStats({ totalBookings: data.bookings.length, myBookings: myBookings.length });
       } catch (error) {
         console.error("Error fetching bookings:", error);
@@ -53,23 +59,68 @@ const Overview = () => {
     }
 
     fetchBookings();
-  },   [user?.uid, user?.email, authLoading]); //  Added user?.email here
+  }, [user?.uid, user?.email, authLoading]);
 
-  if (authLoading || loadingRole || loading) {
-    return (
-      
-        < Loading />
-      
-    );
-  }
+  if (authLoading || loadingRole || loading) return <Loading />;
+
+  // Chart gradient using canvas
+  const chartData = {
+    labels: ["Total Bookings", "My Bookings"],
+    datasets: [
+      {
+        label: "Bookings",
+        data: [stats.totalBookings, stats.myBookings],
+        backgroundColor: (ctx) => {
+          const chart = ctx.chart;
+          const {ctx: c, chartArea} = chart;
+          if (!chartArea) return "transparent";
+          const gradient = c.createLinearGradient(0, chartArea.bottom, 0, chartArea.top);
+          gradient.addColorStop(0, darkMode ? "#065F46" : "#34D399");
+          gradient.addColorStop(1, darkMode ? "#10B981" : "#6EE7B7");
+          return gradient;
+        },
+        borderRadius: 12,
+      },
+    ],
+  };
+
+  const chartOptions = {
+    responsive: true,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        backgroundColor: darkMode ? "#111827" : "#F3F4F6",
+        titleColor: darkMode ? "#10B981" : "#065F46",
+        bodyColor: darkMode ? "#D1FAE5" : "#065F46",
+        borderColor: darkMode ? "#10B981" : "#10B981",
+        borderWidth: 1,
+      },
+      title: {
+        display: true,
+        text: "Bookings Overview",
+        color: darkMode ? "#10B981" : "#059669",
+        font: { size: 18, weight: "bold" },
+      },
+    },
+    scales: {
+      x: {
+        ticks: { color: darkMode ? "#D1FAE5" : "#065F46", font: { size: 14, weight: "bold" } },
+        grid: { display: false },
+      },
+      y: {
+        ticks: { color: darkMode ? "#D1FAE5" : "#065F46", stepSize: 1, font: { weight: "bold" } },
+        grid: { color: darkMode ? "#374151" : "#E5E7EB" },
+      },
+    },
+  };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-white dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 px-4 py-12 transition-colors duration-300">
+    <div className="min-h-screen bg-gray-50 dark:bg-zinc-900 px-4 py-12 transition-colors duration-300">
       <Helmet>
         <title>Dashboard Overview - ActiveArena</title>
       </Helmet>
 
-      <div className="w-full max-w-6xl space-y-8">
+      <div className="w-full max-w-6xl mx-auto space-y-8">
         {/* Welcome */}
         <Motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -89,7 +140,7 @@ const Overview = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Avatar */}
           <Motion.div
-            className="bg-white dark:bg-zinc-900 rounded-lg p-6 shadow-md text-center cursor-default"
+            className="bg-white dark:bg-zinc-800 rounded-xl p-6 shadow-xl backdrop-blur-sm cursor-default text-center"
             custom={0}
             variants={cardVariants}
             initial="hidden"
@@ -117,14 +168,14 @@ const Overview = () => {
 
           {/* Total Bookings */}
           <Motion.div
-            className="bg-white dark:bg-zinc-900 rounded-lg p-6 shadow-md text-center cursor-default"
+            className="bg-white dark:bg-zinc-800 rounded-xl p-6 shadow-xl backdrop-blur-sm text-center cursor-default"
             custom={1}
             variants={cardVariants}
             initial="hidden"
             animate="visible"
             whileHover={{ scale: 1.05 }}
           >
-            <h3 className="text-lg font-semibold text-emerald-600 dark:text-emerald-400 mb-2">
+            <h3 className="text-lg font-semibold mb-2 text-emerald-600 dark:text-emerald-400">
               🏟 Total Bookings
             </h3>
             <Motion.p
@@ -140,14 +191,14 @@ const Overview = () => {
 
           {/* My Bookings */}
           <Motion.div
-            className="bg-white dark:bg-zinc-900 rounded-lg p-6 shadow-md text-center cursor-default"
+            className="bg-white dark:bg-zinc-800 rounded-xl p-6 shadow-xl backdrop-blur-sm text-center cursor-default"
             custom={2}
             variants={cardVariants}
             initial="hidden"
             animate="visible"
             whileHover={{ scale: 1.05 }}
           >
-            <h3 className="text-lg font-semibold text-emerald-600 dark:text-emerald-400 mb-2">
+            <h3 className="text-lg font-semibold mb-2 text-emerald-600 dark:text-emerald-400">
               🎯 My Bookings
             </h3>
             <Motion.p
@@ -160,6 +211,11 @@ const Overview = () => {
               {stats.myBookings}
             </Motion.p>
           </Motion.div>
+        </div>
+
+        {/* Chart */}
+        <div className="bg-white dark:bg-zinc-800 rounded-xl p-6 shadow-xl backdrop-blur-sm mt-8">
+          <Bar data={chartData} options={chartOptions} />
         </div>
       </div>
     </div>

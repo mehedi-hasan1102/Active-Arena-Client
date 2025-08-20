@@ -41,7 +41,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="relative overflow-hidden bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 pt-16 pb-8 rounded-b-none rounded-xl">
+    <footer className="relative overflow-hidden bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 pt-16 pb-8 rounded-b-none rounded-xl border-t border-[#0FB9D7] ">
       {/* Floating decorative elements */}
       <motion.div 
         animate="float"
@@ -55,7 +55,7 @@ const Footer = () => {
         className="absolute -right-20 bottom-1/4 w-64 h-64 rounded-full bg-cyan-200/30 dark:bg-cyan-900/20 blur-3xl"
       />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           initial="hidden"
           whileInView="visible"

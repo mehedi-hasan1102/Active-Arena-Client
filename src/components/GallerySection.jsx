@@ -78,10 +78,12 @@ const GallerySection = () => {
   };
 
   return (
-    <section
-      id="gallery"
+    
+    
+     <section
+      id="gellery"
       ref={sectionRef}
-      className="relative mx-auto px-6 py-24 md:py-32 overflow-hidden bg-white dark:bg-zinc-900 transition-colors duration-300 rounded-xl"
+      className="relative mx-auto px-6 py-24 md:py-32 overflow-hidden bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300 rounded-xl"
     >
       {/* Animated background elements */}
       <motion.div

@@ -85,7 +85,7 @@ export default function HeroSlider() {
   ];
 
   return (
-    <div className="relative w-full overflow-hidden rounded-xl bg-white dark:bg-zinc-900 shadow-lg">
+    <div className=" mt-7 relative w-full overflow-hidden rounded-xl bg-white dark:bg-zinc-900 shadow-lg">
       <Swiper
         spaceBetween={30}
         effect="fade"

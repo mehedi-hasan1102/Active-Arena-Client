@@ -22,8 +22,8 @@ function App() {
   }, [location]);
 
   return (
-    <div className="bg-emerald-50 dark:bg-zinc-900 transition-colors duration-300">
-      <div className="max-w-7xl mx-auto">
+    <div >
+      <div >
         <Navbar />
         <DarkModeSidebar />
       </div>
@@ -36,7 +36,7 @@ function App() {
           </div>
         )
       }
-      <div className="max-w-7xl mx-auto">
+      <div >
         <ToastContainer position="top-center" autoClose={1000} />
         <Footer />
       </div>

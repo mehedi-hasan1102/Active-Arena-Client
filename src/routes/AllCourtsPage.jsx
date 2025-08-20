@@ -154,7 +154,8 @@ export default function AllCourtsPage() {
   
   if (error) {
     return (
-      <section className="py-16 px-6 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-zinc-900 dark:to-zinc-800">
+     
+      <section className="py-16 px-6 bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800">
         <div className="max-w-7xl mx-auto text-center py-12 px-4 bg-white dark:bg-zinc-800 rounded-xl shadow-md">
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 mb-6">
             <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -175,10 +176,17 @@ export default function AllCourtsPage() {
   }
 
   return (
-    <div
+
+
+   
+
+
+     <div
       ref={sectionRef}
-      className="min-h-screen px-6 py-16 overflow-hidden bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900 transition-colors duration-300"
+      className="relative py-16 px-6 md:py-20 md:px-8 lg:px-16 overflow-hidden bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300"
     >
+
+
       {/* Animated background elements */}
       <motion.div
         initial={{ opacity: 0 }}
@@ -221,22 +229,31 @@ export default function AllCourtsPage() {
           className="flex justify-center mb-8"
         >
           <div className="flex space-x-2 bg-gray-200 dark:bg-zinc-700 p-1 rounded-full">
-            <button
-              onClick={() => setView('card')}
-              className={`px-4 py-2 rounded-full transition duration-200 ${
-                view === 'card' ? 'bg-white dark:bg-zinc-800 shadow-sm' : 'text-gray-600 dark:text-gray-300'
-              }`}
-            >
-              Card View
-            </button>
-            <button
-              onClick={() => setView('table')}
-              className={`px-4 py-2 rounded-full transition duration-200 ${
-                view === 'table' ? 'bg-white dark:bg-zinc-800 shadow-sm' : 'text-gray-600 dark:text-gray-300'
-              }`}
-            >
-              Table View
-            </button>
+            
+            <div className="flex gap-3">
+  <button
+    onClick={() => setView('card')}
+    className={`px-5 py-2 rounded-full font-medium text-sm transition-all duration-200 ${
+      view === 'card'
+        ? 'bg-white dark:bg-zinc-800 text-gray-900 dark:text-white shadow-md'
+        : 'bg-gray-100 dark:bg-zinc-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-zinc-600'
+    } focus:outline-none focus:ring-2 focus:ring-[#0FB9D7]`}
+  >
+    Card View
+  </button>
+
+  <button
+    onClick={() => setView('table')}
+    className={`px-5 py-2 rounded-full font-medium text-sm transition-all duration-200 ${
+      view === 'table'
+        ? 'bg-white dark:bg-zinc-800 text-gray-900 dark:text-white shadow-md'
+        : 'bg-gray-100 dark:bg-zinc-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-zinc-600'
+    } focus:outline-none focus:ring-2 focus:ring-[#0FB9D7]`}
+  >
+    Table View
+  </button>
+</div>
+
           </div>
         </motion.div>
 

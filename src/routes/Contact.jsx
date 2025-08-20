@@ -6,10 +6,10 @@ import { motion } from "framer-motion";
 import { FaCheckCircle, FaPaperPlane } from "react-icons/fa";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({ 
-    name: "", 
-    email: "", 
-    message: "" 
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: ""
   });
   const [submitted, setSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -21,10 +21,10 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-    
+
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1500));
-    
+
     setSubmitted(true);
     setFormData({ name: "", email: "", message: "" });
     setIsLoading(false);
@@ -37,10 +37,10 @@ const Contact = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="flex justify-center items-center min-h-[calc(100vh-80px)] sm:min-h-screen p-4
-        bg-gradient-to-br from-emerald-50 via-white to-cyan-50
-        dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900 pt-12"
+      className="flex  justify-center items-center min-h-[calc(100vh-80px)] sm:min-h-screen p-4
+         pt-12 "
     >
+     
       <Helmet>
         <title>Contact - ActiveArena</title>
       </Helmet>
@@ -171,7 +171,7 @@ const Contact = () => {
               src="https://i.ibb.co/tp4VNg2r/Contact-us-amico.png"
               alt="Contact illustration"
               className="w-full max-w-xs h-auto object-contain"
-              whileHover={{ 
+              whileHover={{
                 scale: 1.05,
                 transition: { duration: 0.3 }
               }}

@@ -132,20 +132,23 @@ const DashboardLayout = () => {
             </NavLink>
 
             {navItems.map(({ to, label, icon }) => (
-              <NavLink
-                key={to}
-                to={to}
-                className={({ isActive }) =>
-                  `flex items-center gap-3 px-3 py-2 rounded-md transition-colors hover:bg-emerald-50 dark:hover:bg-emerald-700 ${
-                    isActive
-                      ? "bg-emerald-500 dark:bg-emerald-700 font-semibold text-white dark:text-emerald-400"
-                      : "text-emerald-600 dark:text-emerald-400"
-                  }`
-                }
-              >
-                {icon}
-                {!collapsed && label}
-              </NavLink>
+             
+             <NavLink
+  key={to}
+  to={to}
+  className={({ isActive }) =>
+    `flex items-center gap-3 px-3 py-2 rounded-md transition-colors duration-200
+     ${
+       isActive
+         ? "bg-emerald-500 dark:bg-emerald-700 font-semibold text-white dark:text-emerald-100"
+         : "text-emerald-600 dark:text-emerald-400 hover:bg-emerald-100 dark:hover:bg-emerald-800"
+     }`
+  }
+>
+  {icon}
+  {!collapsed && label}
+</NavLink>
+
             ))}
           </nav>
         </div>

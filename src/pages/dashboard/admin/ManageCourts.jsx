@@ -79,7 +79,7 @@ const ManageCourts = () => {
     <div className="p-6 bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 min-h-screen transition-colors duration-300">
       <h1 className="text-3xl font-bold text-center text-emerald-600 dark:text-emerald-400 mb-6"> Manage Courts</h1>
 
-      <div className="bg-white dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 rounded-lg shadow-md p-6 mb-10">
+      <div className="bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300 text-emerald-600 dark:text-emerald-400 rounded-lg shadow-md p-6 mb-10">
         <h2 className="text-xl  mb-4 font-semibold  rounded-md 
  ">
           {editingCourt ? '✏️ Edit Court' : '➕ Add New Court'}
@@ -101,7 +101,7 @@ const ManageCourts = () => {
                   ? setEditingCourt({ ...editingCourt, [field]: e.target.value })
                   : setNewCourt({ ...newCourt, [field]: e.target.value })
               }
-              className="w-full p-2 border border-emerald-300 dark:border-emerald-700 rounded-md bg-white dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 placeholder-emerald-400 dark:placeholder-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-400"
+              className="w-full p-2 border border-emerald-300 dark:border-emerald-700 rounded-md bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 text-emerald-600 dark:text-emerald-400 placeholder-emerald-400 dark:placeholder-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-400"
               required
             />
           ))}
@@ -113,7 +113,7 @@ const ManageCourts = () => {
                 ? setEditingCourt({ ...editingCourt, status: e.target.value })
                 : setNewCourt({ ...newCourt, status: e.target.value })
             }
-            className="w-full p-2 border border-emerald-300 dark:border-emerald-700 rounded-md bg-white dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-400"
+            className="w-full p-2 border border-emerald-300 dark:border-emerald-700 rounded-md bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 text-emerald-600 dark:text-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-400"
           >
             <option value="Available">Available</option>
             <option value="Booked">Booked</option>
@@ -142,8 +142,8 @@ const ManageCourts = () => {
 
       <h2 className="text-xl font-semibold text-emerald-600 dark:text-emerald-400 mb-4"> Existing Courts</h2>
       <div className="overflow-x-auto">
-        <table className="min-w-full bg-white dark:bg-zinc-900 border border-emerald-300 dark:border-emerald-700 rounded-t-md overflow-hidden text-sm">
-          <thead className="bg-emerald-50 dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400">
+        <table className="min-w-full bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300 border border-emerald-300 dark:border-emerald-700 rounded-t-md overflow-hidden text-sm">
+          <thead className="bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 text-emerald-600 dark:text-emerald-400">
             <tr>
               {['Name', 'Type', 'Status', 'Price', 'Slots', 'Actions'].map((heading) => (
                 <th key={heading} className="py-3 px-4 border border-emerald-300 dark:border-emerald-700">

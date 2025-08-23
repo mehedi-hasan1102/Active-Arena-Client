@@ -65,14 +65,14 @@ const ManageMembers = () => {
           placeholder="Search by name..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="w-full p-2 rounded-md border border-emerald-300 dark:border-emerald-700 bg-white dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 placeholder-emerald-400 dark:placeholder-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+          className="w-full p-2 rounded-md border border-emerald-300 dark:border-emerald-700 bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 text-emerald-600 dark:text-emerald-400 placeholder-emerald-400 dark:placeholder-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-500"
         />
       </div>
 
       {/* Table */}
-      <div className="overflow-x-auto shadow-md rounded-lg bg-white dark:bg-zinc-900 p-4">
-        <table className="min-w-full text-sm text-emerald-600 dark:text-emerald-400 border border-emerald-300 dark:border-emerald-700 bg-white dark:bg-zinc-900 rounded-t-md">
-          <thead className="bg-emerald-50 dark:bg-zinc-900 uppercase text-xs text-emerald-600 dark:text-emerald-400">
+      <div className="overflow-x-auto shadow-md rounded-lg bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300 p-4">
+        <table className="min-w-full text-sm text-emerald-600 dark:text-emerald-400 border border-emerald-300 dark:border-emerald-700 bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 rounded-t-md">
+          <thead className="bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 uppercase text-xs text-emerald-600 dark:text-emerald-400">
             <tr>
               <th className="py-3 px-4 border-b border-emerald-300 dark:border-emerald-700 text-left">Name</th>
               <th className="py-3 px-4 border-b border-emerald-300 dark:border-emerald-700 text-left">Email</th>

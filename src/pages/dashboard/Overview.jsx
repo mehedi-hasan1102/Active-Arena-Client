@@ -359,7 +359,7 @@ const Overview = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Avatar */}
           <Motion.div
-            className="bg-white dark:bg-zinc-800 rounded-xl p-6 shadow-xl backdrop-blur-sm cursor-default text-center"
+            className="bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300 rounded-xl p-6 shadow-xl backdrop-blur-sm cursor-default text-center"
             custom={0}
             variants={cardVariants}
             initial="hidden"
@@ -387,7 +387,7 @@ const Overview = () => {
 
           {/* Total Bookings */}
           <Motion.div
-            className="bg-white dark:bg-zinc-800 rounded-xl p-6 shadow-xl backdrop-blur-sm text-center cursor-default"
+            className="bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300 rounded-xl p-6 shadow-xl backdrop-blur-sm text-center cursor-default"
             custom={1}
             variants={cardVariants}
             initial="hidden"
@@ -410,7 +410,7 @@ const Overview = () => {
 
           {/* My Bookings */}
           <Motion.div
-            className="bg-white dark:bg-zinc-800 rounded-xl p-6 shadow-xl backdrop-blur-sm text-center cursor-default"
+            className="bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300 rounded-xl p-6 shadow-xl backdrop-blur-sm text-center cursor-default"
             custom={2}
             variants={cardVariants}
             initial="hidden"
@@ -433,7 +433,7 @@ const Overview = () => {
         </div>
 
         {/* Chart */}
-        <div className="bg-white/50  text-emerald-600 dark:text-emerald-400 dark:bg-zinc-200 rounded-xl p-6 shadow-xl backdrop-blur-sm mt-8">
+        <div className="bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300 text-emerald-600 dark:text-emerald-400 rounded-xl p-6 shadow-xl backdrop-blur-sm mt-8">
           <Bar data={chartData} options={chartOptions} />
         </div>
       </div>

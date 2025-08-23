@@ -62,7 +62,7 @@ const UserAnnouncements = () => {
           onChange={handleSearch}
           placeholder="Search by announcement title..."
           aria-label="Search announcements by title"
-          className="w-full max-w-md p-2 border border-emerald-300 dark:border-emerald-700 bg-white dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 placeholder-emerald-400 dark:placeholder-emerald-600 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
+          className="w-full max-w-md p-2 border border-emerald-300 dark:border-emerald-700 bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 text-emerald-600 dark:text-emerald-400 placeholder-emerald-400 dark:placeholder-emerald-600 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500"
         />
       </div>
 
@@ -78,7 +78,7 @@ const UserAnnouncements = () => {
           {announcements.map((item, index) => (
             <Motion.div
               key={item._id}
-              className="bg-white dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 border-l-4 border-emerald-500 rounded-lg shadow-md p-4"
+              className="bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300 text-emerald-600 dark:text-emerald-400 border-l-4 border-emerald-500 rounded-lg shadow-md p-4"
               custom={index}
               initial="hidden"
               animate="visible"

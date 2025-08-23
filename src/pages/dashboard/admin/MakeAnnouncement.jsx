@@ -144,7 +144,7 @@ const MakeAnnouncement = () => {
           onChange={handleSearch}
           placeholder="Search announcements by title..."
           aria-label="Search announcements by title"
-          className="w-full p-3 rounded-md border border-emerald-300 dark:border-emerald-700 bg-white dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 placeholder-emerald-400 dark:placeholder-emerald-600 shadow-sm transition focus:ring-4 focus:ring-emerald-500 focus:outline-none"
+          className="w-full p-3 rounded-md border border-emerald-300 dark:border-emerald-700 bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 text-emerald-600 dark:text-emerald-400 placeholder-emerald-400 dark:placeholder-emerald-600 shadow-sm transition focus:ring-4 focus:ring-emerald-500 focus:outline-none"
         />
       </div>
 
@@ -162,7 +162,7 @@ const MakeAnnouncement = () => {
       {/* Add Announcement Modal */}
       {isAddModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 animate-fadeIn">
-          <div className="bg-white dark:bg-zinc-900 p-8 rounded-lg shadow-xl w-full max-w-md animate-slideInUp">
+          <div className="bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 p-8 rounded-lg shadow-xl w-full max-w-md animate-slideInUp transition-colors duration-300">
             <h2 className="text-2xl font-semibold mb-6 text-emerald-600 dark:text-emerald-400">➕ Add New Announcement</h2>
             <form onSubmit={handleAddAnnouncement} className="space-y-6">
               <div>
@@ -171,7 +171,7 @@ const MakeAnnouncement = () => {
                   type="text"
                   value={newAnnouncement.title}
                   onChange={(e) => setNewAnnouncement({ ...newAnnouncement, title: e.target.value })}
-                  className="w-full p-3 border border-emerald-300 dark:border-emerald-700 rounded-md bg-white dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 placeholder-emerald-400 dark:placeholder-emerald-600 shadow-sm focus:outline-none focus:ring-4 focus:ring-emerald-500 transition"
+                  className="w-full p-3 border border-emerald-300 dark:border-emerald-700 rounded-md bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 text-emerald-600 dark:text-emerald-400 placeholder-emerald-400 dark:placeholder-emerald-600 shadow-sm focus:outline-none focus:ring-4 focus:ring-emerald-500 transition"
                   required
                   autoFocus
                 />
@@ -181,7 +181,7 @@ const MakeAnnouncement = () => {
                 <textarea
                   value={newAnnouncement.content}
                   onChange={(e) => setNewAnnouncement({ ...newAnnouncement, content: e.target.value })}
-                  className="w-full p-3 border border-emerald-300 dark:border-emerald-700 rounded-md bg-white dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 placeholder-emerald-400 dark:placeholder-emerald-600 shadow-sm focus:outline-none focus:ring-4 focus:ring-emerald-500 transition h-28 resize-none"
+                  className="w-full p-3 border border-emerald-300 dark:border-emerald-700 rounded-md bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 text-emerald-600 dark:text-emerald-400 placeholder-emerald-400 dark:placeholder-emerald-600 shadow-sm focus:outline-none focus:ring-4 focus:ring-emerald-500 transition h-28 resize-none"
                   required
                 />
               </div>
@@ -209,7 +209,7 @@ const MakeAnnouncement = () => {
       {/* Edit Announcement Modal */}
       {isEditModalOpen && editingAnnouncement && (
         <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 animate-fadeIn">
-          <div className="bg-white dark:bg-zinc-900 p-8 rounded-lg shadow-xl w-full max-w-md animate-slideInUp">
+          <div className="bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 p-8 rounded-lg shadow-xl w-full max-w-md animate-slideInUp transition-colors duration-300">
             <h2 className="text-2xl font-semibold mb-6 text-emerald-600 dark:text-emerald-400">✏️ Edit Announcement</h2>
             <form onSubmit={handleUpdateAnnouncement} className="space-y-6">
               <div>
@@ -220,7 +220,7 @@ const MakeAnnouncement = () => {
                   onChange={(e) =>
                     setEditingAnnouncement({ ...editingAnnouncement, title: e.target.value })
                   }
-                  className="w-full p-3 border border-emerald-300 dark:border-emerald-700 rounded-md bg-white dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 placeholder-emerald-400 dark:placeholder-emerald-600 shadow-sm focus:outline-none focus:ring-4 focus:ring-emerald-500 transition"
+                  className="w-full p-3 border border-emerald-300 dark:border-emerald-700 rounded-md bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 text-emerald-600 dark:text-emerald-400 placeholder-emerald-400 dark:placeholder-emerald-600 shadow-sm focus:outline-none focus:ring-4 focus:ring-emerald-500 transition"
                   required
                   autoFocus
                 />
@@ -232,7 +232,7 @@ const MakeAnnouncement = () => {
                   onChange={(e) =>
                     setEditingAnnouncement({ ...editingAnnouncement, content: e.target.value })
                   }
-                  className="w-full p-3 border border-emerald-300 dark:border-emerald-700 rounded-md bg-white dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 placeholder-emerald-400 dark:placeholder-emerald-600 shadow-sm focus:outline-none focus:ring-4 focus:ring-emerald-500 transition h-28 resize-none"
+                  className="w-full p-3 border border-emerald-300 dark:border-emerald-700 rounded-md bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 text-emerald-600 dark:text-emerald-400 placeholder-emerald-400 dark:placeholder-emerald-600 shadow-sm focus:outline-none focus:ring-4 focus:ring-emerald-500 transition h-28 resize-none"
                   required
                 />
               </div>
@@ -258,12 +258,12 @@ const MakeAnnouncement = () => {
       )}
 
       {/* Announcement Table */}
-      <div className="overflow-x-auto shadow-lg rounded-lg border border-emerald-300 dark:border-emerald-700 bg-white dark:bg-zinc-900">
+      <div className="overflow-x-auto shadow-lg rounded-lg border border-emerald-300 dark:border-emerald-700 bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
         <table
           className="min-w-full text-emerald-600 dark:text-emerald-400 text-sm"
           aria-label="Announcements table"
         >
-          <thead className="bg-emerald-50 dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 uppercase text-xs select-none">
+          <thead className="bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 text-emerald-600 dark:text-emerald-400 uppercase text-xs select-none">
             <tr>
               <th className="py-4 px-6 text-left rounded-tl-lg font-semibold">Title</th>
               <th className="py-4 px-6 text-left font-semibold">Content</th>

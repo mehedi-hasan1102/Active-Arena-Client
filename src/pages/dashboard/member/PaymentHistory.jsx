@@ -72,12 +72,12 @@ const PaymentHistory = () => {
           </div>
 
           {/* View Toggle */}
-          <div className="flex space-x-2 bg-emerald-50 dark:bg-zinc-900 p-1 rounded-md">
+          <div className="flex space-x-2 bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 p-1 rounded-md">
             <button
               onClick={() => setView("card")}
               className={`px-4 py-2 rounded-md font-medium transition ${
                 view === "card"
-                  ? "bg-white dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 shadow"
+                  ? "bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 text-emerald-600 dark:text-emerald-400 shadow"
                   : "text-emerald-600 dark:text-emerald-400 hover:text-emerald-600"
               }`}
             >
@@ -87,7 +87,7 @@ const PaymentHistory = () => {
               onClick={() => setView("table")}
               className={`px-4 py-2 rounded-md font-medium transition ${
                 view === "table"
-                  ? "bg-white dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 shadow"
+                  ? "bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 text-emerald-600 dark:text-emerald-400 shadow"
                   : "text-emerald-600 dark:text-emerald-400 hover:text-emerald-600"
               }`}
             >
@@ -102,10 +102,10 @@ const PaymentHistory = () => {
             You have no completed payments.
           </p>
         ) : view === "table" ? (
-          <div className="overflow-x-auto border border-emerald-300 dark:border-emerald-700 rounded-md">
+          <div className="overflow-x-auto border border-emerald-300 dark:border-emerald-700 rounded-md bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
             <table className="min-w-full text-sm">
               <thead>
-                <tr className="bg-emerald-50 dark:bg-zinc-900 text-left">
+                <tr className="bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 text-left">
                   <th className="py-3 px-4 border-b dark:border-emerald-700">Date</th>
                   <th className="py-3 px-4 border-b dark:border-emerald-700">Description</th>
                   <th className="py-3 px-4 border-b dark:border-emerald-700">Amount</th>
@@ -146,7 +146,7 @@ const PaymentHistory = () => {
             {payments.map((payment) => (
               <div
                 key={payment.id}
-                className="bg-white dark:bg-zinc-900 border border-emerald-300 dark:border-emerald-700 rounded-lg shadow-md p-5 space-y-2"
+                className="bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300 border border-emerald-300 dark:border-emerald-700 rounded-lg shadow-md p-5 space-y-2"
               >
                 <div className="text-lg font-semibold text-emerald-600 dark:text-emerald-400">
                   {payment.description}

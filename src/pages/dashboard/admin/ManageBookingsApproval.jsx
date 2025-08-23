@@ -108,24 +108,24 @@ const ManageBookingsApproval = () => {
       
 
       {/* Search Input */}
-      <div className="mb-8 max-w-md mx-auto">
+      <div className="mb-8 max-w-md mx-auto ">
         <input
           type="text"
           value={searchTerm}
           onChange={handleSearch}
           placeholder="Search by court name..."
           aria-label="Search booking requests by court name"
-          className="w-full p-3 rounded-md border border-emerald-300 dark:border-emerald-700 bg-white dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 placeholder-emerald-400 dark:placeholder-emerald-600 shadow-sm transition focus:outline-none focus:ring-4 focus:ring-emerald-500"
+          className="w-full p-3 rounded-md border border-emerald-300 dark:border-emerald-700 bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 text-emerald-600 dark:text-emerald-400 placeholder-emerald-400 dark:placeholder-emerald-600 shadow-sm transition focus:outline-none focus:ring-4 focus:ring-emerald-500"
         />
       </div>
 
       {/* Table */}
-      <div className="overflow-x-auto rounded-lg shadow-md border border-emerald-300 dark:border-emerald-700 bg-white dark:bg-zinc-900">
+      <div className="overflow-x-auto rounded-lg shadow-md border border-emerald-300 dark:border-emerald-700 bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
         <table
           className="min-w-full text-sm text-emerald-600 dark:text-emerald-400"
           aria-label="Booking requests table"
         >
-          <thead className="bg-emerald-50 dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 uppercase text-xs select-none rounded-t-md">
+          <thead className="bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 text-emerald-600 dark:text-emerald-400 uppercase text-xs select-none rounded-t-md">
             <tr>
               <th className="py-4 px-6 text-left font-semibold rounded-tl-md">
                 User

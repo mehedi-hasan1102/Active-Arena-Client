@@ -65,7 +65,7 @@ const Profile = () => {
         <title>Profile - ActiveArena</title>
       </Helmet>
       {/* Profile Form */}
-      <div className="w-full md:w-1/2 max-w-md bg-white dark:bg-zinc-900 shadow-md dark:shadow-blue-800/30 p-10 rounded-md space-y-6">
+      <div className="w-full md:w-1/2 max-w-md bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 shadow-md dark:shadow-blue-800/30 p-10 rounded-md space-y-6">
         <h1 className="text-4xl font-bold text-center text-blue-700 dark:text-blue-400">
           Update Profile
         </h1>

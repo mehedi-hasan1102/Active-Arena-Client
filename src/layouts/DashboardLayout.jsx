@@ -78,7 +78,7 @@ const DashboardLayout = () => {
   const navItems = role === "admin" ? adminLinks : role === "member" ? memberLinks : userLinks;
 
   return (
-    <div className="min-h-screen flex bg-emerald-50 dark:bg-zinc-900 transition-colors duration-300">
+    <div className="min-h-screen flex bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
       <aside
         className={`${
           collapsed ? "w-20" : "w-64"
@@ -161,5 +161,5 @@ const DashboardLayout = () => {
     </div>
   );
 };
-// flex-1 p-6 overflow-y-auto bg-emerald-50 dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 transition-colors duration-300 rounded-md
+// flex-1 p-6 overflow-y-auto bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 text-emerald-600 dark:text-emerald-400 transition-colors duration-300 rounded-md
 export default DashboardLayout;

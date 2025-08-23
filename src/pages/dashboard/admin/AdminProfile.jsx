@@ -80,15 +80,15 @@ const AdminProfile = () => {
 
       {/* Stats cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="bg-white dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 rounded-lg shadow-md p-4 text-center">
+        <div className="bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300 text-emerald-600 dark:text-emerald-400 rounded-lg shadow-md p-4 text-center">
           <h2 className="text-lg font-semibold mb-2">Total Courts</h2>
           <p className="text-4xl font-bold text-emerald-600">{counts.courts}</p>
         </div>
-        <div className="bg-white dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 rounded-lg shadow-md p-4 text-center">
+        <div className="bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300 text-emerald-600 dark:text-emerald-400 rounded-lg shadow-md p-4 text-center">
           <h2 className="text-lg font-semibold mb-2">Total Users</h2>
           <p className="text-4xl font-bold text-emerald-600">{counts.users}</p>
         </div>
-        <div className="bg-white dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 rounded-lg shadow-md p-4 text-center">
+        <div className="bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300 text-emerald-600 dark:text-emerald-400 rounded-lg shadow-md p-4 text-center">
           <h2 className="text-lg font-semibold mb-2">Total Members</h2>
           <p className="text-4xl font-bold text-emerald-600">{counts.members}</p>
         </div>

@@ -46,12 +46,12 @@ const ManageAllUsers = () => {
       {loading ? (
        < Loading />
       ) : (
-        <div className="overflow-x-auto rounded-lg shadow-md border border-emerald-300 dark:border-emerald-700 bg-white dark:bg-zinc-900">
+        <div className="overflow-x-auto rounded-lg shadow-md border border-emerald-300 dark:border-emerald-700 bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
           <table
             className="min-w-full text-emerald-600 dark:text-emerald-400 text-sm"
             aria-label="Users table"
           >
-            <thead className="bg-emerald-50 dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 uppercase text-xs select-none rounded-t-md">
+            <thead className="bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 text-emerald-600 dark:text-emerald-400 uppercase text-xs select-none rounded-t-md">
               <tr>
                 <th className="py-4 px-6 text-left rounded-tl-md font-semibold">Name</th>
                 <th className="py-4 px-6 text-left font-semibold">Email</th>

@@ -85,7 +85,7 @@ export default function HeroSlider() {
   ];
 
   return (
-    <div className="h-[50vh] md:h-[70vh] mt-7 relative w-full overflow-hidden rounded-xl bg-white dark:bg-zinc-900 shadow-lg">
+    <div className="h-[50vh] md:h-[70vh] mt-7 relative w-full overflow-hidden rounded-xl bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 shadow-lg">
       <Swiper
         spaceBetween={30}
         

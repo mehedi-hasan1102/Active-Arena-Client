@@ -137,7 +137,7 @@ const ManageCoupons = () => {
           value={searchTerm}
           onChange={handleSearch}
           placeholder="Search by coupon code..."
-          className="w-full max-w-md bg-white dark:bg-zinc-900 border border-emerald-300 dark:border-emerald-700 text-emerald-600 dark:text-emerald-400 placeholder-emerald-400 dark:placeholder-emerald-600 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+          className="w-full max-w-md bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 border border-emerald-300 dark:border-emerald-700 text-emerald-600 dark:text-emerald-400 placeholder-emerald-400 dark:placeholder-emerald-600 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-emerald-500"
         />
       </div>
 
@@ -156,7 +156,7 @@ const ManageCoupons = () => {
       {/* Add Coupon Modal */}
       {isAddModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 rounded-lg shadow-md p-4 w-full max-w-md">
+          <div className="bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300 text-emerald-600 dark:text-emerald-400 rounded-lg shadow-md p-4 w-full max-w-md">
             <h2 className="text-xl font-semibold mb-4">➕ Add New Coupon</h2>
             <form onSubmit={handleAddCoupon} className="space-y-4">
               <div>
@@ -165,7 +165,7 @@ const ManageCoupons = () => {
                   type="text"
                   value={newCoupon.code}
                   onChange={(e) => setNewCoupon({ ...newCoupon, code: e.target.value })}
-                  className="w-full bg-white dark:bg-zinc-900 border border-emerald-300 dark:border-emerald-700 text-emerald-600 dark:text-emerald-400 placeholder-emerald-400 dark:placeholder-emerald-600 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                  className="w-full bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 border border-emerald-300 dark:border-emerald-700 text-emerald-600 dark:text-emerald-400 placeholder-emerald-400 dark:placeholder-emerald-600 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-emerald-500"
                   required
                 />
               </div>
@@ -177,7 +177,7 @@ const ManageCoupons = () => {
                   onChange={(e) => setNewCoupon({ ...newCoupon, discount: e.target.value })}
                   min="1"
                   max="100"
-                  className="w-full bg-white dark:bg-zinc-900 border border-emerald-300 dark:border-emerald-700 text-emerald-600 dark:text-emerald-400 placeholder-emerald-400 dark:placeholder-emerald-600 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                  className="w-full bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 border border-emerald-300 dark:border-emerald-700 text-emerald-600 dark:text-emerald-400 placeholder-emerald-400 dark:placeholder-emerald-600 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-emerald-500"
                   required
                 />
               </div>
@@ -186,7 +186,7 @@ const ManageCoupons = () => {
                 <select
                   value={newCoupon.status}
                   onChange={(e) => setNewCoupon({ ...newCoupon, status: e.target.value })}
-                  className="w-full bg-white dark:bg-zinc-900 border border-emerald-300 dark:border-emerald-700 text-emerald-600 dark:text-emerald-400 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                  className="w-full bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 border border-emerald-300 dark:border-emerald-700 text-emerald-600 dark:text-emerald-400 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-emerald-500"
                 >
                   <option value="active">Active</option>
                   <option value="inactive">Inactive</option>
@@ -216,7 +216,7 @@ const ManageCoupons = () => {
       {/* Edit Coupon Modal */}
       {isEditModalOpen && editingCoupon && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 rounded-lg shadow-md p-4 w-full max-w-md">
+          <div className="bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300 text-emerald-600 dark:text-emerald-400 rounded-lg shadow-md p-4 w-full max-w-md">
             <h2 className="text-xl font-semibold mb-4">✏️ Edit Coupon</h2>
             <form onSubmit={handleUpdateCoupon} className="space-y-4">
               <div>
@@ -225,7 +225,7 @@ const ManageCoupons = () => {
                   type="text"
                   value={editingCoupon.code}
                   onChange={(e) => setEditingCoupon({ ...editingCoupon, code: e.target.value })}
-                  className="w-full bg-white dark:bg-zinc-900 border border-emerald-300 dark:border-emerald-700 text-emerald-600 dark:text-emerald-400 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                  className="w-full bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 border border-emerald-300 dark:border-emerald-700 text-emerald-600 dark:text-emerald-400 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-emerald-500"
                   required
                 />
               </div>
@@ -237,7 +237,7 @@ const ManageCoupons = () => {
                   onChange={(e) => setEditingCoupon({ ...editingCoupon, discount: e.target.value })}
                   min="1"
                   max="100"
-                  className="w-full bg-white dark:bg-zinc-900 border border-emerald-300 dark:border-emerald-700 text-emerald-600 dark:text-emerald-400 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                  className="w-full bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 border border-emerald-300 dark:border-emerald-700 text-emerald-600 dark:text-emerald-400 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-emerald-500"
                   required
                 />
               </div>
@@ -246,7 +246,7 @@ const ManageCoupons = () => {
                 <select
                   value={editingCoupon.status}
                   onChange={(e) => setEditingCoupon({ ...editingCoupon, status: e.target.value })}
-                  className="w-full bg-white dark:bg-zinc-900 border border-emerald-300 dark:border-emerald-700 text-emerald-600 dark:text-emerald-400 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                  className="w-full bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 border border-emerald-300 dark:border-emerald-700 text-emerald-600 dark:text-emerald-400 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-emerald-500"
                 >
                   <option value="active">Active</option>
                   <option value="inactive">Inactive</option>
@@ -274,9 +274,9 @@ const ManageCoupons = () => {
       )}
 
       {/* Coupon Table */}
-      <div className="overflow-x-auto rounded-lg shadow-md border border-emerald-300 dark:border-emerald-700 bg-white dark:bg-zinc-900">
+      <div className="overflow-x-auto rounded-lg shadow-md border border-emerald-300 dark:border-emerald-700 bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
         <table className="min-w-full text-sm text-emerald-600 dark:text-emerald-400">
-          <thead className="bg-emerald-50 dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 uppercase text-xs">
+          <thead className="bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 text-emerald-600 dark:text-emerald-400 uppercase text-xs">
             <tr>
               <th className="py-3 px-4 text-left">Code</th>
               <th className="py-3 px-4 text-left">Discount (%)</th>

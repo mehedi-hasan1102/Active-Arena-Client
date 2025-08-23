@@ -52,7 +52,7 @@ const ManageConfirmedBookings = () => {
   <input
     type="text"
     placeholder="Search by user email, court, date or time..."
-    className="w-full max-w-xl px-4 py-3 rounded-md border border-emerald-300 dark:border-emerald-700 bg-white dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 placeholder-emerald-400 dark:placeholder-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+    className="w-full max-w-xl px-4 py-3 rounded-md border border-emerald-300 dark:border-emerald-700 bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 text-emerald-600 dark:text-emerald-400 placeholder-emerald-400 dark:placeholder-emerald-600 focus:outline-none focus:ring-2 focus:ring-emerald-500"
     value={searchTerm}
     onChange={(e) => setSearchTerm(e.target.value)}
     aria-label="Search bookings"
@@ -79,9 +79,9 @@ const ManageConfirmedBookings = () => {
       )}
 
       {!loading && !error && filteredBookings.length > 0 && (
-        <div className="overflow-x-auto rounded-md border border-emerald-300 dark:border-emerald-700 shadow-md">
+        <div className="overflow-x-auto rounded-md border border-emerald-300 dark:border-emerald-700 shadow-md bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
           <table className="min-w-full divide-y divide-emerald-300 dark:divide-emerald-700">
-            <thead className="bg-emerald-50 dark:bg-zinc-900 sticky top-0 z-10">
+            <thead className="bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 sticky top-0 z-10">
               <tr>
                 <th className="px-6 py-4 text-left text-sm font-semibold text-emerald-600 dark:text-emerald-400 whitespace-nowrap">
                   User Email
@@ -98,7 +98,7 @@ const ManageConfirmedBookings = () => {
               </tr>
             </thead>
 
-            <tbody className="bg-white dark:bg-zinc-900 divide-y divide-emerald-300 dark:divide-emerald-700">
+            <tbody className="bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 divide-y divide-emerald-300 dark:divide-emerald-700">
               {filteredBookings.map((booking) => (
                 <tr
                   key={booking._id?.$oid || booking._id || booking.id}

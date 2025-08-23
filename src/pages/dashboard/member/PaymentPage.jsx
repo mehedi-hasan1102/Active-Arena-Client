@@ -106,7 +106,7 @@ const PaymentPage = () => {
       </h1>
 
       {/* Booking Summary */}
-      <div className="space-y-4 bg-white dark:bg-zinc-900 p-6 rounded-lg shadow-md mb-6 border border-emerald-300 dark:border-emerald-700">
+      <div className="space-y-4 bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300 p-6 rounded-lg shadow-md mb-6 border border-emerald-300 dark:border-emerald-700">
         <h2 className="text-xl font-semibold border-b border-emerald-300 dark:border-emerald-700 pb-2 text-emerald-600 dark:text-emerald-400">
           Booking Summary
         </h2>
@@ -119,7 +119,7 @@ const PaymentPage = () => {
             type="text"
             readOnly
             value={user?.email || ""}
-            className="w-full bg-white dark:bg-zinc-900 border border-emerald-300 dark:border-emerald-700 rounded-md p-2 text-emerald-600 dark:text-emerald-400 placeholder-emerald-400 dark:placeholder-emerald-600"
+            className="w-full bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 border border-emerald-300 dark:border-emerald-700 rounded-md p-2 text-emerald-600 dark:text-emerald-400 placeholder-emerald-400 dark:placeholder-emerald-600"
           />
         </div>
 
@@ -131,7 +131,7 @@ const PaymentPage = () => {
             type="text"
             readOnly
             value={booking.courtName}
-            className="w-full bg-white dark:bg-zinc-900 border border-emerald-300 dark:border-emerald-700 rounded-md p-2 text-emerald-600 dark:text-emerald-400 placeholder-emerald-400 dark:placeholder-emerald-600"
+            className="w-full bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 border border-emerald-300 dark:border-emerald-700 rounded-md p-2 text-emerald-600 dark:text-emerald-400 placeholder-emerald-400 dark:placeholder-emerald-600"
           />
         </div>
 
@@ -143,7 +143,7 @@ const PaymentPage = () => {
             type="text"
             readOnly
             value={`${new Date(booking.date).toLocaleDateString()} - ${booking.slots.join(", ")}`}
-            className="w-full bg-white dark:bg-zinc-900 border border-emerald-300 dark:border-emerald-700 rounded-md p-2 text-emerald-600 dark:text-emerald-400 placeholder-emerald-400 dark:placeholder-emerald-600"
+            className="w-full bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 border border-emerald-300 dark:border-emerald-700 rounded-md p-2 text-emerald-600 dark:text-emerald-400 placeholder-emerald-400 dark:placeholder-emerald-600"
           />
         </div>
 
@@ -174,7 +174,7 @@ const PaymentPage = () => {
               value={coupon}
               onChange={(e) => setCoupon(e.target.value)}
               placeholder="Enter coupon code"
-              className="flex-grow bg-white dark:bg-zinc-900 border border-emerald-300 dark:border-emerald-700 rounded-md p-2 text-emerald-600 dark:text-emerald-400 placeholder-emerald-400 dark:placeholder-emerald-600"
+              className="flex-grow bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 border border-emerald-300 dark:border-emerald-700 rounded-md p-2 text-emerald-600 dark:text-emerald-400 placeholder-emerald-400 dark:placeholder-emerald-600"
             />
             <button
               onClick={handleApplyCoupon}

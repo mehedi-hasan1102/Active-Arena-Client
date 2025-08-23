@@ -98,7 +98,7 @@ const Navbar = () => {
   );
 
   return (
-    // <nav className="max-w-7xl mx-auto bg-white dark:bg-zinc-900 border-b shadow-md fixed w-full z-50 transition-all duration-300">
+    // <nav className="max-w-7xl mx-auto bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 border-b shadow-md fixed w-full z-50 transition-all duration-300">
 
     <nav className="rounded-t-none rounded-xl  border-[#0FB9D7]  mx-auto bg-white/80 dark:bg-zinc-900/80 backdrop-blur-sm border-b shadow-md fixed w-full z-50 transition-all duration-300">
       <div className="px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
@@ -182,7 +182,7 @@ const Navbar = () => {
 
       {/* Mobile Nav */}
       {menuOpen && (
-        <div className="lg:hidden px-4 pb-4 items-center pt-2 bg-white dark:bg-zinc-900 border-t">
+        <div className="lg:hidden px-4 pb-4 items-center pt-2 bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 border-t">
           <div className="flex flex-col gap-3 text-lg items-center font-medium">{navLinks}</div>
           {!user ? (
             <div className="mt-4 flex flex-col gap-2 items-center">

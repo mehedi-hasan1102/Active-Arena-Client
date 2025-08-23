@@ -82,7 +82,7 @@ const DashboardLayout = () => {
       <aside
         className={`${
           collapsed ? "w-20" : "w-64"
-        } bg-white dark:bg-zinc-900 border-r-2 border-emerald-300 dark:border-emerald-700 p-4 flex flex-col justify-between transition-all duration-300 rounded-md`}
+        } bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800    border-r-2 border-emerald-300 dark:border-emerald-700 p-4 flex flex-col justify-between transition-all duration-300 rounded-md`}
       >
         <div>
           <div className="flex items-center justify-between mb-6">
@@ -155,11 +155,11 @@ const DashboardLayout = () => {
         </div>
       </aside>
 
-      <main className="flex-1 p-6 overflow-y-auto bg-emerald-50 dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 transition-colors duration-300 rounded-md">
+      <main className="flex-1 p-6 overflow-y-auto bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800   text-emerald-600 dark:text-emerald-400 transition-colors duration-300 rounded-md">
         <Outlet />
       </main>
     </div>
   );
 };
-
+// flex-1 p-6 overflow-y-auto bg-emerald-50 dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 transition-colors duration-300 rounded-md
 export default DashboardLayout;

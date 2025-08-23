@@ -334,7 +334,7 @@ const Overview = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-zinc-900 px-4 py-12 transition-colors duration-300">
+    <div className="rounded-2xl min-h-screen bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300  px-4 py-12 ">
       <Helmet>
         <title>Dashboard Overview - ActiveArena</title>
       </Helmet>

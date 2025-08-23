@@ -26,7 +26,7 @@ const ManageAllUsers = () => {
   );
 
   return (
-    <div className="min-h-screen bg-white dark:bg-zinc-900 p-6 sm:p-10 text-emerald-600 dark:text-emerald-400">
+    <div className="min-h-screen bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300  p-6 sm:p-10 text-emerald-600 dark:text-emerald-400">
      
 <h1 className="text-2xl sm:text-3xl font-bold mb-6 text-center">
   Manage All Users
@@ -38,7 +38,7 @@ const ManageAllUsers = () => {
           placeholder="Search by name or email..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="w-full p-3 rounded-md border border-emerald-300 dark:border-emerald-700 bg-white dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 placeholder-emerald-400 dark:placeholder-emerald-600 shadow-sm transition focus:outline-none focus:ring-4 focus:ring-emerald-500"
+          className="w-full p-3 rounded-md border border-emerald-300 dark:border-emerald-700z text-emerald-600 dark:text-emerald-400 placeholder-emerald-400 dark:placeholder-emerald-600 shadow-sm transition focus:outline-none focus:ring-4 focus:ring-emerald-500"
           aria-label="Search users by name or email"
         />
       </div>

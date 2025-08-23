@@ -130,8 +130,7 @@ const Signup = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
       className="flex justify-center items-center min-h-[calc(100vh-80px)] sm:min-h-screen p-4
-        bg-gradient-to-br from-emerald-50 via-white to-cyan-50
-        dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900 pt-12"
+        bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300  pt-12"
     >
       <Helmet>
         <title>Signup - ActiveArena</title>

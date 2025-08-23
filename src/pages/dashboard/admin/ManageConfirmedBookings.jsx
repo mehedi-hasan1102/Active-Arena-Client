@@ -79,41 +79,41 @@ const ManageConfirmedBookings = () => {
       )}
 
       {!loading && !error && filteredBookings.length > 0 && (
-        <div className="overflow-x-auto rounded-md border border-emerald-300 dark:border-emerald-700 shadow-md bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
-          <table className="min-w-full divide-y divide-emerald-300 dark:divide-emerald-700">
-            <thead className="bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 sticky top-0 z-10">
+        <div className="overflow-x-auto rounded-xl shadow-md border border-emerald-200 dark:border-emerald-700 overflow-hidden">
+          <table className="w-full border-collapse text-sm">
+            <thead className="bg-emerald-100 dark:bg-emerald-800 text-emerald-700 dark:text-emerald-300 font-semibold">
               <tr>
-                <th className="px-6 py-4 text-left text-sm font-semibold text-emerald-600 dark:text-emerald-400 whitespace-nowrap">
+                <th className="px-4 py-3 border-b border-emerald-200 dark:border-emerald-700">
                   User Email
                 </th>
-                <th className="px-6 py-4 text-left text-sm font-semibold text-emerald-600 dark:text-emerald-400 whitespace-nowrap">
+                <th className="px-4 py-3 border-b border-emerald-200 dark:border-emerald-700">
                   Court
                 </th>
-                <th className="px-6 py-4 text-center text-sm font-semibold text-emerald-600 dark:text-emerald-400 whitespace-nowrap">
+                <th className="px-4 py-3 border-b border-emerald-200 dark:border-emerald-700">
                   Date
                 </th>
-                <th className="px-6 py-4 text-center text-sm font-semibold text-emerald-600 dark:text-emerald-400 whitespace-nowrap">
+                <th className="px-4 py-3 border-b border-emerald-200 dark:border-emerald-700">
                   Time Slots
                 </th>
               </tr>
             </thead>
 
-            <tbody className="bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 divide-y divide-emerald-300 dark:divide-emerald-700">
+            <tbody className="bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 divide-y divide-emerald-200 dark:divide-emerald-700">
               {filteredBookings.map((booking) => (
                 <tr
                   key={booking._id?.$oid || booking._id || booking.id}
-                  className="hover:bg-emerald-50 dark:hover:bg-zinc-900 cursor-pointer"
+                  className="even:bg-emerald-50 dark:even:bg-gray-800 hover:bg-emerald-100 dark:hover:bg-emerald-700 transition-colors"
                 >
-                  <td className="px-6 py-3 whitespace-nowrap text-sm font-medium text-emerald-600 dark:text-emerald-400">
+                  <td className="px-4 py-3 border-b border-emerald-200 dark:border-emerald-700">
                     {booking.userEmail}
                   </td>
-                  <td className="px-6 py-3 whitespace-nowrap text-sm text-emerald-600 dark:text-emerald-400">
+                  <td className="px-4 py-3 border-b border-emerald-200 dark:border-emerald-700">
                     {booking.courtName}
                   </td>
-                  <td className="px-6 py-3 whitespace-nowrap text-sm text-center text-emerald-600 dark:text-emerald-400">
+                  <td className="px-4 py-3 border-b border-emerald-200 dark:border-emerald-700">
                     {new Date(booking.date).toLocaleDateString("en-GB")}
                   </td>
-                  <td className="px-6 py-3 whitespace-nowrap text-sm text-center text-emerald-600 dark:text-emerald-400">
+                  <td className="px-4 py-3 border-b border-emerald-200 dark:border-emerald-700">
                     {(booking.slots || []).join(", ")}
                   </td>
                 </tr>

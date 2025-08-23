@@ -106,7 +106,7 @@ const PaymentPage = () => {
       </h1>
 
       {/* Booking Summary */}
-      <div className="space-y-4 bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300 p-6 rounded-lg shadow-md mb-6 border border-emerald-300 dark:border-emerald-700">
+      <div className="space-y-4 bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300 p-6 rounded-lg shadow-md mb-6 border border-emerald-200 dark:border-emerald-700">
         <h2 className="text-xl font-semibold border-b border-emerald-300 dark:border-emerald-700 pb-2 text-emerald-600 dark:text-emerald-400">
           Booking Summary
         </h2>

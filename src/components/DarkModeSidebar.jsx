@@ -57,7 +57,7 @@ const StyledWrapper = styled.div`
     bottom: 0;
     background-color: #73c0fc;
     transition: 0.4s;
-    border-radius: 10px;
+    border-radius: 100px;
   }
 
   .slider:before {

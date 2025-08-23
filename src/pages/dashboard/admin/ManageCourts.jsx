@@ -79,7 +79,7 @@ const ManageCourts = () => {
     <div className="p-6 bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 min-h-screen transition-colors duration-300">
       <h1 className="text-3xl font-bold text-center text-emerald-600 dark:text-emerald-400 mb-6"> Manage Courts</h1>
 
-      <div className="bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300 text-emerald-600 dark:text-emerald-400 rounded-lg shadow-md p-6 mb-10">
+      <div className="bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300 text-emerald-600 dark:text-emerald-400 rounded-lg shadow-md p-6 mb-10 border border-emerald-200 dark:border-emerald-700">
         <h2 className="text-xl  mb-4 font-semibold  rounded-md 
  ">
           {editingCourt ? '✏️ Edit Court' : '➕ Add New Court'}
@@ -141,12 +141,12 @@ const ManageCourts = () => {
       </div>
 
       <h2 className="text-xl font-semibold text-emerald-600 dark:text-emerald-400 mb-4"> Existing Courts</h2>
-      <div className="overflow-x-auto">
-        <table className="min-w-full bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300 border border-emerald-300 dark:border-emerald-700 rounded-t-md overflow-hidden text-sm">
-          <thead className="bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 text-emerald-600 dark:text-emerald-400">
+      <div className="overflow-x-auto rounded-xl shadow-md border border-emerald-200 dark:border-emerald-700 overflow-hidden">
+        <table className="w-full border-collapse text-sm">
+          <thead className="bg-emerald-100 dark:bg-emerald-800 text-emerald-700 dark:text-emerald-300 font-semibold">
             <tr>
               {['Name', 'Type', 'Status', 'Price', 'Slots', 'Actions'].map((heading) => (
-                <th key={heading} className="py-3 px-4 border border-emerald-300 dark:border-emerald-700">
+                <th key={heading} className="px-4 py-3 border-b border-emerald-200 dark:border-emerald-700">
                   {heading}
                 </th>
               ))}
@@ -156,14 +156,14 @@ const ManageCourts = () => {
             {courts.map((court) => (
               <tr
                 key={court._id}
-                className="hover:bg-emerald-50 dark:hover:bg-zinc-900 transition border-b border-emerald-300 dark:border-emerald-700"
+                className="even:bg-emerald-50 dark:even:bg-gray-800 hover:bg-emerald-100 dark:hover:bg-emerald-700 transition-colors"
               >
-                <td className="py-2 px-4 border">{court.name}</td>
-                <td className="py-2 px-4 border">{court.type}</td>
-                <td className="py-2 px-4 border">{court.status}</td>
-                <td className="py-2 px-4 border">৳{court.price}</td>
-                <td className="py-2 px-4 border">{(court.availableSlots || []).join(', ')}</td>
-                <td className="py-2 px-4 border space-x-2">
+                <td className="px-4 py-3 border-b border-emerald-200 dark:border-emerald-700">{court.name}</td>
+                <td className="px-4 py-3 border-b border-emerald-200 dark:border-emerald-700">{court.type}</td>
+                <td className="px-4 py-3 border-b border-emerald-200 dark:border-emerald-700">{court.status}</td>
+                <td className="px-4 py-3 border-b border-emerald-200 dark:border-emerald-700">৳{court.price}</td>
+                <td className="px-4 py-3 border-b border-emerald-200 dark:border-emerald-700">{(court.availableSlots || []).join(', ')}</td>
+                <td className="px-4 py-3 border-b border-emerald-200 dark:border-emerald-700">
                   <button
                     onClick={() => setEditingCourt(court)}
                     className="px-4 py-2 bg-gray-300 hover:bg-gray-400 text-gray-900 rounded-lg font-semibold shadow-md hover:shadow-lg transition-all duration-300 dark:bg-zinc-800 dark:hover:bg-zinc-700 dark:text-gray-200"

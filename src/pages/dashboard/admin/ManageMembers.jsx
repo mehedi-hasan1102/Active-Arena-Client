@@ -70,9 +70,9 @@ const ManageMembers = () => {
       </div>
 
       {/* Table */}
-      <div className="overflow-x-auto shadow-md rounded-lg bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300 p-4">
-        <table className="min-w-full text-sm text-emerald-600 dark:text-emerald-400 border border-emerald-300 dark:border-emerald-700 bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 rounded-t-md">
-          <thead className="bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 uppercase text-xs text-emerald-600 dark:text-emerald-400">
+      <div className="overflow-x-auto rounded-xl shadow-md border border-emerald-200 dark:border-emerald-700 overflow-hidden">
+        <table className="w-full border-collapse text-sm">
+          <thead className="bg-emerald-100 dark:bg-emerald-800 text-emerald-700 dark:text-emerald-300 font-semibold">
             <tr>
               <th className="py-3 px-4 border-b border-emerald-300 dark:border-emerald-700 text-left">Name</th>
               <th className="py-3 px-4 border-b border-emerald-300 dark:border-emerald-700 text-left">Email</th>
@@ -90,7 +90,7 @@ const ManageMembers = () => {
               filteredMembers.map((member) => (
                 <tr
                   key={member._id}
-                  className="hover:bg-emerald-50 dark:hover:bg-zinc-900 border-b border-emerald-300 dark:border-emerald-700"
+                  className="even:bg-emerald-50 dark:even:bg-gray-800 hover:bg-emerald-100 dark:hover:bg-emerald-700 transition-colors"
                 >
                   <td className="py-3 px-4">{member.name}</td>
                   <td className="py-3 px-4">{member.email}</td>

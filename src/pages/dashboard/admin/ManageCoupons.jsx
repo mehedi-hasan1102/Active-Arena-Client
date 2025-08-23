@@ -156,7 +156,7 @@ const ManageCoupons = () => {
       {/* Add Coupon Modal */}
       {isAddModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300 text-emerald-600 dark:text-emerald-400 rounded-lg shadow-md p-4 w-full max-w-md">
+          <div className="bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300 text-emerald-600 dark:text-emerald-400 rounded-lg shadow-md p-4 w-full max-w-md border border-emerald-200 dark:border-emerald-700">
             <h2 className="text-xl font-semibold mb-4">➕ Add New Coupon</h2>
             <form onSubmit={handleAddCoupon} className="space-y-4">
               <div>
@@ -216,7 +216,7 @@ const ManageCoupons = () => {
       {/* Edit Coupon Modal */}
       {isEditModalOpen && editingCoupon && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300 text-emerald-600 dark:text-emerald-400 rounded-lg shadow-md p-4 w-full max-w-md">
+          <div className="bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300 text-emerald-600 dark:text-emerald-400 rounded-lg shadow-md p-4 w-full max-w-md border border-emerald-200 dark:border-emerald-700">
             <h2 className="text-xl font-semibold mb-4">✏️ Edit Coupon</h2>
             <form onSubmit={handleUpdateCoupon} className="space-y-4">
               <div>
@@ -274,9 +274,9 @@ const ManageCoupons = () => {
       )}
 
       {/* Coupon Table */}
-      <div className="overflow-x-auto rounded-lg shadow-md border border-emerald-300 dark:border-emerald-700 bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
-        <table className="min-w-full text-sm text-emerald-600 dark:text-emerald-400">
-          <thead className="bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 text-emerald-600 dark:text-emerald-400 uppercase text-xs">
+      <div className="overflow-x-auto rounded-xl shadow-md border border-emerald-200 dark:border-emerald-700 overflow-hidden">
+        <table className="w-full border-collapse text-sm">
+          <thead className="bg-emerald-100 dark:bg-emerald-800 text-emerald-700 dark:text-emerald-300 font-semibold">
             <tr>
               <th className="py-3 px-4 text-left">Code</th>
               <th className="py-3 px-4 text-left">Discount (%)</th>
@@ -295,7 +295,7 @@ const ManageCoupons = () => {
               coupons.map((coupon) => (
                 <tr
                   key={coupon._id}
-                  className="hover:bg-emerald-50 dark:hover:bg-zinc-900 border-b border-emerald-300 dark:border-emerald-700"
+                  className="even:bg-emerald-50 dark:even:bg-gray-800 hover:bg-emerald-100 dark:hover:bg-emerald-700 transition-colors"
                 >
                   <td className="py-3 px-4">{coupon.code}</td>
                   <td className="py-3 px-4">{coupon.discount}%</td>

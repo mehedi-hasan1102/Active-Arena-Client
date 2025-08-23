@@ -46,16 +46,16 @@ const ManageAllUsers = () => {
       {loading ? (
        < Loading />
       ) : (
-        <div className="overflow-x-auto rounded-lg shadow-md border border-emerald-300 dark:border-emerald-700 bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
+        <div className="overflow-x-auto rounded-xl shadow-md border border-emerald-200 dark:border-emerald-700 overflow-hidden">
           <table
-            className="min-w-full text-emerald-600 dark:text-emerald-400 text-sm"
+            className="w-full border-collapse text-sm"
             aria-label="Users table"
           >
-            <thead className="bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 text-emerald-600 dark:text-emerald-400 uppercase text-xs select-none rounded-t-md">
+            <thead className="bg-emerald-100 dark:bg-emerald-800 text-emerald-700 dark:text-emerald-300 font-semibold">
               <tr>
-                <th className="py-4 px-6 text-left rounded-tl-md font-semibold">Name</th>
-                <th className="py-4 px-6 text-left font-semibold">Email</th>
-                <th className="py-4 px-6 text-left rounded-tr-md font-semibold">Role</th>
+                <th className="px-4 py-3 border-b border-emerald-200 dark:border-emerald-700">Name</th>
+                <th className="px-4 py-3 border-b border-emerald-200 dark:border-emerald-700">Email</th>
+                <th className="px-4 py-3 border-b border-emerald-200 dark:border-emerald-700">Role</th>
               </tr>
             </thead>
             <tbody>
@@ -63,18 +63,18 @@ const ManageAllUsers = () => {
                 filteredUsers.map((user) => (
                   <tr
                     key={user._id}
-                    className="border-b border-emerald-300 dark:border-emerald-700 hover:bg-emerald-50 dark:hover:bg-zinc-900 transition-colors"
+                    className="even:bg-emerald-50 dark:even:bg-gray-800 hover:bg-emerald-100 dark:hover:bg-emerald-700 transition-colors"
                   >
-                    <td className="py-4 px-6 text-center font-medium">{user.name}</td>
-                    <td className="py-4 px-6 text-center">{user.email}</td>
-                    <td className="py-4 px-6 text-center">{user.role}</td>
+                    <td className="px-4 py-3 border-b border-emerald-200 dark:border-emerald-700">{user.name}</td>
+                    <td className="px-4 py-3 border-b border-emerald-200 dark:border-emerald-700">{user.email}</td>
+                    <td className="px-4 py-3 border-b border-emerald-200 dark:border-emerald-700">{user.role}</td>
                   </tr>
                 ))
               ) : (
                 <tr>
                   <td
                     colSpan="3"
-                    className="text-center py-12 italic text-gray-500 dark:text-gray-400 font-medium"
+                    className="px-4 py-3 border-b border-emerald-200 dark:border-emerald-700 text-center italic text-gray-500 dark:text-gray-400 font-medium"
                   >
                     No users found.
                   </td>

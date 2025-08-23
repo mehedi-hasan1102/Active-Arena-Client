@@ -162,7 +162,7 @@ const MakeAnnouncement = () => {
       {/* Add Announcement Modal */}
       {isAddModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 animate-fadeIn">
-          <div className="bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 p-8 rounded-lg shadow-xl w-full max-w-md animate-slideInUp transition-colors duration-300">
+          <div className="bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 p-8 rounded-lg shadow-xl w-full max-w-md animate-slideInUp transition-colors duration-300 border border-emerald-200 dark:border-emerald-700">
             <h2 className="text-2xl font-semibold mb-6 text-emerald-600 dark:text-emerald-400">➕ Add New Announcement</h2>
             <form onSubmit={handleAddAnnouncement} className="space-y-6">
               <div>
@@ -209,7 +209,7 @@ const MakeAnnouncement = () => {
       {/* Edit Announcement Modal */}
       {isEditModalOpen && editingAnnouncement && (
         <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 animate-fadeIn">
-          <div className="bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 p-8 rounded-lg shadow-xl w-full max-w-md animate-slideInUp transition-colors duration-300">
+          <div className="bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 p-8 rounded-lg shadow-xl w-full max-w-md animate-slideInUp transition-colors duration-300 border border-emerald-200 dark:border-emerald-700">
             <h2 className="text-2xl font-semibold mb-6 text-emerald-600 dark:text-emerald-400">✏️ Edit Announcement</h2>
             <form onSubmit={handleUpdateAnnouncement} className="space-y-6">
               <div>
@@ -258,12 +258,12 @@ const MakeAnnouncement = () => {
       )}
 
       {/* Announcement Table */}
-      <div className="overflow-x-auto shadow-lg rounded-lg border border-emerald-300 dark:border-emerald-700 bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
+      <div className="overflow-x-auto rounded-xl shadow-md border border-emerald-200 dark:border-emerald-700 overflow-hidden">
         <table
-          className="min-w-full text-emerald-600 dark:text-emerald-400 text-sm"
+          className="w-full border-collapse text-sm"
           aria-label="Announcements table"
         >
-          <thead className="bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 text-emerald-600 dark:text-emerald-400 uppercase text-xs select-none">
+          <thead className="bg-emerald-100 dark:bg-emerald-800 text-emerald-700 dark:text-emerald-300 font-semibold">
             <tr>
               <th className="py-4 px-6 text-left rounded-tl-lg font-semibold">Title</th>
               <th className="py-4 px-6 text-left font-semibold">Content</th>
@@ -284,7 +284,7 @@ const MakeAnnouncement = () => {
               announcements.map((announcement) => (
                 <tr
                   key={announcement._id}
-                  className="border-b border-emerald-300 dark:border-emerald-700 hover:bg-emerald-50 dark:hover:bg-zinc-900 transition-colors"
+                  className="even:bg-emerald-50 dark:even:bg-gray-800 hover:bg-emerald-100 dark:hover:bg-emerald-700 transition-colors"
                 >
                   <td className="py-4 px-6 font-medium">{announcement.title}</td>
                   <td className="py-4 px-6 whitespace-pre-wrap">{announcement.content}</td>

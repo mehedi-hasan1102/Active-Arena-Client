@@ -146,7 +146,7 @@ const PaymentHistory = () => {
             {payments.map((payment) => (
               <div
                 key={payment.id}
-                className="bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300 border border-emerald-300 dark:border-emerald-700 rounded-lg shadow-md p-5 space-y-2"
+                className="bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300 border border-emerald-200 dark:border-emerald-700 rounded-lg shadow-md p-5 space-y-2"
               >
                 <div className="text-lg font-semibold text-emerald-600 dark:text-emerald-400">
                   {payment.description}

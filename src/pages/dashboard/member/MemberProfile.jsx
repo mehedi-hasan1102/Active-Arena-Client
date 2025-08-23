@@ -59,7 +59,7 @@ const MemberProfile = () => {
       {/* Profile Section */}
       {user && !isUserLoading && !isBookingsLoading && (
         <>
-          <section className="flex flex-col sm:flex-row items-center gap-6 mb-10 bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300 rounded-lg shadow-md p-6 border border-emerald-300 dark:border-emerald-700">
+          <section className="flex flex-col sm:flex-row items-center gap-6 mb-10 bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300 rounded-lg shadow-md p-6 border border-emerald-200 dark:border-emerald-700">
             <img
               src={user?.photoURL || 'https://via.placeholder.com/150'}
               alt="Member Avatar"
@@ -86,15 +86,15 @@ const MemberProfile = () => {
 
           {/* Stats Cards */}
           <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300 text-emerald-600 dark:text-emerald-400 rounded-lg shadow-md p-6 border border-emerald-300 dark:border-emerald-700 text-center">
+            <div className="bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300 text-emerald-600 dark:text-emerald-400 rounded-lg shadow-md p-6 border border-emerald-200 dark:border-emerald-700 text-center">
               <h2 className="text-lg font-semibold mb-2">Bookings Made</h2>
               <p className="text-4xl font-bold">{stats.totalBookings}</p>
             </div>
-            <div className="bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300 text-emerald-600 dark:text-emerald-400 rounded-lg shadow-md p-6 border border-emerald-300 dark:border-emerald-700 text-center">
+            <div className="bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300 text-emerald-600 dark:text-emerald-400 rounded-lg shadow-md p-6 border border-emerald-200 dark:border-emerald-700 text-center">
               <h2 className="text-lg font-semibold mb-2">Upcoming Bookings</h2>
               <p className="text-4xl font-bold">{stats.upcomingBookings}</p>
             </div>
-            <div className="bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300 text-emerald-600 dark:text-emerald-400 rounded-lg shadow-md p-6 border border-emerald-300 dark:border-emerald-700 text-center">
+            <div className="bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300 text-emerald-600 dark:text-emerald-400 rounded-lg shadow-md p-6 border border-emerald-200 dark:border-emerald-700 text-center">
               <h2 className="text-lg font-semibold mb-2">Membership Level</h2>
               <p className="text-4xl font-bold">{stats.membershipLevel}</p>
             </div>

@@ -46,7 +46,7 @@ const MemberConfirmedBookings = () => {
           {bookings.map((booking) => (
             <div
               key={booking._id?.$oid || booking._id} 
-              className="bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300 text-emerald-600 dark:text-emerald-400 rounded-lg shadow-md p-4 border  dark:border-emerald-700 border-l-4 border-emerald-500"
+              className="bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300 text-emerald-600 dark:text-emerald-400 rounded-lg shadow-md p-4 border border-emerald-200 dark:border-emerald-700"
             >
               <h2 className="text-xl font-semibold text-emerald-600 dark:text-emerald-400">
                 {booking.courtName || "Unknown Court"}

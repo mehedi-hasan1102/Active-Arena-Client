@@ -33,7 +33,7 @@ const UserProfile = () => {
         <title>My Profile | ActiveArena</title>
       </Helmet>
 
-      <div className="max-w-3xl mx-auto bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300 rounded-2xl shadow-lg p-8 space-y-6">
+      <div className="max-w-3xl mx-auto bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300 rounded-2xl shadow-lg p-8 space-y-6 border border-emerald-200 dark:border-emerald-700">
         <h1 className="text-3xl font-bold text-emerald-600  dark:text-emerald-400  text-center">
            My Profile
         </h1>

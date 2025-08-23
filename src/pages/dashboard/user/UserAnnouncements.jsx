@@ -78,7 +78,7 @@ const UserAnnouncements = () => {
           {announcements.map((item, index) => (
             <Motion.div
               key={item._id}
-              className="bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300 text-emerald-600 dark:text-emerald-400 border-l-4 border-emerald-500 rounded-lg shadow-md p-4"
+              className="bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300 text-emerald-600 dark:text-emerald-400 rounded-lg shadow-md p-4 border border-emerald-200 dark:border-emerald-700"
               custom={index}
               initial="hidden"
               animate="visible"

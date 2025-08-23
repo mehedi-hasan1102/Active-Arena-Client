@@ -99,7 +99,7 @@ const ManageBookingsApproval = () => {
     );
 
   return (
-    <div className="min-h-screen p-6 sm:p-10 bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 text-emerald-600 dark:text-emerald-400">
+    <div className="bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800">
       
       <h1 className="text-2xl sm:text-3xl font-bold mb-6 text-center">
    Manage Booking 
@@ -120,12 +120,12 @@ const ManageBookingsApproval = () => {
       </div>
 
       {/* Table */}
-      <div className="overflow-x-auto rounded-lg shadow-md border border-emerald-300 dark:border-emerald-700 bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
+      <div className="overflow-x-auto rounded-xl shadow-md border border-emerald-200 dark:border-emerald-700 overflow-hidden">
         <table
-          className="min-w-full text-sm text-emerald-600 dark:text-emerald-400"
+          className="w-full border-collapse text-sm"
           aria-label="Booking requests table"
         >
-          <thead className="bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 text-emerald-600 dark:text-emerald-400 uppercase text-xs select-none rounded-t-md">
+          <thead className="bg-emerald-100 dark:bg-emerald-800 text-emerald-700 dark:text-emerald-300 font-semibold">
             <tr>
               <th className="py-4 px-6 text-left font-semibold rounded-tl-md">
                 User
@@ -153,7 +153,7 @@ const ManageBookingsApproval = () => {
               bookings.map((booking) => (
                 <tr
                   key={booking._id}
-                  className="border-b border-emerald-300 dark:border-emerald-700 hover:bg-emerald-50 dark:hover:bg-zinc-900 transition-colors"
+                  className="even:bg-emerald-50 dark:even:bg-gray-800 hover:bg-emerald-100 dark:hover:bg-emerald-700 transition-colors"
                 >
                   <td className="py-4 px-6 text-center font-medium">
                     {booking.userName || booking.userEmail || 'N/A'}

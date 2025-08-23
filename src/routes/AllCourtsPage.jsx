@@ -18,7 +18,7 @@ export default function AllCourtsPage() {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.2 });
 
-  const itemsPerPage = view === 'card' ? 6 : 10;
+  const itemsPerPage = view === 'card' ? 4 : 4;
   const queryClient = useQueryClient();
 
   // Animation variants
@@ -230,29 +230,39 @@ export default function AllCourtsPage() {
         >
           <div className="flex space-x-2 bg-gray-200 dark:bg-zinc-700 p-1 rounded-full">
             
-            <div className="flex gap-3">
+<div className="relative inline-flex p-1 bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 rounded-full shadow-sm text-sm w-44">
+  {/* Sliding indicator */}
+  <div
+    className={`absolute top-0 left-0 h-full w-1/2 bg-gradient-to-br from-emerald-600 to-cyan-600 dark:from-emerald-400 dark:to-cyan-400 rounded-full shadow-md transition-all duration-300 transform ${
+      view === 'table' ? 'translate-x-full' : ''
+    }`}
+  ></div>
+
+  {/* Card Button */}
   <button
     onClick={() => setView('card')}
-    className={`px-5 py-2 rounded-full font-medium text-sm transition-all duration-200 ${
+    className={`relative z-10 flex-1 text-center py-2 font-semibold transition-colors duration-300 ${
       view === 'card'
-        ? 'bg-white dark:bg-zinc-800 text-gray-900 dark:text-white shadow-md'
-        : 'bg-gray-100 dark:bg-zinc-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-zinc-600'
-    } focus:outline-none focus:ring-2 focus:ring-[#0FB9D7]`}
+        ? 'text-white dark:text-gray-900'
+        : 'text-gray-600 dark:text-gray-300'
+    }`}
   >
-    Card View
+    Card
   </button>
 
+  {/* Table Button */}
   <button
     onClick={() => setView('table')}
-    className={`px-5 py-2 rounded-full font-medium text-sm transition-all duration-200 ${
+    className={`relative z-10 flex-1 text-center py-2 font-semibold transition-colors duration-300 ${
       view === 'table'
-        ? 'bg-white dark:bg-zinc-800 text-gray-900 dark:text-white shadow-md'
-        : 'bg-gray-100 dark:bg-zinc-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-zinc-600'
-    } focus:outline-none focus:ring-2 focus:ring-[#0FB9D7]`}
+        ? 'text-white dark:text-gray-900'
+        : 'text-gray-600 dark:text-gray-300'
+    }`}
   >
-    Table View
+    Table
   </button>
 </div>
+
 
           </div>
         </motion.div>
@@ -262,7 +272,8 @@ export default function AllCourtsPage() {
             variants={containerVariants}
             initial="hidden"
             animate={controls}
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 max-w-6xl mx-auto"
+
           >
             {currentCourts.map((court, index) => (
               <motion.div
@@ -273,7 +284,7 @@ export default function AllCourtsPage() {
                 className="relative group"
               >
                 <div className="absolute -inset-1 bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-xl blur opacity-25 group-hover:opacity-50 transition-all duration-500 dark:from-emerald-500 dark:to-cyan-500"></div>
-                <div className="relative h-full bg-white dark:bg-zinc-800 p-6 rounded-xl border border-gray-100 dark:border-zinc-700 shadow-sm hover:shadow-md transition-all duration-300">
+                <div className="relative h-full bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 p-6 rounded-xl border border-gray-100 dark:border-zinc-700 shadow-sm hover:shadow-md transition-all duration-300">
                   <motion.img
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -328,10 +339,10 @@ export default function AllCourtsPage() {
             variants={containerVariants}
             initial="hidden"
             animate={controls}
-            className="overflow-x-auto bg-white dark:bg-zinc-800 rounded-xl border border-gray-100 dark:border-zinc-700 shadow-sm"
+            className="overflow-x-auto rounded-xl shadow-md border border-emerald-200 dark:border-emerald-700 overflow-hidden"
           >
-            <table className="min-w-full">
-              <thead className="bg-gray-100 dark:bg-zinc-700">
+            <table className="w-full border-collapse text-sm">
+              <thead className="bg-emerald-100 dark:bg-emerald-800 text-emerald-700 dark:text-emerald-300 font-semibold">
                 <tr>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Type</th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">Price</th>
@@ -343,7 +354,7 @@ export default function AllCourtsPage() {
                 {currentCourts.map((court) => (
                   <tr
                     key={court._id}
-                    className="hover:bg-gray-50 dark:hover:bg-zinc-700/50"
+                    className="even:bg-emerald-50 dark:even:bg-gray-800 hover:bg-emerald-100 dark:hover:bg-emerald-700 transition-colors"
                   >
                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-emerald-700 dark:text-emerald-400">{court.type}</td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">৳{court.price}</td>

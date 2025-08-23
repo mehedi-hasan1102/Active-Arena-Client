@@ -126,7 +126,7 @@ const ManageCoupons = () => {
     );
 
   return (
-    <div className="p-4 sm:p-6 bg-white dark:bg-zinc-900 min-h-screen text-emerald-600 dark:text-emerald-400">
+    <div className="p-4 sm:p-6 bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 min-h-screen text-emerald-600 dark:text-emerald-400">
     <h1 className="text-2xl sm:text-3xl font-bold mb-6 text-center">
    Manage Coupons
 </h1>

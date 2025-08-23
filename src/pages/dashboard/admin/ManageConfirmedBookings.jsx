@@ -45,7 +45,7 @@ const ManageConfirmedBookings = () => {
   });
 
   return (
-    <div className="bg-white dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 p-6 rounded-lg shadow-lg max-w-7xl mx-auto">
+    <div className="bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 text-emerald-600 dark:text-emerald-400 p-6 rounded-lg shadow-lg max-w-7xl mx-auto min-h-screen transition-colors duration-300">
       <h1 className="text-3xl font-extrabold mb-6 text-center"> Confirmed Bookings</h1>
 
       <div className="flex justify-center mb-8">

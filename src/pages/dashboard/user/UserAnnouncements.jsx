@@ -45,7 +45,7 @@ const UserAnnouncements = () => {
   }
 
   return (
-    <div className="min-h-screen p-4 sm:p-6 bg-white dark:bg-zinc-900 transition-colors duration-300">
+    <div className="min-h-screen p-4 sm:p-6 bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
       <Helmet>
         <title>User Announcements - ActiveArena</title>
       </Helmet>

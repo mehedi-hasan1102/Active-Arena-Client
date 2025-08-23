@@ -48,7 +48,7 @@ const MemberProfile = () => {
   }
 
   return (
-    <div className="p-6 max-w-4xl mx-auto min-h-screen bg-white dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 transition-colors duration-300">
+    <div className="p-6 max-w-4xl mx-auto min-h-screen bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 text-emerald-600 dark:text-emerald-400 transition-colors duration-300">
       <h1 className="text-3xl font-bold mb-8 text-center">My Profile</h1>
 
       {/* Loading State */}

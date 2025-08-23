@@ -28,7 +28,7 @@ const UserProfile = () => {
     : 'N/A';
 
   return (
-    <div className="min-h-screen px-4 py-10 bg-gradient-to-br from-emerald-50 via-white to-emerald-100 dark:from-zinc-900 dark:via-zinc-800 dark:to-zinc-900 transition-colors duration-300">
+    <div className="min-h-screen px-4 py-10 bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
       <Helmet>
         <title>My Profile | ActiveArena</title>
       </Helmet>

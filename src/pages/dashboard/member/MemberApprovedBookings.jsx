@@ -36,7 +36,7 @@ const MemberApprovedBookings = () => {
   };
 
   return (
-    <div className="min-h-screen px-4 py-10 bg-white dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 transition-colors duration-300">
+    <div className="min-h-screen px-4 py-10 bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 text-emerald-600 dark:text-emerald-400 transition-colors duration-300">
       <Helmet>
         <title>Approved Bookings - ActiveArena</title>
       </Helmet>

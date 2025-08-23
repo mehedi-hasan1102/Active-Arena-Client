@@ -99,7 +99,7 @@ const ManageBookingsApproval = () => {
     );
 
   return (
-    <div className="min-h-screen p-6 sm:p-10 bg-white dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400">
+    <div className="min-h-screen p-6 sm:p-10 bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 text-emerald-600 dark:text-emerald-400">
       
       <h1 className="text-2xl sm:text-3xl font-bold mb-6 text-center">
    Manage Booking 

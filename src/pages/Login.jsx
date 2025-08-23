@@ -186,7 +186,7 @@ const Login = () => {
                   initial={{ y: 20 }}
                   animate={{ y: 0 }}
                   transition={{ delay: 0.5 }}
-                  className="text-sm md:text-base text-gray-600 dark:text-gray-400"
+                  className="text-sm md:text-base  text-gray-600 dark:text-gray-400"
                 >
                   Ready to book your next game session?
                 </motion.p>
@@ -199,7 +199,7 @@ const Login = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="w-full lg:w-1/2 p-6 sm:p-8 md:p-10"
+            className="w-full lg:w-1/2 p-6 sm:p-8 md:p-10 bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300 "
           >
             {/* Mobile-only welcome header */}
             <div className="sm:hidden mb-6 text-center">
@@ -212,7 +212,7 @@ const Login = () => {
             </div>
 
             <form onSubmit={handleLogin} className="space-y-4 sm:space-y-6">
-              <div className="space-y-3 sm:space-y-4">
+              <div className="space-y-3 sm:space-y-4 ">
                 <div>
                   <label className="block text-sm sm:text-base font-medium text-gray-700 dark:text-gray-300 mb-1 sm:mb-2">
                     Email Address
@@ -233,7 +233,7 @@ const Login = () => {
                   <label className="block text-sm sm:text-base font-medium text-gray-700 dark:text-gray-300 mb-1 sm:mb-2">
                     Password
                   </label>
-                  <div className="relative">
+                  <div className="relative ">
                     <input
                       type={showPassword ? "text" : "password"}
                       placeholder="••••••••"

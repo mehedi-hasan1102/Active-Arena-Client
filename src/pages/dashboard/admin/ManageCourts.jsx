@@ -76,7 +76,7 @@ const ManageCourts = () => {
   };
 
   return (
-    <div className="p-6 dark:bg-zinc-900 min-h-screen">
+    <div className="p-6 bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 min-h-screen transition-colors duration-300">
       <h1 className="text-3xl font-bold text-center text-emerald-600 dark:text-emerald-400 mb-6"> Manage Courts</h1>
 
       <div className="bg-white dark:bg-zinc-900 text-emerald-600 dark:text-emerald-400 rounded-lg shadow-md p-6 mb-10">

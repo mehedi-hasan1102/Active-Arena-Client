@@ -191,7 +191,7 @@ const Signup = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="w-full lg:w-1/2 p-6 sm:p-8 md:p-10"
+            className="w-full lg:w-1/2 p-6 sm:p-8 md:p-10 bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300 "
           >
             {/* Mobile-only header */}
             <div className="sm:hidden mb-6 text-center">

@@ -43,7 +43,7 @@ const UserPendingBookings = () => {
   };
 
   return (
-    <div className="px-4 py-10 min-h-screen bg-white dark:bg-zinc-900 transition-colors duration-300">
+    <div className="px-4 py-10 min-h-screen bg-gradient-to-br from-emerald-50 to-cyan-50 dark:from-gray-900 dark:to-gray-800 transition-colors duration-300">
       <Helmet>
         <title>Pending Bookings - ActiveArena</title>
       </Helmet>

@@ -53,7 +53,7 @@ export default function HeroSlider() {
 
   const slides = [
     {
-      img: 'https://images.unsplash.com/photo-1547347298-4074fc3086f0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1800&q=80',
+      img: 'https://i.ibb.co/7d9jJw84/Active-Arena-111.webp',
       title: 'Welcome to ActiveArena',
       subtitle: 'Where passion meets performance – join the club',
       badge: 'New Season'
@@ -85,9 +85,10 @@ export default function HeroSlider() {
   ];
 
   return (
-    <div className=" mt-7 relative w-full overflow-hidden rounded-xl bg-white dark:bg-zinc-900 shadow-lg">
+    <div className="h-[50vh] md:h-[70vh] mt-7 relative w-full overflow-hidden rounded-xl bg-white dark:bg-zinc-900 shadow-lg">
       <Swiper
         spaceBetween={30}
+        
         effect="fade"
         speed={1000}
         navigation={{
@@ -112,12 +113,13 @@ export default function HeroSlider() {
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
-            <div className="relative w-full h-full">
+            <div className="relative w-full  h-[50vh] md:h-[70vh]">
               <img
                 src={slide.img}
                 alt={slide.title}
                 loading="lazy"
-                className="w-full h-full object-cover object-center"
+                className="w-full h-[50vh] md:h-[70vh]  object-cover object-center "
+                
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent" />
               

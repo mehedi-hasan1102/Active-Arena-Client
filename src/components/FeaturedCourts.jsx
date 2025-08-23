@@ -70,7 +70,7 @@ const FeaturedCourts = () => {
     },
   });
 
-  const featuredCourts = courts.slice(0, 8); // fetch 8 courts to show 4 per row
+  const featuredCourts = courts.slice(0, 4); // fetch 8 courts to show 4 per row
 
   useEffect(() => {
     if (isInView) controls.start('visible');

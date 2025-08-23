@@ -18,42 +18,44 @@ const Home = () => {
       <Helmet>
         <title>Home - ActiveArena</title>
       </Helmet>
-
-      <div className="max-w-7xl mx-auto">
-        {/* 1. Hero Section - Eye-catching, call-to-action */}
+      <div>
         <HeroSection />
+        <div className="max-w-7xl mx-auto">
+          {/* 1. Hero Section - Eye-catching, call-to-action */}
 
-        {/* 2. Featured Courts - Immediate highlight of main offerings */}
-        <FeaturedCourts />
 
-        {/* 3. Upcoming Events - Keep users engaged with what’s next */}
-        <UpcomingEvents />
+          {/* 2. Featured Courts - Immediate highlight of main offerings */}
+          <FeaturedCourts />
 
-        {/* 4. Promotions - Special deals to encourage booking */}
-        <PromotionsSection />
+          {/* 3. Upcoming Events - Keep users engaged with what’s next */}
+          <UpcomingEvents />
 
-        {/* 5. Recent Activities - Show community & activity */}
-        <RecentActivities />
+          {/* 4. Promotions - Special deals to encourage booking */}
+          <PromotionsSection />
 
-        {/* 6. Testimonials - Build trust & social proof */}
-        <Testimonials />
+          {/* 5. Recent Activities - Show community & activity */}
+          <RecentActivities />
 
-        {/* 7. About Club - Story & mission, after credibility established */}
-        <AboutClub />
+          {/* 6. Testimonials - Build trust & social proof */}
+          <Testimonials />
 
-        
+          {/* 7. About Club - Story & mission, after credibility established */}
+          <AboutClub />
 
-        {/* 9. Gallery - Visual appeal & highlight club vibe  */}
-         <GallerySection />
 
-        {/* 10. Newsletter - Capture leads / stay connected */}
-        <Newsletter />
 
-        {/* 11. Location - At the end for users ready to visit */}
-        <LocationSection />
+          {/* 9. Gallery - Visual appeal & highlight club vibe  */}
+          <GallerySection />
 
-        {/* Footer - Already included in layout */}
-      </div>
+          {/* 10. Newsletter - Capture leads / stay connected */}
+          <Newsletter />
+
+          {/* 11. Location - At the end for users ready to visit */}
+          <LocationSection />
+
+          {/* Footer - Already included in layout */}
+        </div></div>
+
     </div>
   );
 };

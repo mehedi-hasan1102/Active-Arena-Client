@@ -267,7 +267,7 @@ const AboutClub = () => {
           {/* Our Journey */}
           <motion.div variants={cardVariants} initial="hidden" animate={controls} className="relative group">
             <div className="absolute -inset-1 bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-2xl blur opacity-25 group-hover:opacity-50 transition-all duration-500 dark:from-emerald-500 dark:to-cyan-500"></div>
-            <div className="relative h-full bg-white dark:bg-zinc-800 p-8 rounded-2xl border border-gray-100 dark:border-zinc-700 shadow-sm hover:shadow-md transition-all duration-300">
+            <div className="relative h-full bg-white/80 dark:bg-zinc-800/70  p-8 rounded-2xl border border-gray-100 dark:border-zinc-700 shadow-sm hover:shadow-md transition-all duration-300">
               <div className="flex items-center mb-6">
                 <div className="flex items-center justify-center w-12 h-12 rounded-full bg-emerald-50 dark:bg-emerald-900/30 text-emerald-500 dark:text-emerald-400 mr-4 transition-colors duration-300">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -300,7 +300,7 @@ const AboutClub = () => {
           {/* Our Vision */}
           <motion.div variants={cardVariants} initial="hidden" animate={controls} transition={{ delay: 0.2 }} className="relative group">
             <div className="absolute -inset-1 bg-gradient-to-r from-cyan-400 to-blue-400 rounded-2xl blur opacity-25 group-hover:opacity-50 transition-all duration-500 dark:from-cyan-500 dark:to-blue-500"></div>
-            <div className="relative h-full bg-white dark:bg-zinc-800 p-8 rounded-2xl border border-gray-100 dark:border-zinc-700 shadow-sm hover:shadow-md transition-all duration-300">
+            <div className="relative h-full bg-white/80 dark:bg-zinc-800/70  p-8 rounded-2xl border border-gray-100 dark:border-zinc-700 shadow-sm hover:shadow-md transition-all duration-300">
               <div className="flex items-center mb-6">
                 <div className="flex items-center justify-center w-12 h-12 rounded-full bg-cyan-50 dark:bg-cyan-900/30 text-cyan-500 dark:text-cyan-400 mr-4 transition-colors duration-300">
                   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

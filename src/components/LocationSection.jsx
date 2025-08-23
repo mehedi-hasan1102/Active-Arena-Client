@@ -116,7 +116,7 @@ const LocationSection = () => {
             className="relative group"
           >
             <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-500 dark:from-emerald-500 dark:to-cyan-500"></div>
-            <div className="relative bg-white dark:bg-zinc-800 p-8 rounded-2xl shadow-xl border border-gray-100 dark:border-zinc-700">
+            <div className="relative bg-white/80 dark:bg-zinc-800/70  p-8 rounded-2xl shadow-xl border border-gray-100 dark:border-zinc-700">
               <motion.h3 
                 whileHover={{ x: 5 }}
                 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center transition-colors duration-300"

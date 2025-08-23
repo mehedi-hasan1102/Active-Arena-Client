@@ -165,8 +165,8 @@ const FeaturedCourts = () => {
         <motion.div variants={containerVariants} initial="hidden" animate={controls} className="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
           {featuredCourts.map((court, index) => (
             <motion.div key={court._id} variants={cardVariants} transition={{ delay: index * 0.1 }} className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-xl blur opacity-25 group-hover:opacity-50 transition-all duration-500 dark:from-emerald-500 dark:to-cyan-500"></div>
-              <div className="relative h-full bg-white/80 dark:bg-zinc-800/70 p-6 rounded-xl border border-[#0FB9D7] shadow-sm hover:shadow-md transition-all duration-300">
+              <div className=" absolute -inset-1 bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-xl blur opacity-25 group-hover:opacity-50 transition-all duration-500 dark:from-emerald-500 dark:to-cyan-500"></div>
+              <div className="relative h-full  bg-white/80 dark:bg-zinc-800/70 p-6 rounded-xl border border-[#0FB9D7] shadow-sm hover:shadow-md transition-all duration-300">
                 <motion.img initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 + index * 0.1 }} src={court.image || 'https://via.placeholder.com/300'} alt={court.type || 'Court Image'} className="h-48 w-full object-cover rounded-lg mb-4" />
                 <h3 className="text-xl font-semibold text-emerald-700 dark:text-emerald-400 mb-2">{court.type}</h3>
                 <p className="text-gray-800 dark:text-gray-200 mb-3">৳{court.price} <span className="text-sm text-gray-500 dark:text-gray-400">per hour</span></p>

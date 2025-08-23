@@ -149,7 +149,7 @@ const NewsletterSection = () => {
                 placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="relative w-full px-4 py-3 rounded-lg border border-blue-700 dark:border-blue-400 dark:bg-zinc-800 dark:text-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                className="relative w-full px-4 py-3 rounded-lg border border-blue-700 dark:border-blue-400 bg-white/80 dark:bg-zinc-800/70  dark:text-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-400"
               />
             </div>
             <motion.button

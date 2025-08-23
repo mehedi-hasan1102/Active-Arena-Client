@@ -65,7 +65,7 @@ const TestimonialSection = () => {
           {testimonials.map((t, i) => (
             <motion.div key={i} variants={cardVariants} transition={{ delay: i * 0.1 }} className="relative group" whileHover={{ y: -5 }}>
               <div className="absolute -inset-1 bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-xl blur opacity-25 group-hover:opacity-50 transition-all duration-500 dark:from-emerald-500 dark:to-cyan-500"></div>
-              <div className="relative h-full bg-white dark:bg-zinc-800 p-8 rounded-xl border border-gray-100 dark:border-zinc-700 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col items-center">
+              <div className="relative h-full bg-white/80 dark:bg-zinc-800/70  p-8 rounded-xl border border-gray-100 dark:border-zinc-700 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col items-center">
                 <img src={t.avatar} alt={t.name} className="w-20 h-20 rounded-full mb-6 border-4 border-emerald-200 dark:border-emerald-800 object-cover" />
                 <div className="flex mb-4">
                   {[...Array(5)].map((_, j) => (

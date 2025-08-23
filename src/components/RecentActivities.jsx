@@ -76,13 +76,13 @@ const RecentActivity = () => {
             See what's happening in our sports community. Members are actively booking courts and joining events.
           </motion.p>
         </motion.div>
-
+ {/* bg-white/80 dark:bg-zinc-800/70 p-6 rounded-xl border border-[#0FB9D7] shadow-sm hover:shadow-md transition-all duration-300 */}
         {/* Activity cards */}
         <motion.div variants={containerVariants} initial="hidden" animate={controls} className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
           {recentActivities.map((activity, index) => (
             <motion.div key={activity.id} variants={cardVariants} transition={{ delay: index * 0.1 }} className="relative group" whileHover={{ y: -5 }}>
               <div className="absolute -inset-1 bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-xl blur opacity-25 group-hover:opacity-50 transition-all duration-500 dark:from-emerald-500 dark:to-cyan-500"></div>
-              <div className="relative h-full bg-white dark:bg-zinc-800 p-6 rounded-xl border border-gray-100 dark:border-zinc-700 shadow-sm hover:shadow-md transition-all duration-300">
+              <div className="relative h-full bg-white/80 dark:bg-zinc-800/70 p-6 rounded-xl border border-gray-100 dark:border-zinc-700 shadow-sm hover:shadow-md transition-all duration-300">
                 <div className="flex items-center mb-4">
                   <img src={activity.avatar} alt={activity.user} className="w-12 h-12 rounded-full object-cover mr-3 border-2 border-emerald-200 dark:border-emerald-800" />
                   <div>

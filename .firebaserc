@@ -1,6 +1,6 @@
 {
   "projects": {
-    "default": "plant-care-tracker-bd",
+    "default": "active-arena",
     "active-arena": "buildbox-a12"
   },
   "targets": {},
